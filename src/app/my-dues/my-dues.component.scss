@@ -1,0 +1,51 @@
+.line_height {
+  line-height: 2.4 !important;
+  .vLine {
+    border-left: 1px solid lightgray;
+    height: 125px;
+  }
+  .left_column {
+    margin-right: -15px !important;
+    padding-right: 45px !important;
+  }
+  .right_column {
+    padding-left: 25px !important;
+  }
+  hr {
+    margin-top: 1px;
+    margin-bottom: 5px;
+  }
+}
+.display_flex {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  color: #fff;
+  background: #0a5697;
+  border: 1px solid #0a5697;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  padding: 9px 20px;
+  margin-bottom: 30px;
+  transition: all .2s linear;
+  font-size: 14px;
+}
+.nachBtn{
+  color: #0a5697;
+  border: 1px solid #0a5697;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  padding: 9px 20px;
+  margin-bottom: 30px;
+  transition: all .2s linear;
+  font-size: 14px;
+}
+.loanDetail_btn_div{
+  margin-top:25px;
+  margin-bottom: -25px;
+  display: flex;
+  float: right
+}

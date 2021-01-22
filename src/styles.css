@@ -1,0 +1,581 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+/*// @mixin col($col, $sum, $gap: 1em, $align: top, $first: false, $last: false) {
+//     width: percentage($col/$sum);
+//     font-size: 14px;
+//     display: inline-block;
+//     vertical-align: $align;
+//     box-sizing: border-box;
+//     padding-left: if($first, 0, $gap);
+//     padding-right: if($last, 0, $gap);
+//   }*/
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-family: "Open Sans" !important;
+  font-size: 13px !important;
+  background: #F4FAFF !important;
+}
+
+.login_page_header {
+  padding: 33px 6% 10px 6%;
+  position: relative;
+  z-index: 3;
+}
+
+.login_page_header a img {
+  max-width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .login_page_header a img {
+    max-width: 150px;
+  }
+}
+
+.wrapper {
+  padding-left: 3%;
+  display: flex;
+  /*// min-height: 100vh;*/
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-wrap: wrap;
+  }
+}
+
+.wrapper .col-4 {
+  min-width: 40%;
+  padding: 15px;
+}
+
+.wrapper .col-8 {
+  min-width: 60%;
+  padding: 15px;
+  border-left: 1px solid #eee;
+}
+
+.card-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.card-wrap .card {
+  background-image: linear-gradient(to bottom, #912ee3, #7d49df, #6e59d8, #6465cd, #626ebf);
+  padding: 20px 35px;
+  position: relative;
+  color: #fff;
+  border-radius: 20px;
+  max-width: 330px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.card-wrap .card img {
+  max-width: 40px;
+}
+
+.card-wrap h5 {
+  margin-top: 0;
+  text-align: right;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.card-wrap .card-bg {
+  position: absolute;
+  top: 10%;
+  height: 100%;
+  left: 15%;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 20px;
+  background: #DADADA;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+  color: #484848;
+}
+
+.link img{
+  position: relative;
+  margin-left: 10px;
+  transition: left 300ms linear;
+  left: 0;
+}
+
+.link:hover img{
+  left: 10px;
+}
+
+.link2 {
+  text-decoration: none;
+  display: inline-block;
+  color: #484848;
+  margin-right: 15px;
+}
+
+.link2 img {
+  position: relative;
+  margin-right: 10px;
+  transition: left 300ms linear;
+  left: 0;
+}
+
+.link2:hover img {
+  left: -10px;
+}
+
+.linkwrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  h2 {font-size: 20px;
+  }
+}
+
+.page-title {
+  margin-bottom: 28px;
+}
+
+.right {
+  right: 0;
+  width: 75%;
+  background-image: url("assets/login-bg.png");
+}
+
+.left_18 {
+  margin-left: 24px;
+}
+
+.newLoan {
+  margin-left: -6px;
+}
+
+.blue {
+  color: #fff;
+  background: #0a5697;
+  border: 1px solid #0a5697;
+  position: relative;
+  overflow: hidden;
+  padding: 8px 20px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  transition: all .2s linear;
+  font-size: 14px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.blue:hover {
+  background: #fff !important;
+  color: #0a5697;
+}
+
+.blue_btn {
+  color: #fff;
+  background: #0a5697;
+  border: 1px solid #0a5697;
+  position: relative;
+  overflow: hidden;
+  padding: 8px 20px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  transition: all .2s linear;
+  font-size: 14px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.blue_btn:hover {
+  background: #fff !important;
+  color: #0a5697;
+}
+
+/*Loan Details all page style*/
+/*Dashboard heaer nav baar*/
+.sidenav .batch_btn {
+  color: white !important;
+  padding: 2;
+  border: none;
+  font-size: 11px;
+  opacity: 0.9;
+  opacity: 1;
+  padding: 5px;
+  border-radius: 20px;
+  padding: 2px 10px 4px 10px;
+  z-index: 8;
+}
+
+.dashboard_navbar {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  z-index: 10;
+  margin-left: 242px;
+  border-bottom: 2px solid #D8ECFD;
+}
+
+.headerNav_Link {
+  display: flex;
+  margin-left: -24px;
+}
+
+.headerNav_Link a {
+  float: left;
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 6px 26px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.header_logo_anch {
+  margin-top: -13px;
+}
+
+.nav_container {
+  margin: 14px 265px 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile_icon_div {
+  display: inline-flex;
+  float: right;
+}
+
+.profile_icon_div img {
+  height: 26px;
+  margin-top: 3px;
+  margin-right: 20px;
+}
+
+.lead_source_name {
+  text-align: center;
+  font-size: 23px;
+  margin-top: 7px;
+  color: #004788;
+  font-weight: 600;
+}
+
+.sidenav_loanname {
+  text-align: center;
+  font-size: 15px;
+  color: #004788;
+  margin-top: -30px;
+  font-weight: 500;
+}
+
+.sidenav_statusname {
+  color: #fff;
+  background: #009523;
+  border: 1px solid #009523;
+  position: relative;
+  overflow: hidden;
+  padding: 2px 0px;
+  border-radius: 100px;
+  margin-bottom: 0px;
+  transition: all .2s linear;
+  font-size: 12px;
+  width: 32%;
+  text-align: center;
+  margin-left: 80px;
+  margin-top: -20px;
+}
+
+.Heaer_profile_Menu_icon {
+  margin-top: 10px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.profile_circle {
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  background: #53A9C4;
+  margin-top: -5px;
+  margin-right: 13px;
+  color: white;
+  line-height: 63px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-left: 87px;
+}
+
+.user_name {
+  color: #004788;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 7px;
+}
+
+.userNameFont {
+  font-size: 26px !important;
+  font-weight: normal;
+  margin-top: -9px;
+  color: #004788 !important;
+}
+
+.display-flex {
+  display: flex;
+  width: 123%;
+}
+
+/*<end>*/
+.main-container {
+  margin: 110px 51px 70px 294px;
+}
+
+.column_left {
+  width: 30%;
+  float: left;
+}
+
+.column_right {
+  width: 60%;
+}
+
+.card {
+  position: relative;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  border-radius: 5px;
+  background: white;
+  margin-bottom: -10px;
+}
+
+.card .card-container {
+  padding: 2px 16px;
+}
+
+.display-flex {
+  display: flex;
+  width: 123%;
+}
+
+.dashboard_title {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 0;
+  text-transform: uppercase;
+  margin-bottom: -13px;
+}
+
+.tilepage {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  color: #004788;
+  text-align: center;
+}
+
+/*// for header drop down menu*/
+.dropdown-menu .dropdown-item {
+  padding: 5px 72px 8px 13px !important;
+  color: gray !important;
+  text-decoration: none !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+.dropdown-menu a:hover {
+  background: #222c50 !important;
+  color: white !important;
+}
+
+.dropdown-menu {
+  margin-top: 17px !important;
+}
+
+/*// <end>*/
+/*// sideNav Style*/
+.sidenav {
+  height: 100%;
+  width: 242px;
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #D8ECFD;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav .sideBar_anch {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  transition: all 0.3s ease;
+  color: #212121;
+  font-size: 16px;
+}
+
+.sidenav .sideBar_anch_list {
+  display: block;
+  text-align: left;
+  padding: 5px 28px 8px 29px;
+  transition: all 0.3s ease;
+  color: #212121;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sideBar_list {
+  display: inline-flex;
+  clear: left;
+  padding: 19px;
+  margin-top: 55px;
+}
+
+.footer_list {
+  display: inline-flex;
+  clear: left;
+  margin-top: 12px;
+  margin-bottom: -18px;
+  cursor: pointer;
+}
+
+.sidenav .footer_anch_list {
+  display: block;
+  text-align: left;
+  padding: 9px 8px 19px 7px;
+  transition: all 0.3s ease;
+  color: #212121;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sideNav-footer {
+  bottom: 0;
+  position: absolute;
+  margin-left: 20px;
+  margin-bottom: 70px;
+}
+
+.dashboard_text {
+  font-size: 14px;
+  margin-top: 13px;
+  margin-left: 8px;
+}
+
+.side_nav_hr {
+  width: 82%;
+  margin-left: 28px;
+  margin-top: -9px;
+  opacity: 0.4;
+  border-top: 1px solid gray;
+}
+
+.side_nav_footer_hr {
+  width: 90%;
+  margin-left: 9px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  opacity: 0.4;
+  border-top: 1px solid gray;
+}
+
+.activeSty {
+  background-color: #004788;
+  color: white !important;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/*//   end
+// Loan details all page style end*/
+.dashboard_navbar1 {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  z-index: 10;
+}
+
+.headerNav_Link1 {
+  display: flex;
+  margin-left: -24px;
+  margin-top: -14px;
+}
+
+.headerNav_Link1 a {
+  float: left;
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.header_logo_anch {
+  margin-top: -13px;
+}
+
+.header_logo_anch img {
+  margin-top: 6px;
+}
+
+.nav_container1 {
+  margin: 14px 100px 10px 114px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-container1 {
+  margin: 110px 122px 120px;
+}
+
+.activeSty1 {
+  border-bottom: 2px solid #004788;
+  margin-bottom: 5px;
+  color: #004788 !important;
+  font-weight: 600;
+}
+
+/*// end*/
+.loan_pageHeader {
+  color: #004788;
+  font-size: 22px;
+  margin-top: -25px;
+}

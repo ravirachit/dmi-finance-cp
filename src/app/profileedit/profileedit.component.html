@@ -1,0 +1,49 @@
+<div class="header">
+    <img src="assets/logo.png" height="50">
+    <nav>
+        <a routerLink='/dashboard'>Dashboard</a>
+        <a routerLink='/loanOffer'>Offers</a>
+        <a routerLink='/faq'>FAQ</a>
+        <a routerLink='/customerSupport'>Customer Support</a>
+        <a href="javascript:void(0)">
+            <img src="assets/logout.png">
+        </a>
+    </nav>
+</div>
+
+<div class="bg">
+    edit Profile
+</div>
+
+<div class="container">
+    <div class="box row" *ngIf="userBasicInfo" style="max-width: 600px;margin: auto">
+
+        <div class="col-sm-6">
+            <h5><b>Personal information</b></h5><br>
+            <label>First Name</label>
+            <input type="text" value="{{userBasicInfo[0].FirstName}}" class="form-control"><br>
+            <label>Middle Name</label>
+            <input type="text" value="{{userBasicInfo[0].MiddleName}}" class="form-control"><br>
+            <label>Middle Name</label>
+            <input type="text" value="{{userBasicInfo[0].LastName}}" class="form-control"><br>
+            <label>Email</label>
+            <input type="text" value="{{userBasicInfo[0].Email}}" class="form-control"><br>
+            <label>Mobile Number</label>
+            <input type="text" value="{{userBasicInfo[0].MobilePhone}}" class="form-control"><br>
+
+        </div>
+        <div class="col-sm-6">
+            <h5><b>Address</b></h5><br>
+            <label>Street</label>
+            <input type="text" value="{{userBasicInfo[0].MailingStreet}}" class="form-control"><br>
+            <label>State</label>
+            <input type="text" value="{{userBasicInfo[0].MailingState}}" class="form-control"><br>
+            <label>City</label>
+            <input type="text" value="{{userBasicInfo[0].MailingCity}}" class="form-control"><br>
+            <label>Pincode</label>
+            <input type="text" value="{{userBasicInfo[0].MailingPostalCode}}" class="form-control">
+        </div>
+    </div>
+
+    <br><br><br><br>
+</div>

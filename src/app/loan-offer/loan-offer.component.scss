@@ -1,0 +1,375 @@
+.offer_vl_line {
+    border-left: 1px solid lightgray;
+    height: 143px;
+    margin: 15px 13px 0px 29px;
+}
+
+.offer_display_flex {
+    display: flex;
+    align-items: center
+}
+
+.offer_icon {
+    height: 60px;
+    width: 60px;
+    margin-left: 14px;
+}
+
+.offer_header {
+    color: #222c50;
+    font-weight: 700;
+}
+
+.offer_p {
+    margin-top: 16px !important;
+}
+.col-sm-4,
+.col-sm-8 {
+    margin-bottom: 16px
+}
+
+
+
+// left-side-bar
+.notification-aside {
+    background: linear-gradient(#eff8ff, #e4f3ff);
+    margin-left: 62px;
+    bottom: 30;
+    width: 95%;
+    border-top-left-radius: 32px;
+    height: 100%;
+    margin-top: 14px;
+    .left_tile_section {
+      margin-top: -65px;
+    }
+    .head_title {
+      margin-top: -14px;
+      padding-right: 10px;
+      padding-top: 32px;
+      img {
+        height: 12px;
+      }
+      .title_text {
+        font-size: 12px;
+        color: #2d708b;
+        margin-bottom: -5px;
+        margin-left: 21px;
+        margin-top: -11px;
+        p{font-size: 18px;}
+      }
+    }
+    .trending_card {
+      margin-top: 22px;
+      max-width: 90%;
+      margin-left: 15px;
+      min-height: 175px;
+      border-radius: 15px;
+    }
+    .trending_card2 {
+      margin-top: 22px;
+      max-width: 90%;
+      margin-left: 15px;
+      min-height: 175px;
+      border-radius: 15px;
+    }
+    .trending_card_data2 {
+      background: white;
+      max-width: 90%;
+      margin-left: 15px;
+      min-height: 175px;
+      border-radius: 15px;
+      margin-top: -40px;
+      margin-bottom: 50px;
+      img {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      p {
+        padding: 16px;
+        line-height: 16px;
+        margin-bottom: -18px;
+      }
+      small {
+        padding: 16px;
+      }
+      .leftnav_username {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 4px;
+      }
+      span {
+        font-size: 10px;
+        color: gray;
+      }
+      a {
+        font-size: 12px;
+        margin-left: -20px;
+        color: #4e342e;
+      }
+    }
+  
+    .trending_card_data {
+      background: white;
+      max-width: 90%;
+      margin-left: 15px;
+      min-height: 175px;
+      border-radius: 15px;
+      margin-top: -40px;
+      margin-bottom: 50px;
+      img {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      p {
+        padding: 16px;
+        line-height: 16px;
+        margin-bottom: -18px;
+      }
+      small {
+        padding: 16px;
+      }
+      .leftnav_username {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 4px;
+      }
+      span {
+        font-size: 10px;
+        color: gray;
+      }
+      a {
+        font-size: 12px;
+        margin-left: -20px;
+        color: #4e342e;
+      }
+    }
+  
+    .notification-status_card1 {
+      min-height: 100px;
+      background: #f4faff;
+      margin-top: 25px;
+      .status_id {
+        font-size: 12px;
+        margin-top: 13px;
+      }
+      button {
+        margin-top: 13px;
+      }
+      img {
+        height: 11px;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 10px;
+        color: gray;
+      }
+      p {
+        margin-bottom: -16px;
+        font-size: 11px;
+        margin-top: 8px;
+      }
+      .col-sm-5 {
+        text-align: right;
+      }
+    }
+  }
+  // end
+  
+  // middle-section
+  .notification_center_container {
+    padding: 25px 0px 0px 45px;
+    .title_text {
+      font-size: 12px;
+      color: #2d708b;
+      margin-bottom: -5px;
+      margin-left: 21px;
+    }
+    .proceed{
+      display: flex;
+      justify-content: space-between;
+    }
+    .offer-box{
+        background: #fff;
+        padding: 15px;
+        border-radius: 4px;
+        margin: 35px 120px 0px 35px;
+    }
+    .oops_icon{
+        height: 90px;
+        width: 90px;
+    }
+  }
+  
+  // end
+
+  @media screen and (min-width: 1900px){
+    .notification-aside{
+      margin-left: 85px;
+    .trending_card {
+      margin-top: 22px;
+      max-width: 90%;
+      margin-left: 22px;
+      min-height: 175px;
+      border-radius: 15px;
+    }
+
+    .trending_card_data {
+      background: white;
+      max-width: 90%;
+      margin-left: 22px;
+      min-height: 175px;
+      border-radius: 15px;
+      margin-top: -40px;
+      margin-bottom: 50px;
+      img {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      p {
+        padding: 16px;
+        line-height: 16px;
+        margin-bottom: -18px;
+      }
+      small {
+        padding: 16px;
+      }
+      .leftnav_username {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 4px;
+      }
+      span {
+        font-size: 10px;
+        color: gray;
+      }
+      a {
+        font-size: 12px;
+        margin-left: -20px;
+        color: #4e342e;
+      }
+    }
+  }
+  .notification_center_container{
+    padding: 25px 10px 0px 70px;
+}
+}
+.modal{
+  padding-left: 0 !important;
+  background: rgba(128, 128, 128, 0.35);
+}
+
+.newLoanOffer{
+  .modal-dialog{
+    margin-top: 5% !important;
+    .modal-content{height: 170px;}
+  }
+}
+
+.loanRestruct{
+  height: 100% !important;
+  .modal-dialog{
+    margin-top: 5% !important;
+    .modal-content{
+      height: 650px;
+      .closeLoan{cursor: pointer;}
+      .modal-body{
+        padding: 0px;
+      }
+      img{
+        height: 30px;
+        position: absolute;
+        position: absolute;
+        z-index: 1;
+        right: 0px;
+        margin-top: -17px;
+        margin-right: -12px;
+      }
+    }
+  }
+}
+
+.loanOffer_mob{
+  .title_text{
+    margin: 0px;
+    padding: 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px){
+  .first-popup {
+      width: 100%;
+      height: 300px;
+  
+  .modal-body {
+      position: relative;
+      margin: 0px!important;
+      padding: 0px!important;
+  }
+  .modal-dialog {
+      position: relative;
+      width: auto;
+      margin: 0;
+      pointer-events: none;
+      padding: 20px;
+  }
+}
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+      margin-top: 8% !important;
+  }
+}
+
+@media (max-width: 800px){
+  .notification_center_container{padding: 20px 35px !important;
+    .offer-box{margin:0 !important;}
+  }
+  .newLoanOffer{
+    height: 100% !important;
+    .modal-dialog{
+      width: 96% !important;
+      margin-top: 26% !important;
+      .modal-content{
+        height: 170px;
+      }
+    }
+  }
+  .loanRestruct{
+    height: 100% !important;
+    .modal-dialog{
+      width: 96% !important;
+      margin-top: 10% !important;
+      .modal-content{
+        height: 550px;
+        .modal-body{
+          height: 100% !important;
+          margin-bottom: 0;
+          padding: 0px;
+        }
+        img{
+          height: 25px;
+          position: absolute;
+          position: absolute;
+          z-index: 1;
+          right: 0px;
+          margin-top: -10px;
+          margin-right: -8px;
+        }
+      }
+    }
+  }
+}
+
+
+  
+  

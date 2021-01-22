@@ -1,0 +1,231 @@
+<app-header></app-header>
+
+<div class="banner_section">
+    <div class="row">
+        <div class="col-sm-8 input_search">
+            <div style="margin-left: 25%">
+            <label>Hi {{userName1 | titlecase}} , how can we help you?</label><br>
+            <div style="position: relative;z-index: 4;">
+                <input type="text" placeholder="Type here to search ……." [(ngModel)]="searching" (keyup)="blogDetail()"
+                    style="color: #222">
+                <button type="submit"><img src="assets/search.png"></button>
+
+                <div class="search_ques" *ngIf="searching">
+                    <div class="col-sm-12 asked_question" align="center">
+                        <div>
+                            <hr>
+                            <div *ngFor="let item of search.data; let i = index ">
+                                <!-- <p><b>{{item.category_name}}</b></p> -->
+                                <p (click)="header(item.id,item.category_id)" style="cursor: pointer;text-align: left">
+                                    {{item.title}}</p>
+                            </div>
+                            <div class="create_tkt">Don't find what you are looking for ? Please <a
+                                    class="create_tkt_btn" (click)="createTickets()">Click Here</a> to create a service
+                                ticket</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+
+<div class="banner_section_mob">
+    <div class="row">
+        <div class="col-sm-6 input_search" align="center">
+            <label>Hi {{userName1}} , how can we help you?</label><br>
+            <div style="position: relative;z-index: 4;">
+                <input type="text" placeholder="Type here to search ……." [(ngModel)]="searching" (keyup)="blogDetail()"
+                    style="color: #222">
+                <button type="submit"><img src="assets/search.png"></button>
+
+                <div class="search_ques_mob" *ngIf="searching">
+                    <div class="col-sm-12 asked_question" align="center">
+                        <div>
+                            <hr>
+                            <div *ngFor="let item of search.data; let i = index ">
+                                <!-- <p><b>{{item.category_name}}</b></p> -->
+                                <p (click)="header(item.id,item.category_id)" style="cursor: pointer;text-align: left">
+                                    {{item.title}}</p>
+                            </div>
+                            <div class="create_tkt">Don't find what you are looking for ?<br> Please <a
+                                    class="create_tkt_btn" (click)="createTickets()">Click Here</a> to create a service
+                                ticket</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="help_center_container categorylist">
+    <div class="row">
+        <div class="col-sm-12">
+            <label class="title_text">FILTER BY CATEGORY</label><br>
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let list of categoryArr.data">
+                    <div class="category_card" (click)="categorydetails(list.id,list.category_name)">
+                        <div class="" style="display: flex;">
+                            <div *ngIf="list.category_name == 'Contact us'"><img src="assets/cat-list-icon/contact-us.svg"></div>
+                            <div *ngIf="list.category_name == 'EMI Related'"><img src="assets/cat-list-icon/emirelated.svg"></div>
+                            <div *ngIf="list.category_name == 'New/Topup Loan'"><img src="assets/cat-list-icon/New Loan.svg"></div>
+                            <div *ngIf="list.category_name == 'Repayments'"><img src="assets/cat-list-icon/Repayment.svg"></div>
+                            <div *ngIf="list.category_name == 'Credit History'"><img src="assets/cat-list-icon/Credit history.svg"></div>
+                            <div *ngIf="list.category_name == 'Bureau Reporting'"><img src="assets/cat-list-icon/bureau reporting.svg" style="height: 13px;"></div>
+                            <div *ngIf="list.category_name == 'Loan Closure'"><img src="assets/cat-list-icon/Loan Foreclosure.svg"></div>
+                            <div *ngIf="list.category_name == 'Others'"><img src="assets/cat-list-icon/other icon.svg"></div>
+                            <div *ngIf="list.category_name == 'Service Requests'"><img src="assets/cat-list-icon/request.svg"></div>
+                            <div *ngIf="list.category_name == 'New Loan'"><img src="assets/cat-list-icon/new_loan.svg"></div>
+                            <div *ngIf="list.category_name == 'Credit Education'"><img src="assets/cat-list-icon/Loan Foreclosure.svg"></div>
+                            <div *ngIf="list.category_name == 'NOC'"><img src="assets/cat-list-icon/noc.svg"></div>
+                            <div *ngIf="list.category_name == 'Payment'"><img src="assets/cat-list-icon/payment.svg"></div>
+                            <div *ngIf="list.category_name == 'Pre-payment'"><img src="assets/cat-list-icon/pre-payment.svg"></div>
+                            <div *ngIf="list.category_name == 'General awareness'"><img src="assets/cat-list-icon/general_Awareness.svg"></div>
+                            <span class="vl_height"></span>
+                            <p>{{list.category_name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="categorylist_mob">
+    <div class="displayflex"><label class="title_text">FILTER BY CATEGORY</label><a href="javascript:void(0)" data-toggle="modal" data-target="#categorylist" data-backdrop="static"
+        data-keyboard="false"><img src="assets/view.svg"></a></div>
+</div>
+
+<div class="modal fade" id="categorylist" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content categorylistmodal">
+            <div class="col-sm-12 display_flex">
+                <h5 class="modal-title">Select Category</h5>
+                <div data-dismiss="modal" aria-label="Close"><img src="assets/cancel.svg"></div>
+            </div>
+            <div class="modal-body row">
+                    <div *ngFor="let list of categoryArr.data" style="margin-bottom: 15px;">
+                        <div class="category_card col-sm-6" (click)="categorydetails(list.id,list.category_name)" style="min-width: 174px;max-width: 174px;margin-left: 18px;" data-dismiss="modal" aria-label="Close">
+                            <div class="" style="display: flex;">
+                                <div *ngIf="list.category_name == 'Contact us'"><img src="assets/cat-list-icon/contact-us.svg"></div>
+                                <div *ngIf="list.category_name == 'EMI Related'"><img src="assets/cat-list-icon/emirelated.svg"></div>
+                                <div *ngIf="list.category_name == 'New/Topup Loan'"><img src="assets/cat-list-icon/New Loan.svg"></div>
+                                <div *ngIf="list.category_name == 'Repayments'"><img src="assets/cat-list-icon/Repayment.svg"></div>
+                                <div *ngIf="list.category_name == 'Credit History'"><img src="assets/cat-list-icon/Credit history.svg"></div>
+                                <div *ngIf="list.category_name == 'Bureau Reporting'"><img src="assets/cat-list-icon/bureau reporting.svg" style="height: 13px;"></div>
+                                <div *ngIf="list.category_name == 'Loan Closure'"><img src="assets/cat-list-icon/Loan Foreclosure.svg"></div>
+                                <div *ngIf="list.category_name == 'Others'"><img src="assets/cat-list-icon/other icon.svg"></div>
+                                <div *ngIf="list.category_name == 'Service Requests'"><img src="assets/cat-list-icon/request.svg"></div>
+                                <div *ngIf="list.category_name == 'New Loan'"><img src="assets/cat-list-icon/new_loan.svg"></div>
+                                <div *ngIf="list.category_name == 'Credit Education'"><img src="assets/cat-list-icon/Loan Foreclosure.svg"></div>
+                                <div *ngIf="list.category_name == 'NOC'"><img src="assets/cat-list-icon/noc.svg"></div>
+                                <div *ngIf="list.category_name == 'Payment'"><img src="assets/cat-list-icon/payment.svg"></div>
+                                <div *ngIf="list.category_name == 'Pre-payment'"><img src="assets/cat-list-icon/pre-payment.svg"></div>
+                                <div *ngIf="list.category_name == 'General awareness'"><img src="assets/cat-list-icon/general_Awareness.svg"></div>
+                                <span class="vl_height"></span>
+                                <p>{{list.category_name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                <!-- <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-label="Close"
+                        style="background: white;margin-right: 20px;color: #0a5697">Cancel</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="helpcenter_notification"> 
+<hr style="margin-top: -20px;margin-bottom:-10px;">
+<div class="help_center_container">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="flex2_display row">
+                <div class="col-sm-9" style="display: flex;margin-top:3px;">
+                    <label class="title_text">RECENT NOTIFICATION & ALERT</label><br>
+                </div>
+                <div class="col-sm-3" align="center">
+                    <button class="btn-viewall" (click)="notificationAndAlertDetails()">View All</button>
+                </div>
+            </div>
+            <div class="row notification_panel" *ngFor="let notif of notificationArr.data; let i = index">
+                <div class="col-sm-9">
+                    <div *ngIf="notif.loan_stage_notification == 'Blogs'">
+                        <button class="btn-status"
+                            style="background:#92ffac;color: #165525;">{{notif.loan_stage_notification}}</button><br>
+                    </div>
+                    <div *ngIf="notif.loan_stage_notification == 'Congratulations'">
+                        <button class="btn-status"
+                            style="background:#ffe8ac;color: #720f00;">{{notif.loan_stage_notification}}</button><br>
+                    </div>
+                </div>
+                <div class="col-sm-3" align="center">
+                    <img src="assets/clock1.png" style="margin-right: 5px;"><span
+                        style="font-size: 10px;color:gray;">{{notif.created_at | slice:0:10 | date: 'MMM dd, yyyy'}}</span>
+                </div>
+                <div class="col-sm-12">
+                    <p class="noti_subject">{{notif.title}}</p>
+                    <p class="noti_message">{{notif.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5" style="margin-left: -23px;">
+            <div class="col-sm-12" style="margin-left: -15px;">
+                <label class="title_text">FREQUENTLY ASKED QUESTIONS</label>
+            </div>
+            <div class="col-sm-12 asked_question" *ngFor="let faqlist of faqArr.data;let index = index">
+                <p (click)="listClick(index)">{{faqlist.title}}</p>
+                <div *ngIf="click === index" style="margin-left: 3%">
+                    <p [innerHTML]="faqlist.description" style="color: gray">{{faqlist.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="notification_mob">
+    <div class="notification_mob">
+        <div class="row">
+            <div class="card" style="margin-bottom:20px;">
+                <div class="col-sm-12 flex2_display">
+                        <label class="title_text">RECENT NOTIFICATION & ALERT</label>
+                        <button class="btn-viewall" (click)="notificationAndAlertDetails()">View All</button>
+                </div>
+                <div class="notification_panel" *ngFor="let notif of notificationArr.data; let i = index">
+                    <div class="col-sm-12 flex2_display">
+                            <button class="btn-status" *ngIf="notif.loan_stage_notification == 'Blogs'" style="background:#92ffac;color: #165525;">{{notif.loan_stage_notification}}</button>
+                            <button class="btn-status" *ngIf="notif.loan_stage_notification == 'Congratulations'"
+                                style="background:#ffe8ac;color: #720f00;">{{notif.loan_stage_notification}}</button>
+                        <div><img src="assets/clock1.png" style="margin-right: 5px;"><span
+                            style="font-size: 10px;color:gray;">{{notif.created_at | slice:0:10 | date: 'MMM dd, yyyy'}}</span></div>
+                </div>
+                            <div class="col-sm-12">
+                        <p class="noti_subject">{{notif.title}}</p>
+                        <p class="noti_message">{{notif.description}}</p>
+                    </div>
+                </div>
+            </div>
+                <div class="card">
+            <div class="col-sm-12">
+                    <label class="title_text" style="margin-top: 15px;margin-bottom: 0px;">FREQUENTLY ASKED QUESTIONS</label>
+                <div class="asked_question" *ngFor="let faqlist of faqArr.data;let index = index">
+                    <p (click)="listClick(index)">{{faqlist.title}}</p>
+                    <div *ngIf="click === index" style="margin-left: 3%">
+                        <p [innerHTML]="faqlist.description" style="color: gray">{{faqlist.description}}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

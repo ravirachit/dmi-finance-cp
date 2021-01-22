@@ -1,0 +1,363 @@
+<app-sidenav></app-sidenav>
+
+<main>
+    <div class="header header_loanDetail_mob">
+        <h1>{{userName1 | titlecase}}</h1>
+        <img src="assets/logo.png" height="50">
+    </div>
+    <br>
+
+    <div class="container-fluid">
+        <h2 class="tilepage">My Account Summary</h2>
+        <!-- <button class="btn-green" (click)="loandetailnach()" data-toggle="modal" data-target="#nachModel" data-backdrop="static" data-keyboard="false">Register for Autodebit</button> -->
+
+        <div class="col-sm-12">
+            <div class="loanstatus-bar" *ngIf="totalpaid && totalunpaid && SpecificLoanDetail.data[0].StageName!='Written Off & Closed'">
+                <div *ngIf="maturedCond || maturedcase" id="statusIcon">
+                    <b> {{totalpaidemi}}/{{totalemi}} m</b>
+                </div>
+                <div style="width: 0%;color: #600083" id="dynamicProgress"></div>
+                <span style="color: #600083" id="dynamicProgress">₹ {{totalpaid}} Paid</span>
+                <span *ngIf="maturedCond" style="color: #720F00">₹ {{totalunpaid}} Due</span>
+            </div>
+
+            <div *ngIf="!SpecificLoanDetail" align="center"><img src="assets/loading.gif" height="45"></div>
+
+            <div class="box" *ngIf="SpecificLoanDetail">
+                <div class="row line_height">
+                    <div class="col-sm-6 left_column">
+                        <div class="display_flex"> Annualized ROI <span>{{SpecificLoanDetail.data[0].Loan_Rate__c}}%</span></div>
+                        <div class="display_flex"> Disbursement Date <span>{{SpecificLoanDetail.data[0].Disbursement_Date__c | date: 'MMM dd, yyyy'}}</span></div>
+                        <div class="display_flex"> {{loanAmount}}<span>₹ {{specificLoanAmt | inrFormat}}</span></div>
+                        <div class="display_flex" *ngIf="maturedCond && SpecificLoanDetail.data[0].StageName!='Written Off & Closed'"> Last Paid Amount <span>₹{{lastPaidAmt}}</span></div>
+                    </div>
+
+                    <div class="vLine"></div>
+
+                    <div class="col-sm-6 right_column">
+                        <div class="display_flex"> Tenor <span>{{SpecificLoanDetail.data[0].Loan_Tenor_in_Month__c}} months</span></div>
+                        <div class="display_flex"> EMI Due Date<span>{{SpecificLoanDetail.data[0].Date__c | slice:8:10}}th of every Month</span></div>
+                        <div class="display_flex" *ngIf="maturedCond"> Last Payment Date<span>{{lastPaymentDate | date: 'MMM dd, yyyy'}}</span></div>
+                        <div class="display_flex" *ngIf="modeofpayment==true"> Mode of Payment <span>Autodebit is enabled</span></div>
+                        <div class="display_flex" *ngIf="modeofpayment==false"> Mode of Payment <span>Autodebit not enabled</span></div>
+                        <div class="display_flex" style="float:right"  *ngIf="modeofpayment==false">  <span>Pay via Payment Gateway/Wallet/App</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box currentamtPayment" *ngIf="maturedCond && SpecificLoanDetail.data[0].StageName!='Written Off & Closed'">
+                <table class="paynowTable">
+                    <thead>
+                        <tr>
+                            <th>Previous Outstanding</th>
+                            <th></th>
+                            <th>Current Outstanding</th>
+                            <th></th>
+                            <th>Total Outstanding</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{previous_amount}}</td>
+                            <td>+</td>
+                            <td>{{current_amount}}</td>
+                            <td>=</td>
+                            <td>{{totalpayableamount}}</td>
+                            <td *ngIf="SpecificLoanDetail.data[0].Payment_Button == 'true'"><button class="btn-green" style="margin-left: -60px;" (click)="payAmountNow()" [disabled]='paynowdisable'>Pay Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="col-sm-12" align="right" style="margin-top: 20px;" *ngIf="SpecificLoanDetail.data[0].Nach_Button == 'true'">
+                    <button class="btn-green" (click)="loandetailnach(firstModal)" [disabled] = 'loandetailnachdisable'>Register for Autodebit</button>
+                </div>
+
+              
+               
+            </div>
+
+            <div class="row currentamtPayment_mob box" *ngIf="maturedCond && SpecificLoanDetail.data[0].StageName!='Written Off & Closed'">
+                <div class="display_flex">Previous Outstanding<span>{{previous_amount}}</span></div>
+                <!-- <div class="col-sm-12" align="right" *ngIf="payNow">+</div> -->
+                <div class="display_flex">Current Outstanding<span>{{current_amount}}</span></div>
+                <!-- <div class="col-sm-12" align="right" *ngIf="payNow">=</div> -->
+                <div class="display_flex" style="border-top: 1px solid lightgray;margin-top: 10px;">Total Outstanding<span>{{totalpayableamount}}</span></div>
+                <div class="col-sm-12" align="right" style="margin-top: 15px;margin-left: 18px;" *ngIf="SpecificLoanDetail.data[0].Payment_Button == 'true'">
+                    <button class="btn-green" style="margin-left: -60px;" (click)="payAmountNow()" [disabled]='paynowdisable'>Pay Now</button>
+                </div>
+                
+                <div class="col-sm-12" align="right" style="margin-top: 20px;" *ngIf="SpecificLoanDetail.data[0].Nach_Button == 'true'">
+                    <button class="btn-green" data-toggle="modal" (click)="loandetailnach(firstModal)" [disabled]='loandetailnachdisable'>Register for Autodebit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<!-- 
+
+<div class="backdrop" [ngStyle]="{'display':display}">
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+        <div class="modal-dialog isOpen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                    </h5>
+                    <button type="button" class="close" (click)="closeModalDialog()">
+                             <img src="assets/close.svg" alt=""> 
+                        </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- NachModel -->
+<div class="modal fade" id="nachModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" [ngStyle]="{'display':displayModal}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kindly help us authenticate you with below details</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span *ngIf="getPPName=='null'">Loan Number</span>
+                        <span *ngIf="getPPName!=='null'">Parent Loan Number</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input *ngIf="getPPName=='null'" type="text" [(ngModel)]="loanName" style="border-width: 0 0 0px;color: gray" readonly>
+                        <input *ngIf="getPPName!='null'" type="text" [(ngModel)]="getPPName" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span *ngIf="getPPAmount == 'null'">{{loanAmount}}</span>
+                        <span *ngIf="getPPAmount != 'null'" style="display: flex;">Sanctioned Loan Amount <p><mat-icon style="cursor: pointer" matTooltip="Maximum withdrawal limit">info</mat-icon></p></span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input *ngIf="getPPAmount == 'null'" type="text" [(ngModel)]="specificLoanAmt" style="border-width: 0 0 0px;color: gray" readonly>
+                        <input *ngIf="getPPAmount != 'null'" type="text" [(ngModel)]="getPPAmount" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Authorization by</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="paymentMethod" (change)="selectedMethod($event.target.value)">
+                            <option *ngFor="let option of PaymentMethodOption">{{option.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div *ngIf="isNetBanking" class="row">
+                    <div class="col-sm-4">
+                        <span>Bank Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="selectedBankName" (change)="selectedBank($event.target.value)">
+                            <option *ngFor="let bankName of netbankingDropdown">{{bankName.key}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div *ngIf="isDebit" class="row">
+                    <div class="col-sm-4">
+                        <span>Bank Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="selectedBankName" (change)="selectedBank($event.target.value)">
+                            <option *ngFor="let bankName of debitDropdown">{{bankName.key}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>Account Type</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="accountType" (change)="selectedAccountType($event.target.value)">
+                            <option *ngFor="let option of UserAccountType">{{option.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Account Number</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" maxlength="20" [(ngModel)]="accountNo" (keypress)="removeErr()">
+                        <span *ngIf="requiredError" class="inputErr">{{requiredError}}</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>IFSC Code</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" [(ngModel)]="accountIFSC" maxlength="15" (keypress)="removeErr()">
+                        <span *ngIf="requiredError1" class="inputErr">{{requiredError1}}</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Account Holder Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" [(ngModel)]="userNameForm" maxlength="50" (keypress)="removeErr()">
+                        <span *ngIf="requiredError2" class="inputErr">{{requiredError2}}</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-label="Close" style="background: white;margin-right: 20px;color: #0a5697">Cancel</button>
+                    <button class="btn" (click)="nachRegistration(nachCancel,successModal);open(content)">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- PAY NOW -->
+<!-- <div class="modal fade" id="PayNow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">DMI Finance Payment.</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="payNowForm">
+                    <div *ngIf="payableInput">
+                        <input type="text" class="form-control" formControlName="payableAmount" placeholder="Insert Payable Amount" width="100%">
+                    </div>
+                    <div *ngIf="otherInput">
+                        <input type="text" class="form-control" formControlName="payableAmount" placeholder="Insert Other Amount" width="100%">
+                    </div>
+                    <div class="modal-footer ">
+                        <button class="btn" (click)="closeModalDialog()" style="background: white;margin-right: 20px;color:#0a5697" data-dismiss="modal">Cancel</button>
+                        <button class="btn" (click)="payAmountNow()">Proceed</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div class="backdrop" [ngStyle]="{'display':display1}">
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display1}">
+        <div class="modal-dialog1 isOpen" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 style="text-align: center">E-mandate request registered successfully, please allow us 3 working days to process your request</h4>
+                    <div class="col-sm-12" data-dismiss="modal" aria-label="Close" align="right" (click)="closeNachModal()">
+                        <button style="padding: 5px 25px;background: white;border: 1px solid lightgray;border-radius: 13px;">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- start process-modal -->
+<ng-template #firstModal let-modal>
+    <div class="first-popup">
+        <div class="first-popup-close-btn">
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-dialog  isOpen">
+          <div class="modal-body">
+              <div class="para-txt">
+                <p class="">e-Mandate registration with your bank generally takes between
+                     3 to 5 working days. If your EMI date is within next 5 working days,
+                      you are requested to make payment using the
+                     existing payment method. If your due date is more than 5 working days away,
+                      your upcoming EMI will be auto-debited (subject to successful e-Mandate registration).</p>
+              </div> 
+          </div>                
+        </div>
+        <div class="proceed">
+            <button type="button" class="btn" (click)="openModal()" data-toggle="modal" data-target="#nachModel" data-backdrop="static" data-keyboard="false">Proceed</button>
+          </div>
+      </div>
+     
+</ng-template>
+
+<div class="backdrop" [ngStyle]="{'display':display2}">
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display2}">
+        <div class="modal-dialog2 isOpen" role="document">
+            <div class="modal-content" style="border: 0px solid;">
+                <div class="modal-body">
+                    <h4 style="margin-bottom: 10px;">Info</h4>
+                    <p>We have received your payment, it will get updated in your account within next 3 working days</p>
+                    <div class="col-sm-12" data-dismiss="modal" aria-label="Close" align="right" (click)="closePayModal()">
+                        <button style="padding: 5px 25px;background: white;border: 1px solid lightgray;border-radius: 13px;">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- start email-modal -->
+<!-- <div class="backdrop email-modal" [ngStyle]="{'display':display1}">
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display1}">
+        <div class="modal-dialog modal-sm isOpen" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="">E-mandate request registered successfully, please allow us 3 working days to process your request.</p>
+                </div>
+                <div class="modal-footer" data-dismiss="modal" aria-label="Close" align="right"
+                    (click)="closeNachModal()">
+                    <button class="ok-btn">OK</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+<ng-template #successModal let-modal>
+    <div class="close-btn">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       <div class="modal-dialog modal-sm isOpen">
+            <div class="modal-body">
+                <p class="">E-mandate request registered successfully, please allow us 3 working days to process your request.</p>
+            </div>
+       </div>
+    </div>
+</ng-template>
+<!-- end  email-modal -->
+
+<ng-template #content let-modal>
+    <div class="modal-dialog modal-sm isOpen">
+        <div class="modal-body">
+            <p class="">Auto-debit registration is in process. The server will take about 15 to 30 seconds to process, but it may be longer at certain times. Please do not close the window or press "Back" or "Refresh" buttons.</p>
+        </div>
+        <div class="loader">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</ng-template>
+<!-- End process-modal --> 
+
+<!-- start process-modal Cancel -->
+<ng-template #nachCancel let-modal>
+    <div class="close-btn">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      <div class="modal-dialog modal-sm isOpen">
+          <div class="modal-body">
+              <p class="">Sorry, your auto-debit registration was not successful. Please try again.</p>
+          </div>
+      </div>
+    </div>
+        
+</ng-template>
+<!-- End process-modal --> 
+
+
+<div *ngIf="isLoading" class="overlay">
+    <circle-progress [percent]="100" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="30000"></circle-progress>
+</div>

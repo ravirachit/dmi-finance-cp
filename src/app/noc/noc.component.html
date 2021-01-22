@@ -1,0 +1,17 @@
+
+<app-sidenav></app-sidenav>
+
+<main>
+    <div class="header ">
+        <h1>{{userName1}}</h1>
+        <img src="assets/logo.png" height="50">
+    </div>
+    <br>
+
+    <h2 class="tilepage">NOC Document</h2>
+    <br>
+    <div *ngIf="!noc_letter_pdf" align="center"><img src="assets/loading.gif" height="45"></div>
+    <div style="max-width: 950px;margin:auto" *ngIf="noc_letter_pdf">
+        <iframe [src]="noc_letter_pdf" height="470" width="100%" allowFullScreen></iframe>
+    </div>
+</main>

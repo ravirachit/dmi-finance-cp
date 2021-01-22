@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41" height="32" viewBox="0 0 41 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="41" height="30" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_12" data-name="Group 12" transform="translate(-1650.5 -744)">
+    <g id="Repeat_Grid_2" data-name="Repeat Grid 2" transform="translate(1650.5 746)" clip-path="url(#clip-path)">
+      <g transform="translate(-1650.5 -748)">
+        <line id="Line_9" data-name="Line 9" x2="73" transform="translate(1651.5 751.5)" fill="none" stroke="#5b91a8" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g transform="translate(-1650.5 -737)">
+        <line id="Line_9-2" data-name="Line 9" x2="73" transform="translate(1651.5 751.5)" fill="none" stroke="#5b91a8" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g transform="translate(-1650.5 -726)">
+        <line id="Line_9-3" data-name="Line 9" x2="73" transform="translate(1651.5 751.5)" fill="none" stroke="#5b91a8" stroke-linecap="round" stroke-width="2"/>
+      </g>
+    </g>
+    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(1667 744)" fill="#fff" stroke="#5b91a8" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(1657 756)" fill="#fff" stroke="#5b91a8" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(1675 766)" fill="#fff" stroke="#5b91a8" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+  </g>
+</svg>

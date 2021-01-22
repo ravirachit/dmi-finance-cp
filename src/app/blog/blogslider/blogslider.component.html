@@ -1,0 +1,38 @@
+<div class="slider forDesk" *ngIf="blogData">
+  <owl-carousel [options]="{items: 3, dots: false, nav: true, autoplay: false, loop:true,margin:30}"
+      [carouselClasses]="['owl-theme', 'row', 'sliding']">
+          <div class="bolg-wrap" *ngFor="let blog of blogData.data">
+              <div class="">
+                  <p class="authur"><small>{{blog.created_at}}</small> <small>Author: {{blog.created_by}}</small></p>
+                  <img [src]="domSanatize.bypassSecurityTrustUrl(blog.meta_image)" alt="" class="">
+                  <p><small>{{blog.estimate_reading_time}} Reading</small></p>
+                  <h4>{{blog.blog_title}}</h4>
+                  <p>{{blog.sort_description}}</p>
+                  <!-- <div class="tag">
+                     {{blog.blog_category}}
+                  </div> -->
+                  <a (click)="blogDetail(blog)" class="btn-read">Read More</a><br>                  
+              </div>
+          </div>
+  </owl-carousel>
+</div>
+
+
+<div class="slider forMobile" *ngIf="blogData">
+    <owl-carousel [options]="{items: 1, dots: false, nav: true, autoplay: false, loop:true,margin:30}"
+        [carouselClasses]="['owl-theme', 'row', 'sliding']">
+            <div class="bolg-wrap" *ngFor="let blog of blogData.data">
+                <div class="">
+                    <p class="authur"><small>{{blog.created_at}}</small> <small>Author: {{blog.created_by}}</small></p>
+                    <img [src]="domSanatize.bypassSecurityTrustUrl(blog.meta_image)" alt="" class="">
+                    <p><small>{{blog.estimate_reading_time}} Reading</small></p>
+                    <h4>{{blog.blog_title}}</h4>
+                    <p>{{blog.sort_description}}</p>
+                    <!-- <div class="tag">
+                       {{blog.blog_category}}
+                    </div> -->
+                    <a (click)="blogDetail(blog)" class="btn-read">Read More</a><br>                  
+                </div>
+            </div>
+    </owl-carousel>
+  </div>

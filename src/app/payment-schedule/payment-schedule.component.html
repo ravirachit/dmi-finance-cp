@@ -1,0 +1,89 @@
+<!-- <div class="dashboard_navbar">
+    <div class="nav_container">
+        <div class="headerNav_Link">
+            <a class="left_18 userNameFont">{{userBasicInfo[0].Name}}</a>
+        </div>
+        <div class="profile_icon_div">
+            <img src="assets/logo_cp.png" height="50">
+        </div>
+    </div>
+</div>
+<div class="sidenav">
+    <div class="profile_circle">
+        {{userBasicInfo[0].FirstName | slice:0:1}}{{userBasicInfo[0].LastName | slice:0:1}}</div>
+    <span *ngIf="speceficLoanDetail">
+        <span *ngFor="let loanDetail of speceficLoanDetail">
+          <p class="lead_source_name">{{loanDetail.Pulled_Lead_Source_Name__c}}</p><br>
+          <p class="sidenav_loanname">{{loanDetail.name}}</p><br>
+          <div class="col-sm-12" align="center"><p style="margin-top:-23px;">
+            <span class="batch_div" *ngIf="loanDetail.StageName == 'Current'"><a class="batch_btn" style="background:#FF9800">{{loanDetail.StageName}}</a></span>
+    <span class="batch_div" *ngIf="loanDetail.StageName == 'Matured'"><a class="batch_btn" style="background:#4caf50">{{loanDetail.StageName}}</a></span>
+    <span class="batch_div" *ngIf="loanDetail.StageName == 'Delinquent'"><a class="batch_btn" style="background:#E91E63">{{loanDetail.StageName}}</a></span>
+    <span class="batch_div" *ngIf="loanDetail.StageName == 'Settled & Closed'"><a class="batch_btn" style="background:lightgray;color: black!important">{{loanDetail.StageName}}</a></span>
+    <span class="batch_div" *ngIf="loanDetail.StageName == 'Disbursement Approved'"><a class="batch_btn" style="background:#039be5">{{loanDetail.StageName}}</a></span>
+    </p>
+</div>
+</span>
+</span>
+<a [routerLink]="['/dashboard']" class="sideBar_anch_list" style="margin-top:40px;">Dashboard</a>
+    <a [routerLink]="['/loanDetail']" class="sideBar_anch_list">Account Summary</a>
+    <a [routerLink]="['/welcomeletter']" class="sideBar_anch_list">Welcome Letter</a>
+    <a [routerLink]="['/paymentSchedule']" class="sideBar_anch_list activeSty">Payment Schedule</a>
+    <a [routerLink]="['/loanstatement']" class="sideBar_anch_list">Account Statement</a>
+    <a [routerLink]="['/noc']" class="sideBar_anch_list">NOC Document</a>
+    <div class="sideNav-footer">
+        <hr class="side_nav_footer_hr">
+        <div class="footer_list" [routerLink]="['/raiseAdispute']">
+            <a class="footer_anch_list"><img src="assets/auction.svg" height="22"></a>
+            <div class="dashboard_text">Raise a Dispute</div>
+        </div>
+        <div class="footer_list" (click)="logout()">
+            <a class="footer_anch_list"><img src="assets/logout.svg" height="24"></a>
+            <div class="dashboard_text">Sign Out</div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="main-container" style="margin: 110px 34px 70px 294px">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="tilepage">Payment Schedule</h2>
+            <div class="card-body card" style="margin-top: 30px">
+                <div *ngIf="!scheduledata" align="center"><img src="assets/loading.gif" height="70"></div>
+                <table width="100%" *ngIf="scheduledata">
+                    <tr>
+                        <th>SR. No.</th>
+                        <th>Payment Schedule</th>
+                        <th>Date</th>
+                        <th>Principal Amount</th>
+                        <th>Interest</th>
+                        <th>Net Payment</th>
+                        <th>Closing Amount</th>
+                        <th>Clearance</th>
+                        <th>Delinquen</th>
+                        <th>Payment Recevied</th>
+                    </tr>
+                    <tr *ngFor="let schedule of scheduledata; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{schedule.Name}}</td>
+                        <td>{{schedule.Date__c}}</td>
+                        <td>{{schedule.PrincipalPmt__c}}</td>
+                        <td>{{schedule.InterestPmt__c}}</td>
+                        <td>{{schedule.Net_Payment__c}}</td>
+                        <td>{{schedule.ClosingPrincipalBal__c}}</td>
+                        <td><input type="checkbox" disabled *ngIf="schedule.Clearance__c === false"> <input type="checkbox" checked disabled *ngIf="schedule.Clearance__c === true"></td>
+                        <td></td>
+                        <td>{{schedule.Payment_Received_Date__c}}</td>
+                    </tr>
+
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer> -->

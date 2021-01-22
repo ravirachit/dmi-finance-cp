@@ -1,0 +1,368 @@
+.tkt-aside {
+    background: linear-gradient(#eff8ff, #e4f3ff);
+    //   position: fixed;
+    //   top: 86px;
+    margin-left: 62px;
+    bottom: 0;
+    width: 330px;
+    border-top-left-radius: 32px;
+    height: 100%;
+    .head_title {
+      margin-top: -14px;
+      padding-right: 10px;
+      padding-top: 32px;
+      img {
+        height: 12px;
+      }
+      .title_text {
+        font-size: 12px;
+        color: #2d708b;
+      }
+    }
+    .ticket-status_card {
+      box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.1);
+      min-height: 100px;
+      background: white;
+      border-left: 4px solid #92ffac;
+      margin-top: 22px;
+      .status_id {
+        font-size: 12px;
+        margin-top: 13px;
+      }
+      button {
+        margin-top: 13px;
+      }
+      img {
+        height: 11px;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 10px;
+        color: gray;
+      }
+      p {
+        margin-bottom: -16px;
+        font-size: 11px;
+        margin-top: 8px;
+      }
+    }
+    .ticket-status_card1 {
+      min-height: 100px;
+      background: #f4faff;
+      margin-top: 25px;
+      .status_id {
+        font-size: 12px;
+        margin-top: 13px;
+      }
+      button {
+        margin-top: 13px;
+      }
+      img {
+        height: 11px;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 10px;
+        color: gray;
+      }
+      p {
+        margin-bottom: -16px;
+        font-size: 11px;
+        margin-top: 8px;
+      }
+      .col-sm-5 {
+        text-align: right;
+      }
+    }
+    .flex2_display{
+      //   for high priority
+      .high_p_box {
+          display: block;
+          position: relative;
+          padding-left: 18px;
+          margin-bottom: 12px;
+          margin-right: 13px;
+          cursor: pointer;
+          font-size: 11px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .high_p_box input {
+          position: absolute;
+          opacity: 0;
+          height: 0;
+          width: 0;
+        }
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 13px;
+          width: 13px;
+          background-color: #92ffac;
+        }
+  
+      //   for low priority
+        .low_p_box {
+          display: block;
+          position: relative;
+          padding-left: 18px;
+          margin-bottom: 12px;
+          margin-right: 13px;
+          cursor: pointer;
+          font-size: 11px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .low_p_box input {
+          position: absolute;
+          opacity: 0;
+          height: 0;
+          width: 0;
+        }
+        .checkmark1 {
+          position: absolute;
+          top: 0;
+          left: 0px;
+          height: 13px;
+          width: 13px;
+          background-color: #ffe8ac;
+        }
+  
+        //   for critical priority
+        .critical_p_box {
+          display: block;
+          position: relative;
+          padding-left: 18px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          font-size: 11px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .critical_p_box input {
+          position: absolute;
+          opacity: 0;
+          height: 0;
+          width: 0;
+        }
+        .checkmark2 {
+          position: absolute;
+          top: 0;
+          left: 0px;
+          height: 13px;
+          width: 13px;
+          background-color: #ffa2a2;
+        }
+  }
+  }
+  
+  .tkt-aside_search .search-container {
+    display: flex;
+    margin-top: 30px;
+    img {
+      height: 12px;
+      margin-top: -10px;
+    }
+  }
+  
+  .tkt-aside_search input[type="text"] {
+    width: 292px;
+    background: white;
+    border: 0;
+    padding: 5px 10px;
+    color: #fff;
+    height: 28px;
+  }
+  
+  .tkt-aside_search .search-container button {
+    float: right;
+    padding: 5px 13px;
+    background: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    height: 28px;
+  }
+  
+  .tkt_right_container {
+    .body_status_row {
+      background: white;
+      min-height: 105px;
+      margin-right: 80px;
+      margin-top: 30px;
+      border-left: 4px solid #92ffac;
+      a {
+        font-size: 12px;
+        color: #2d708b;
+        padding-left: 30px;
+        line-height: 33px;
+        margin-top: 15px;
+      }
+    }
+    .status_id {
+      font-size: 12px;
+    }
+    p {
+      font-size: 11px;
+    }
+    .header_status {
+      padding: 20px 0px 0px 0px;
+    }
+    .vl {
+      border-left: 1px solid lightgray;
+      margin-left: 30px;
+    }
+  
+    .user_status_row {
+      background: white;
+      min-height: 105px;
+      margin-right: 80px;
+      margin-top: 50px;
+      .user_icon {
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 16px;
+      }
+      .clock_icon {
+        height: 12px;
+        margin-right: 5px;
+      }
+      small {
+        color: gray;
+      }
+      span {
+        color: #4e342e;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+      p {
+        color: #4e342e;
+      }
+    }
+  
+    .dmi_status_row {
+      background: #f4faff;
+      min-height: 105px;
+      margin-right: 80px;
+      margin-top: 25px;
+      .user_icon {
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 16px;
+      }
+      .clock_icon {
+        height: 12px;
+        margin-right: 5px;
+      }
+      small {
+        color: gray;
+      }
+      span {
+        color: #4e342e;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+      p {
+        color: #4e342e;
+      }
+    }
+  
+    .reply_row {
+      background: white;
+      min-height: 105px;
+      margin-right: 80px;
+      margin-top: 0px;
+      button{
+        margin-bottom: 35px;
+        margin-top: 10px;
+        margin-left: 22px;
+      }
+      .form-group{
+          margin-top: 23px;
+          padding-left: 35px;
+          padding-right: 35px;
+      }
+      .user_icon {
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 16px;
+      }
+      .clock_icon {
+        height: 12px;
+        margin-right: 5px;
+      }
+      small {
+        color: gray;
+      }
+      span {
+        color: #4e342e;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+      p {
+        color: #4e342e;
+      }
+      img {
+        height: 45px;
+        margin-right: 50px;
+      }
+      .progress {
+        height: 5px;
+      }
+      // .progress::after {
+      //     content: "40%";
+      //     float: right
+      //   }
+      .progress-bar {
+        background: #0a5697;
+      }
+      .progress_sec {
+        margin-top: 48px;
+        padding-right: 35px;
+      }
+      .upload_icon{
+          display: flex;
+          padding-top: 30px;
+          padding-left: 35px;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .tkt-aside_search .search-container {
+      float: none;
+    }
+    .tkt-aside_search a,
+    .topnav input[type="text"],
+    .topnav .search-container button {
+      float: right;
+      padding: 5px 10px;
+      margin-right: 16px;
+      background: #f4faff;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+      height: 28px;
+    }
+    .tkt-aside_search input[type="text"] {
+      border: 1px solid #ccc;
+    }
+  }
+
+  .viewMore{
+    font-size: 12px;
+    color: #2d708b;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    a{
+      cursor: pointer;
+    }
+  }
+  

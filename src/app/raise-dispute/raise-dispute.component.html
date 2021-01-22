@@ -1,0 +1,43 @@
+<app-sidenav></app-sidenav>
+
+
+<main>
+    <div class="header ">
+        <h1>{{userBasicInfo.data[0].Name}}</h1>
+        <img src="assets/logo.png" height="50">
+    </div>
+    <br>
+    <div class="container-fluid">
+            <h2 class="tilepage">Raise A Service Ticket Request</h2>
+            <div class="row create_tkt_input">
+              <div class="col-sm-12">
+                <label>Loan Account</label>
+                <input type="text" [(ngModel)]="loanAccount" class="form-control" readonly disabled>
+              </div>
+        
+              <div class="col-sm-12">
+                  <label>Subject</label>
+                  <input type="text" [(ngModel)]="subject" class="form-control">
+                </div>
+              <div class="col-sm-12" style="margin-bottom: 10px;">
+                <label>Remarks (500 Characters)</label>
+                <textarea rows="4" [(ngModel)]="description" class="form-control"></textarea>
+              </div>
+        
+              <div class="col-sm-12" style="margin-top:10px;margin-bottom: 10px;">
+              <div class="image-upload blogaddImg">
+                  <label for="imageUpload">
+                      <img src="assets/attachment-icon.svg" alt="" *ngIf="!tktimgset" class="addblogimg">
+                      <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                          class="addblogimg">
+                  </label><br>
+                  <input #profilePicture type="file" id="imageUpload" (change)="getProfilePic($event)">
+                  <span class="tkt_img_span">Attach Payment Proof</span>
+              </div>
+              </div>
+              <br>
+              <button type="submit" class="btn-read" style="margin-top: 25px;margin-left: 15px;margin-bottom: 35px;" (click)="createTicket()">Submit</button>
+              <p><br><br></p>
+            </div>
+            </div>
+</main>

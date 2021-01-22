@@ -1,0 +1,163 @@
+<div class="experianModal">
+  <div *ngIf="showLoader" align="center" class="loanlogo loader"><img src="assets/loading.gif" height="45"></div>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-sm-12 col-md-8 col-lg-8 left-bg">
+
+          <div class="modal-header">
+            <img src="assets/logo.png" alt="DMI">
+            <div class="heading">
+              <h4>FREE <span>CREDIT SCORE</span></h4>
+              <p>Get your credit report for free, with monthly updates.</p>
+            </div>
+          </div>
+        
+          <div>
+            <form [formGroup]="formGroup" class="form" (ngSubmit)="submittedForm()">
+              <div class="radio-btn">
+                <mat-radio-group [(ngModel)]="selectedGender" aria-label="Select an option" class="radio-color" formControlName="options">
+                  <mat-radio-button [value]="1">Male</mat-radio-button>
+                  <mat-radio-button [value]="2">Female</mat-radio-button>
+                  <mat-radio-button [value]="3">Others</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="40px" fxLayoutGap.lt-md="0px">
+                <mat-form-field class="form-element">
+                  <mat-label>First Name</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input matInput type="text" placeholder="Please Enter First Name"  formControlName="firstname">
+                </mat-form-field>
+
+                <mat-form-field class="form-element" class="sideFormSection">
+                  <mat-label>Last Name</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input matInput type="text"  placeholder="Please Enter Last Name"  formControlName="lastname">
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                  <mat-label >Date of Birth</mat-label>
+                  <div class="hint" style="top: 10px">
+                    <mat-hint class="hint-right">Digits only</mat-hint>
+                  </div>
+                  <input matInput placeholder="As per your bank records" value="" formControlName="dateofbirth">
+                </mat-form-field>
+
+                <!-- <mat-form-field class="form-element" class="sideFormSection">
+                  <mat-label>Account Number</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input style="display:none" matInput placeholder="Account Number" value="" formControlName="accountNumber">
+                </mat-form-field> -->
+
+                <mat-form-field class="form-element" class="sideFormSection">
+                  <mat-label>Pan</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input matInput placeholder="Permanent Account Number" value="" formControlName="pan">
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                  <mat-label>Email Address</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input matInput placeholder="As per your bank records" value="" formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field class="form-element" class="sideFormSection">
+                  <mat-label>Mobile Number</mat-label>
+                  <div class="hint" style="top: 10px">
+                    <mat-hint class="hint-right">{{input1.value?.length || 0}}/10 Digits</mat-hint>
+                  </div>
+                  <input #input1 matInput placeholder="We will verify this number in next step." value="" formControlName="mobile">
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                  <mat-label>Flat No.</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input matInput placeholder="Flat No." value="" formControlName="flatNumber">
+                </mat-form-field>
+
+                <mat-form-field class="form-element" class="sideFormSection">
+                  <mat-label>City</mat-label>
+                  <div class="hint" style="margin-top: 10px;">
+                  <mat-hint class="hint-right"></mat-hint>
+                  </div>
+                  <input matInput placeholder="City" value="" formControlName="city">
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                  <mat-select style="margin-top: 10px;" placeholder="Select State" (change)="changeEntity($event)" formControlName="state">
+                    <mat-option *ngFor="let userstate of stateSelection" [value]="userstate.value">{{userstate.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-element" class="sideFormSection">
+                  <mat-label>Pin Code</mat-label>
+                  <div class="hint" style="top: 10px">
+                    <mat-hint class="hint-right">{{input.value?.length || 0}}/6 Digits</mat-hint>
+                  </div>
+                  <input #input maxlength="10" matInput placeholder="As per your bank records" value="" formControlName="pincode">
+                </mat-form-field>
+              </div>
+
+              <div class="check-box">
+                <mat-checkbox value="1" formControlName="checkboxValue"></mat-checkbox>
+                  <div class="check-box-txt">
+                    <p>By accepting and agreeing to this consent form and the <a target='_blank' routerLink='/experian-terms' >Experian Terms & Conditions</a>
+                    I, allow DMI Finance Private Limited to access my Credit Information and Score on my behalf to 
+                    provide me with offers / suggestions / services / solutions (“End Use Purpose”) basis my
+                    Credit Information and Score.</p>
+                  </div>
+              </div>
+
+              <div class="getCredit">
+                  <button mat-raised-button color="primary" href="javascript:void(0)" data-toggle="modal" 
+                  data-backdrop="static" data-keyboard="false" type="submit" 
+                  data-backdrop="false" [disabled]="experianForm.checkboxValue.value==false" 
+                  [ngClass]="{'button': experianForm.checkboxValue.value==true , 'disabledButton': experianForm.checkboxValue.value==false}">Get Your Credit Score</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <div class="expFooter">
+              <p>Powered by</p>
+              <img src="https://dev.vistaconnect.com/expImg/experian.png" height="40">
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-4 col-lg-4 right-bg" style="background-image: url(assets/Bg_1.svg);">
+            <button type="button" class="close" (click)="closeModal()">&times;</button>
+            <div class="row right-content">
+              <div class="rgt-text">
+                <h6>Your credit health matters…</h6>
+                <p>Your credit score is more than just a number. A
+                  better score can help unlock the things you want
+                  most —</p>
+                <p>like a new credit card or the best loan rates in the market.</p>
+                <a>Already downloaded a report? Click Here</a>
+                <h5><span>1</span><sub>Track your Credit Heath</sub></h5>
+                <p class="fill-para">
+                  Fill the form on right just once & monitor
+                  your credit score for free without
+                  any hassles.
+                </p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

@@ -1,0 +1,250 @@
+
+.experianModal{
+    .loanlogo{
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        background: #bccdda69;
+        img{
+            height: 70px;
+            top: 50%;
+            bottom: 50%;
+            right: 50%;
+            left: 45%;
+            position: absolute;
+        }
+    }
+    .modal-dialog{
+        min-width: 100%;
+        padding: 0;
+        margin: 0;
+        .modal-content{
+            .modal-header{
+                .heading{
+                    margin-top: 16px;
+                    h4{
+                        font-size: 17px;
+                        font-weight: 600;
+                        font-family: sans-serif;
+                        span{
+                            background: #ff9833;
+                            color: #004788;
+                            padding: 4px;
+                        }
+                    }
+                    p{margin: 0;}
+                }
+            }
+            .modal-body{
+                display: flex;
+                padding: 0;
+                .form{
+                    padding: 15px;
+                    padding-right: 0;
+                    mat-form-field{
+                        width: 90%;
+                        font-size: inherit;
+                        font-weight: 400;
+                        line-height: 1.125;
+                        font-family: Roboto, "Helvetica Neue", sans-serif;
+                        .hint{
+                            top:5px;
+                            text-align: end;
+                            font-size: 12px;
+                            position: relative;
+                            top: 0px;
+                            position: relative;
+                            border-radius: 0;
+                        }
+                    }
+                    .input-row{
+                        display: grid;
+                        grid-template-columns: 45% 45%;
+                    }
+                    .check-box{
+                        padding: 0 16px;
+                        .check-box-txt{
+                            left: 8px;
+                        }
+                    }
+                    .getCredit{
+                        justify-content: flex-end;
+                        display: flex;
+                        .disabledButton{
+                            background: #a7a7a78c;
+                            color: #808080ba;
+                            float: right;
+                            font-size: 15px;
+                            font-weight: 500;
+                            line-height: 2;
+                            width: 200px;
+                            border-radius: 0;
+                            margin-right: 30px;
+                            border: 1px solid #80808099;
+                            cursor: not-allowed;
+                        }
+                        .button {
+                            background: #004788;
+                            color: #fff;
+                            float: right;
+                            font-size: 15px;
+                            font-weight: 500;
+                            line-height: 2;
+                            width: 200px;
+                            border-radius: 0;
+                            margin-right: 30px;
+                            border: 1px solid #0022dc;
+                            cursor: pointer;
+                        }
+                        .button:focus , .disabledButton:focus{outline: none;}
+                    }
+                }
+                .right-bg{
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .close{
+                        float: right;
+                        font-size: 2rem;
+                        font-weight: lighter;
+                        line-height: 1;
+                        color: #fff;
+                        text-shadow: 0 1px 0 #fff;
+                        background-color: transparent;
+                        opacity: 1;
+                    }
+                    .close:hover , .close:focus{outline: none;}
+                    .right-content{
+                        position: relative;
+                        width: 100%;
+                        display: block;
+                        visibility: visible;
+                        .rgt-text{
+                            position: absolute;
+                            top: 10vh;
+                            left: 9vw;
+                            margin: 0 auto;
+                            width: 70%;
+                            h6 {
+                                font-size: 1.5rem;
+                                font-weight: 200;
+                                color: #fff;
+                        
+                            }
+                            h5{
+                                font-size: 1.4375rem;
+                                color: #fff;
+                                position: relative;
+                                top: 2vh;
+                                left: 2vw;
+                                width: 80%;
+                                line-height: 4;
+                                span{
+                                    padding: 6px;
+                                    border: 1px solid #fff;
+                                    color: #fff;
+                                    text-align: center;
+                                    right: 10px;
+                                    position: relative;
+                                    font-size: 12px;
+                                    border-radius: 50%;
+                                    width: 36px;
+                                    height: 36px;
+                                    outline: none;
+                                }
+                            }
+                            p{
+                                font-size: 14px;
+                                font-weight: 100;
+                                color: #fff;
+                            }
+                            a {
+                                color: #ff9833;
+                                font-size: 1rem;
+                                border-bottom: 1px solid #ff9833;
+                            }
+                            .fill-para{
+                                font-size: 14px;
+                                font-weight: 100;
+                                color: #fff;
+                                left: 3.4vw;
+                                width: 80%;
+                                position: relative;
+                            }
+                        }
+                    }
+                }
+            }
+            .modal-footer{
+                display: flex;
+                justify-content: left;
+                .expFooter{
+                    display: flex;
+                    p{
+                        font-size: 16px;
+                        font-family: sans-serif;
+                        color: gray;
+                        line-height: 2;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    img{
+                        height: 30px;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive
+@media (max-width:600px){
+    .experianModal{
+        .loanlogo{
+            img{
+                height: 60px;
+                top: 27%;
+                left: 35%;
+            }
+        }
+        .modal-dialog{
+            .modal-content{
+                .modal-body{
+                    margin-bottom: 15px;
+                    .left-bg{
+                        padding: 0;
+                        font-family: sans-serif;
+                        .modal-header{
+                            img{height: 50px;}
+                            .heading{
+                                margin: 0;
+                                text-align: right;
+                                padding-left: 60px;
+                                h6{font-size: 15px;}
+                                p{font-size: 13px;line-height: 15px;}
+                            }
+                        }
+                        .form{
+                            .input-row{display: flex;}
+                            .check-box{
+                                padding: 0;
+                                margin-top: 25px;
+                                display: flex;
+                                .check-box-txt{
+                                    width: 85%;
+                                    top: 0;
+                                    left: 0;
+                                }
+                            }
+                            .getCredit{
+                                justify-content: center;
+                                .button , .disabledButton {width: 270px;}
+                            }
+                        }
+                    }
+                    .right-bg{display: none;}
+                }
+            }
+        }
+    }
+}

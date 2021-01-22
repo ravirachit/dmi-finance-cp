@@ -1,0 +1,120 @@
+
+<div class="header">
+    <img src="assets/logo.png" class="headerLogo" height="50">
+    <nav>
+        <div class="desktop_menu">
+            <!-- <a [routerLink]="['/dashboard']" routerLinkActive="''">Get Your Bureau Score</a> -->
+            <a routerLink='/dashboard' routerLinkActive="'linkactive'">Dashboard</a>
+            <a routerLink='/loanOffer' routerLinkActive="'linkactive'">Offers</a>
+            <!-- <a [routerLink]="['/faq']" routerLinkActive="'linkactive'">FAQ</a> -->
+            <a routerLink='/blog' routerLinkActive="'linkactive'">Blogs</a>
+            <!-- <a [routerLink]="['/knowladgebase']" routerLinkActive="'linkactive'">Knowladege Base</a> -->
+            <!-- <a [routerLink]="['/customerSupport']" routerLinkActive="'linkactive'">Customer Support</a> -->
+            <a routerLink='/helpcenter' routerLinkActive="'linkactive'">Help Center</a>
+            <a href="javascript:void(0)" (click)="experian()">Credit Score</a>
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#feedback" data-backdrop="static" data-keyboard="false" (click)="checkRatingStats()">Give Feedback</a>
+            <a href="javascript:void(0)"><img src="assets/notification.svg" style="width: 20px;">
+                <div class="drop">
+                    <li *ngFor="let notif of notificationArr.data">
+                        <p class="notification_title">
+                            <!-- <span>{{notif.loan_stage_notification}}</span> -->
+                        </p>
+                        <div>
+                            <div *ngIf="notif.loan_stage_notification == 'Blogs'">
+                                <p class="btn-status" style="background:#92ffac;color: #165525;">
+                                    {{notif.loan_stage_notification}}</p>
+                            </div>
+                            <div *ngIf="notif.loan_stage_notification == 'Congratulations'" style="margin-top: 6%">
+                                <p class="btn-status" style="background:#ffe8ac;color: #720f00;">
+                                    {{notif.loan_stage_notification}}</p><br>
+                            </div>
+                        </div>
+                        <div style="margin-top: -15%;margin-left:60%;font-size:13px">
+                            {{notif.created_at | slice:0:10 | date: 'MMM dd, yyyy'}}</div>
+                        <div style="color: #4e342e;font-weight: 500;margin-top: 5%">{{notif.title}}</div>
+                        <div style="color: grey">{{notif.description}}</div>
+                    </li>
+                    <button class="btn-viewall" style="float: right;margin: 10px;" (click)="notificationDetails()">View All</button>
+                </div>
+            </a>
+            <a href="javascript:void(0)" (click)="checkRatingStats()" data-toggle="modal" data-target="#NachModel" data-backdrop="static" data-keyboard="false">
+                <img src="assets/logout.png" style="cursor: pointer;">
+            </a>
+        </div>
+
+        <div ngbDropdown class="headerMenu">
+                <a href="javascript:void(0)"><img src="assets/notification.svg" style="width: 23px;">
+                    <div class="drop">
+                        <li *ngFor="let notif of notificationArr.data">
+                            <p class="notification_title">
+                                <!-- <span>{{notif.loan_stage_notification}}</span> -->
+                            </p>
+                            <div>
+                                <div *ngIf="notif.loan_stage_notification == 'Blogs'">
+                                    <p class="btn-status" style="background:#92ffac;color: #165525;">
+                                        {{notif.loan_stage_notification}}</p>
+                                </div>
+                                <div *ngIf="notif.loan_stage_notification == 'Congratulations'" style="margin-top: 6%">
+                                    <p class="btn-status" style="background:#ffe8ac;color: #720f00;">
+                                        {{notif.loan_stage_notification}}</p><br>
+                                </div>
+                            </div>
+                            <div style="margin-top: -15%;margin-left:60%;font-size:13px">
+                                {{notif.created_at | slice:0:10 | date: 'MMM dd, yyyy'}}</div>
+                            <div style="color: #4e342e;font-weight: 500;margin-top: 5%">{{notif.title}}</div>
+                            <div style="color: grey">{{notif.description}}</div>
+                        </li>
+                        <button class="btn-viewall" style="float: right;margin: 10px;" (click)="notificationDetails()">View All</button>
+                    </div>
+                </a>
+            <a ngbDropdownToggle><img src="assets/menu.svg"></a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <!-- <a [routerLink]="['/dashboard']" routerLinkActive="''">Get Your Bureau Score</a> -->
+                <a routerLink='/dashboard' routerLinkActive="'linkactive'"><img src="assets/dashboard.svg">Dashboard</a><br>
+                <a routerLink='/loanOffer' routerLinkActive="'linkactive'"><img src="assets/extra.svg">Offers</a><br>
+                <!-- <a [routerLink]="['/faq']" routerLinkActive="'linkactive'">FAQ</a> -->
+                 <a routerLink='/blog' routerLinkActive="'linkactive'"><img src="assets/blog-icon.svg">Blogs</a><br>
+                <!-- <a [routerLink]="['/knowladgebase']" routerLinkActive="'linkactive'">Knowladege Base</a> -->
+                <!-- <a [routerLink]="['/customerSupport']" routerLinkActive="'linkactive'">Customer Support</a> -->
+                <a routerLink='/helpcenter' routerLinkActive="'linkactive'"><img src="assets/Information Update.svg">Help Center</a><br>
+                <a href="javascript:void(0)" (click)="experian()"><img src="assets/Information_Update.svg">Credit Score</a><br>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#feedback" data-backdrop="static"
+                    data-keyboard="false" (click)="checkRatingStats()"><img src="assets/feedback.svg">Give Feedback</a><br>
+                <a href="javascript:void(0)" (click)="checkRatingStats()" data-target="#NachModel" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                    <img src="assets/logout.png" style="cursor: pointer;">Logout</a>
+            </div>
+        </div>
+
+    </nav>
+</div>
+
+
+<div class="modal fade" id="NachModel" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="col-sm-12 display_flex">
+                <h5 class="modal-title">Feedback</h5>
+                <div data-dismiss="modal" aria-label="Close" (click)="closeRateLogout()"><img src="assets/cancel.svg"></div>
+            </div>
+            <div class="modal-body" style="margin-top: -2%">
+                <iframe id='iframe' width="100%" height="100%" frameBorder="0" [src]="url"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="col-sm-12 display_flex">
+                <h5 *ngIf="sessionAlert==false" id='feedback' class="modal-title">Feedback</h5>
+                <h5 *ngIf="sessionAlert==true" style="color: #f14949" class="modal-title">Alert</h5>
+                <div data-dismiss="modal" aria-label="Close" (click)="closeRate()"><img src="assets/cancel.svg"></div>
+            </div>
+            <div class="modal-body" style="margin-top: -2%">
+                <iframe id='iframe' width="100%" height="100%" frameBorder="0" [src]="url"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

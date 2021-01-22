@@ -1,0 +1,94 @@
+.bottom-sheet1 {
+    display: none;
+}
+
+.bottom-sheet {
+    display: block;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 119px;
+    background-color: #0a5699;
+    padding: 30px 20px;
+    p{
+        color: white;
+        font-size: 16px;
+    }
+}
+.bottom-sheet div {
+    flex: 1;
+    color: white;
+    margin-top: 30px;
+}
+.change{
+    border: none;
+    margin-top: -6px;
+    width: 120px;
+    font-size: 17px;
+    height: 28px;
+    height: 30px;
+    color:  black;
+    background: white;
+}
+.cross{
+    border: none;
+    margin-top: -6px;
+    width: 120px;
+    font-size: 17px;
+    height: 28px;
+    height: 30px;
+    color: black;
+    background: #a0a3a5;
+}
+.btnCross{
+    display: flex;
+    justify-content: flex-end;
+}
+.displayMainSec{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+//mobile
+
+@media screen and (max-width: 768px) {
+    .bottom-sheet{
+        display: none;
+    }
+    .bottom-sheet1{
+        display: block;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        height: 65px;
+        background-color: #0a5699;
+        padding: 20px 20px;
+    }
+    .btnCross{
+        display: flex;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+    }
+    .cross{
+        border: none;
+        margin-top: -6px;
+        border-radius: 50px;
+        width: 22px;
+        font-size: 17px;
+        height: 22px;
+        color: #000;
+        background: #a0a3a5;
+        float: right;
+    }
+    .bottom-sheet1 div {
+        flex: 1;
+        color: white;
+        
+    }
+
+}

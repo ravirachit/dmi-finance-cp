@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dmi-Customer-Portal</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/sass/bootstrap.min.css">
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-130038260-1"></script>
+    <link rel="stylesheet" type="text/css" href="https://d38ybkk7zbmnoj.cloudfront.net/litmus-inside/web/li-web-v2.0-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://d38ybkk7zbmnoj.cloudfront.net/litmus-inside/web/li-web-v2.1-min.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130038260-1');
+    </script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+</head>
+
+<body>
+    <div class="modal indexmodel" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog1 isOpen" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>Important Alert !!</h4>
+                    <p class="numberCircle">Browser navigation is disabled.<br>
+                            For your account safety and security, please login again.<br>
+                            Thank you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-root></app-root>
+
+    <app-root></app-root>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        (function () {
+
+            if (window.history && window.history.pushState) {
+                $(window).on('popstate', function () {
+                    $('.modal').modal('show');
+                    setTimeout(() => {
+                        window.location.href = '';
+                    }, 2500);
+                });
+            }
+        })();
+    </script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+</html>

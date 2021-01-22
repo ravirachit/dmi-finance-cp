@@ -1,0 +1,211 @@
+<app-header></app-header>
+<hr style="margin-top: -5px;">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="tkt-aside">
+      <div class="row head_title">
+        <div class="col-sm-6 title_text">SERVICE TICKET</div>
+        <div class="col-sm-6" align="right"><img src="assets/view.svg"></div>
+      </div>
+
+      <div class="tkt-aside_search">
+        <div class="search-container">
+          <input type="text" name="search">
+          <button type="submit"><img src="assets/search.png"></button>
+        </div>
+      </div>
+      <div class="col-sm-12 flex2_display" style="display: flex;margin-top: 33px;margin-left: -10px;">
+        <label class="high_p_box">High
+          <input type="checkbox" readonly>
+          <span class="checkmark"></span>
+        </label>
+        <label class="low_p_box">Low
+          <input type="checkbox" readonly>
+          <span class="checkmark1"></span>
+        </label>
+        <label class="critical_p_box">Critical
+          <input type="checkbox" readonly>
+          <span class="checkmark2"></span>
+        </label>
+      </div>
+
+
+<div class="col-sm-12" align="center" *ngIf="!alltickets"><img src="assets/loading.gif" style="height: 30px;"></div>
+      <div *ngIf="alltickets">
+      <div class="col-sm-12 ticket-status_card" *ngFor="let allticket of alltickets.data" (click)="ticketDetails(allticket)">
+        <div class="row">
+          <div class="col-sm-9">
+            <p class="status_id">{{allticket.CaseNumber}}</p>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn-status" *ngIf="allticket.Status == 'Open'" style="background:#92ffac;color: #165525;padding: 0px 12px;font-size: 10px;">{{allticket.Status}}</button>
+            <button class="btn-status" *ngIf="allticket.Status == 'Reply Awaited'" style="background:#ffe8ac;padding: 0px 12px;font-size: 10px;">{{allticket.Status}}</button>
+            <button class="btn-status" *ngIf="allticket.Status == 'Closed'" style="background:#ffa2a2;padding: 0px 12px;font-size: 10px;">{{allticket.Status}}</button>
+          </div>
+        </div>
+        <p>{{allticket.Subject}}</p><br>
+        <small>
+          <img src="assets/clock.png"><span>{{allticket.CreatedDate | date: 'dd-MMM-yyyy'}}</span>
+        </small>
+      </div>
+      </div>
+      <div class="col-sm-12 viewMore" align="right" *ngIf="alltickets"><a (click)="noOfRecords(alltickets)">View More ...</a></div>
+    </div>
+  </div>
+
+
+  <div class="col-sm-8 tkt_right_container">
+
+<div *ngIf="!tktDetails"> 
+    <div class="row body_status_row" *ngIf="alltickets">
+        <div class="col-sm-5">
+          <div class="row header_status">
+            <div class="col-sm-10">
+              <p class="status_id">{{alltickets.data[0].CaseNumber}}</p>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn-status" *ngIf="alltickets.data[0].Status == 'Open'" style="background:#92ffac;color: #165525;font-size: 11px;">{{alltickets.data[0].Status}}</button>
+                <button class="btn-status" *ngIf="alltickets.data[0].Status == 'Reply Awaited'" style="background:#ffe8ac;font-size: 11px;">{{alltickets.data[0].Status}}</button>
+                <button class="btn-status" *ngIf="alltickets.data[0].Status == 'Closed'" style="background:#ffa2a2;font-size: 11px;">{{alltickets.data[0].Status}}</button>
+              </div>
+            <div class="col-sm-12">
+              <p>{{alltickets.data[0].Subject}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="vl"></div>
+        <a>DEPARTMENT<br>
+          <small>Technical Support</small>
+        </a>
+        <div class="vl"></div>
+        <a>SUBMITTED<br>
+          <small>{{alltickets.data[0].CreatedDate | date: 'dd-MMM-yyyy'}}</small>
+        </a>
+        <div class="vl"></div>
+        <a>LAST UPDATED<br>
+          <small>{{alltickets.data[0].LastModifiedDate | date: 'dd-MMM-yyyy'}}</small>
+        </a>
+      </div>
+  </div>
+    <div class="row body_status_row" *ngIf="tktDetails">
+      <div class="col-sm-5">
+        <div class="row header_status">
+          <div class="col-sm-10">
+            <p class="status_id">{{tktDetails.data.CaseNumber}}</p>
+          </div>
+          <div class="col-sm-2">
+              <button class="btn-status" *ngIf="tktDetails.data.Status == 'Open'" style="background:#92ffac;color: #165525;font-size: 11px;">{{tktDetails.data.Status}}</button>
+              <button class="btn-status" *ngIf="tktDetails.data.Status == 'Reply Awaited'" style="background:#ffe8ac;font-size: 11px;">{{tktDetails.data.Status}}</button>
+              <button class="btn-status" *ngIf="tktDetails.data.Status == 'Closed'" style="background:#ffa2a2;font-size: 11px;">{{tktDetails.data.Status}}</button>
+            </div>
+          <div class="col-sm-12">
+            <p>{{tktDetails.data.Subject}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="vl"></div>
+      <a>DEPARTMENT<br>
+        <small>Technical Support</small>
+      </a>
+      <div class="vl"></div>
+      <a>SUBMITTED<br>
+        <small>{{tktDetails.data.CreatedDate | date: 'dd-MMM-yyyy'}}</small>
+      </a>
+      <div class="vl"></div>
+      <a>LAST UPDATED<br>
+        <small>{{tktDetails.data.LastModifiedDate | date: 'dd-MMM-yyyy'}}</small>
+      </a>
+    </div>
+
+    <div class="row user_status_row">
+      <div class="col-sm-6" style="padding: 18px 0px 10px 35px;">
+        <p style="display: flex;"><img src="assets/request.svg" class="user_icon"><span>Manish Shrivastava</span></p>
+      </div>
+      <div class="col-sm-6" align="right" style="padding: 18px 35px 10px 0px;">
+        <small>
+          <img src="assets/clock.png" class="clock_icon">20-Aug-2019 at 09:30 PM
+        </small>
+      </div>
+
+      <div class="col-sm-12" style="margin: -15px 0px -18px 0px;">
+        <hr>
+      </div>
+      <div class="col-sm-12" style="padding: 18px 35px 10px 35px;">
+        <p>Hello DMI Finance,<br><br>
+          Once you fill details - personal, professional and KYC and after your loan application has received approval,
+          the next step requires you to submit your documents. The process here is extremely simple, with Qbera's
+          advanced platform allowing individuals to upload their supporting documents online, on the website.<br><br>
+          Thank you<br>
+          Manish Shrivastava<br><br>
+          <span>4 Attachment</span><br>
+        </p>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-3"><img src="assets/repay.svg"></div>
+              <div class="col-sm-3"><img src="assets/repay.svg"></div>
+              <div class="col-sm-3"><img src="assets/repay.svg"></div>
+              <div class="col-sm-3"><img src="assets/repay.svg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row dmi_status_row">
+      <div class="col-sm-6" style="padding: 18px 0px 10px 35px;">
+        <p style="display: flex;"><img src="assets/logo.png" class="user_icon"><span>DMI Finance</span></p>
+      </div>
+      <div class="col-sm-6" align="right" style="padding: 18px 35px 10px 0px;">
+        <small>
+          <img src="assets/clock.png" class="clock_icon">20-Aug-2019 at 09:30 PM
+        </small>
+      </div>
+
+      <div class="col-sm-12" style="margin: -15px 0px -18px 0px;">
+        <hr>
+      </div>
+      <div class="col-sm-12" style="padding: 18px 35px 10px 35px;">
+        <p>Hello Manish Shrivastava,<br><br>
+          Once you submit your documents, they will be digitally verified on the very same day, post which you will
+          receive final loan approval - at this stage, you will receive your customized loan offer. An executive will
+          visit you to obtain physical copies of your KYC documents only, photographs, and cheque leaves from your
+          bank account (salary account).<br><br>
+          Thank you<br>
+          Manish Shrivastava<br><br>
+        </p>
+      </div>
+    </div>
+
+    <div class="row reply_row">
+      <div class="col-sm-12" style="padding: 18px 0px 10px 35px;">
+        <p><span>Reply</span></p>
+      </div>
+      <div class="col-sm-12" style="margin: -15px 0px -18px 0px;">
+        <hr>
+      </div>
+      <!-- <div class="row" style="padding: 30px 35px 10px 35px;"> -->
+      <div class="col-sm-6 upload_icon"><img src="assets/attachment-icon.svg">
+        <p>Attachment.jpg
+          <br><small>300 KB</small>
+        </p>
+      </div>
+      <!-- <div class="col-sm-6 progress_sec">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                    </div>
+                  </div>
+            </div> -->
+
+      <!-- </div> -->
+
+      <!-- <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent" [config]="config"></angular-editor> -->
+
+      <div class="form-group col-sm-12">
+        <!-- <label for="comment">:</label> -->
+        <textarea class="form-control" rows="5" id="comment" placeholder="Type Here ..."></textarea>
+      </div>
+      <div class="col-sm-12">
+        <button type="submit" class="btn">Send</button>
+      </div>
+  </div>

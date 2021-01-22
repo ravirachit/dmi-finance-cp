@@ -1,0 +1,32 @@
+.footer {
+  position: fixed;
+  height: 45px;
+  background-color: #0e5599;
+  color: white;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  z-index: 999;
+}
+
+.marquee {
+    width: 1060px;
+    line-height: 3.3;
+    font-size: 13px;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    -webkit-animation: marquee 25s linear infinite;
+    animation: marquee 25s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+@keyframes marquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}

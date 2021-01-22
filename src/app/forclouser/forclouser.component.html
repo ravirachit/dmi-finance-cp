@@ -1,0 +1,56 @@
+<app-sidenav></app-sidenav>
+
+
+<main>
+    <div class="header header_loanDetail_mob">
+        <h1>{{loan_borrower_name}}</h1>
+        <img src="assets/logo.png" height="50">
+    </div>
+    <br>
+
+    <br>
+
+    <h2 class="tilepage"><span>Preclosure Summary</span><span *ngIf="showRemarks==false"><button class="blue_btn" (click)="downloadFile()" [disabled]='disableBtn'>Download</button></span></h2>
+    <div class="loan_loader" *ngIf="dashboardloader" align="center"><img src="assets/loading.gif" height="45"></div>
+
+    <div class="row" id="pdfTable" #pdfTable>
+        <div class="col-sm-12 main-section">
+            <!-- <div class="custom-card">
+                <div class="form-group">
+                    <div><h2>{{opName}}</h2></div>
+                    <div><button class="download" (click)="downloadFile()">Download</button></div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-sm-4 subSection" *ngFor="let data of foreclosureValues;let i = index">
+                        <span class="dataHeading">{{data.name}}</span><br>
+                        <span>{{data.value}}</span>
+                    </div>
+                </div>
+            </div> -->
+            
+            <p class="showRemark" *ngIf="showRemarks">{{Remarks}}</p>
+
+            <table class="table-fore" *ngIf="showRemarks==false">
+                <tr *ngFor="let data of foreclosureValues; let i = index;">
+                    <th>{{data.name}}</th>
+                    <td *ngIf="i=='0' || i == '9'">
+                        {{foreclosureValues[i].value}}
+                    </td>
+                    <td *ngIf="i != '0'  && i != '9' ">
+                        INR {{foreclosureValues[i].value | inrFormat}}
+                    </td>
+                  <td><button class="btn-green" (click) = 'payAmountNow()' *ngIf= "data.name == 'Net Amount To Be Paid Today' && totalAmt <= 500000" [disabled]='paynowDisable'>Pay Now</button></td> 
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer" *ngIf="forcluserdata">
+        <marquee style="font-size: 13px;margin-top: 4px;">Please note, payments are to be reconciled with respect to every account before sharing the documents (extracted from this portal) with the customers. In case of any discrepancy, please report it to your DMI SPOC within 7 working days.</marquee>
+    </div>
+</main>
+
+
+

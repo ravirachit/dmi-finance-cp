@@ -1,0 +1,215 @@
+<app-header></app-header>
+<div class="row">
+    <div class="col-sm-3 for_mob_tab">
+        <div class="notification-aside">
+            <div class="row head_title">
+                <div class="col-sm-6 title_text">TRENDING IN FINANCE</div>
+            </div>
+            <div *ngFor="let trending of trendingArr.data">
+                <div class="col-sm-12 trending_card">
+                    <div class="row">
+                        <img src="{{trending.meta_image}}">
+                    </div>
+                </div><br>
+
+                <div class="col-sm-12 trending_card_data">
+                    <div class="row">
+                        <p>{{trending.blog_title}}<br></p>
+                        <small>{{trending.meta_description}}</small>
+                        <div class="col-sm-8" style="display: flex;">
+                            <img src="assets/tile-image1.jpg">
+                            <div class="leftnav_username">
+                                {{trending.created_by}}<br><span>{{trending.created_at}}</span></div>
+                        </div>
+                        <div class="col-sm-4"><a (click)="loanDetails(trending.id)">Read More...</a></div>
+                    </div>
+                </div>
+            </div><br>
+        </div>
+    </div>
+
+    <div class="col-sm-9 notification_center_container loanOffer_desk">
+        <!-- <div class="row"> -->
+            <div class="col-sm-11 title_text proceed">
+                <p>LOAN OFFER</p>
+                <button class="blue_btn" data-toggle="modal" data-target="#newLoanOffer" data-backdrop="static" data-keyboard="false">Loan Offer</button>
+            </div>
+            <p *ngIf="callbackValue">Status of Loan Restructure : {{callbackValue}}</p>
+            <div class="offer-box" *ngIf="loanOffer">
+                <div class="offer_display_flex"><img src="assets/offer_image.svg" class="offer_icon"><span class="offer_vl_line"></span>
+                    <div>
+                        <h2 class="offer_header"></h2>
+                        <p class="offer_p">Sorry! We don't have any Pre Approved Loan Offer for you.</p>
+                        <!-- <button type="submit" class="btn" (click)="applyOffer()">Apply Now</button> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-box" *ngIf="!loanOffer">
+                    <div class="offer_display_flex"><img src="assets/oops.jpg" class="oops_icon"><span
+                            class="offer_vl_line"></span>
+                        <div>
+                            <h2 class="offer_header">OOPS !!</h2>
+                            <p class="offer_p">Seems like we don't have any pre approved loan offer for you. Please raise a ticket to evaluate the loan options for you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        <!-- </div> -->
+    </div>
+
+    <div class="col-sm-12 notification_center_container loanOffer_mob" >
+            <!-- <div class="row"> -->
+                <div class="col-sm-12 title_text">
+                    <p>LOAN OFFER</p>
+                    <button class="blue_btn" data-toggle="modal" data-target="#newLoanOffer" data-backdrop="static" data-keyboard="false">Loan Offer</button>
+                </div>
+                <p *ngIf="callbackValue">Status of Loan Restructure: {{callbackValue}}</p>
+                <div class="offer-box" *ngIf="loanOffer" style="margin: 35px 35px 0px -10px;">
+                    <div class="offer_display_flex"><img src="assets/offer_image.svg" class="offer_icon"><span
+                            class="offer_vl_line"></span>
+                        <div>
+                            <h2 class="offer_header"></h2>
+                            <p class="offer_p">Sorry! We don't have any Pre Approved Loan Offer for you.</p>
+                            <!-- <button type="submit" class="btn" (click)="applyOffer()">Apply Now</button> -->
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="offer-box" *ngIf="!loanOffer">
+                        <div class="offer_display_flex"><img src="assets/oops.jpg" class="oops_icon"><span
+                                class="offer_vl_line"></span>
+                            <div>
+                                <h2 class="offer_header">OOPS !!</h2>
+                                <p class="offer_p">Seems like we don't have any pre approved loan offer for you. Please raise a ticket to evaluate the loan options for you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            <!-- </div> -->
+        </div>
+
+
+</div>
+
+
+<div class="modal fade newLoanOffer" id="newLoanOffer" tabindex="-1" role="dialog" aria-labelledby="newOffer" aria-hidden="true" [ngStyle]="{'display':displayModal}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newOffer">Loan Offer</h5>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to restructure your loan offer?</p>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-label="Close" style="background: white;margin-right: 20px;color: #0a5697">No</button>
+                    <button class="btn" data-dismiss="modal" data-toggle="modal" data-target="#loanRestruct" data-backdrop="static" 
+                        data-keyboard="false" (click)="getNewLoan()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade loanRestruct" id="loanRestruct" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" *ngIf="loanRestuctUrl==''">
+          <div class="loan_loader" align="center">
+            <img src="assets/loader.gif" height="45">
+            <div style="margin-top:35px">Please Wait...</div>
+          </div>
+        </div>
+        <div class="modal-content">
+            <div data-dismiss="modal" class="closeLoan" id="cancelModal" #cancelModal aria-label="Close"><img src="assets/images/closeModal.png"></div>
+  
+            <div class="modal-body">
+              <iframe id='iframe' width="100%" height="100%" frameBorder="0" [src]="loanRestuctUrl"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="userDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngStyle]="{'display':displayModal}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Loan Offer</h5>
+            </div>
+            <div class="modal-body">
+                
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>Loan Amount</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="loanAmount" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>EMI Amount</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="emiAmount" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <span>Rate Of Interest</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="rate" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Tenor</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="tenor" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="userBasicInfo.data[0].Name" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Mobile</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="userBasicInfo.data[0].Phone" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Address</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="this.userBasicInfo.data[0].MailingStreet" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Bank Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="bankName" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Account Number</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="accountNumber" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>IFSC</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" [(ngModel)]="ifsc" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>  
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-label="Close" style="background: white;margin-right: 20px;color: #0a5697">Cancel</button>
+                    <button class="btn" (click)="submitDetails()">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

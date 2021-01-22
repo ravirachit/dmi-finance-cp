@@ -1,0 +1,13 @@
+::ng-deep snack-bar-container.custom-class {
+    background: #0a5697;
+    // .mat-simple-snackbar-action{
+    //     margin-top: -21px !important;
+    // }
+    // .mat-simple-snackbar-action button{
+    //     margin-top: -15px !important;
+    // }
+    .mat-simple-snackbar-action button{
+        color: #0a5697;
+        background: white;
+    }
+  }

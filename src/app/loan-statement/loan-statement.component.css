@@ -1,0 +1,80 @@
+.line_height {
+  line-height: 2.4 !important;
+}
+
+.line_height .vLine {
+  border-left: 1px solid lightgray;
+  height: 191px;
+}
+
+.line_height .left_column {
+  margin-right: -15px !important;
+  padding-right: 45px !important;
+}
+
+.line_height .right_column {
+  padding-left: 25px !important;
+}
+
+.line_height hr {
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+
+.display_flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.h_loandetail {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.statement_table {
+  width: 100%;
+}
+
+.statement_table tr,
+.statement_table td {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.statement_table tr,
+.statement_table th {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.statement_Header {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.statement_Footer {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: -15px;
+}
+
+.statement_row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.tableHeader {
+  margin-left: -15px;
+  margin-bottom: -10px;
+  margin-top: 10px;
+}
+
+table {
+  margin: auto;
+}
+
+table tr td,
+table tr th {
+  padding: 4px;
+  border: 1px solid #ccc;
+}

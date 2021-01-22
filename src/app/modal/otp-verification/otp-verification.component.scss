@@ -1,0 +1,75 @@
+
+.modal-content{
+    .modal-header{
+        padding: 10px;
+        p{
+            font-size: 17px;
+            padding: 0 6px;
+            margin: 0;
+            color: #1A90F7;
+            font-family: revert;
+        }
+        button:focus{outline: none;}
+        .close{padding: 8px 15px;
+        span{
+            color: black;
+            font-size: 22px;
+        }}
+    }
+    .modal-body{
+        padding: 10px 20px;
+        p{
+            letter-spacing: 0.4px;
+            margin: 5px auto;
+            span{
+                color: #424242;
+            }
+        }
+        ng-otp-input{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    
+        .modal-section{
+            .counter{
+                display: flex;
+                justify-content: space-around;
+                padding: 0px 55px;
+                label{
+                    font-size: 13px;
+                    color: #1A90F7;
+                    margin-top: 10px;
+                }
+            }
+            button{
+                background: transparent;
+                color: #1A90F7;
+                padding: 5px 0px;
+                width: 230px;
+                border: 1px solid #1A90F7;
+                margin: 30px auto;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                outline: none;
+            }
+            button:focus{outline: none;}
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    .modal-content{
+        .modal-body{
+            margin-bottom: 0;
+            .modal-section{
+                .counter{
+                    justify-content: space-between;
+                    padding: 0px 10px;
+                }
+            }
+        }
+    }
+}

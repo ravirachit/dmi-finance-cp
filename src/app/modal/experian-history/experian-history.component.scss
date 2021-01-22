@@ -1,0 +1,165 @@
+.experian-history{
+    .modal-content{
+        padding: 30px;
+        .modal-header{
+            padding: 0;
+            border-bottom: none;
+            .expheader{
+                h2{
+                    font-size: 26px;
+                    letter-spacing: 0.5px;
+                    font-family: sans-serif;
+                    color: #41CBE7;
+                    margin-bottom: 0.2rem;
+                }
+                p{
+                    color: #434343;
+                    margin-bottom: 0.3rem;
+                }
+            }
+            .expheader-right{
+                display: flex;
+                justify-content: space-around;
+                padding: 25px;
+                padding-bottom: 0;
+                p{
+                    color: #434343;
+                    margin-bottom: 0.3rem;
+                    font-size: 15px;
+                    margin: 0;
+                    margin-top: 5px;
+                }
+                button{
+                    font-size: 15px;
+                    height: 33px;
+                    width: 180px;
+                    border: 1px solid #41CBE7;
+                    background: white;
+                    color: #41CBE7;
+                    span{
+                        margin-right: 10px;
+                        font-size: 18px;
+                    }
+                }
+                button:focus,button:active{outline:none;}
+            }
+        }
+        .modal-body{
+            .sub-section{justify-content: space-between;}
+            .status{
+                background: #8080800f;
+                max-width: 23%;
+                padding: 17px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                h2{
+                    font-size: 42px;
+                    color: #434343;
+                    font-family: sans-serif;
+                }
+                p{
+                    margin: 0;
+                    font-size: 19px;
+                    font-family: sans-serif;
+                    font-weight: 600;
+                    color: #434343;
+                    line-height: 1;
+                }
+                label{
+                    font-size: 13px;
+                    color: #707070de;
+                }
+            }
+            .status:active{
+                h2,p,label{color: #41CBE7}
+            }
+            .main-section{
+                background: #8080800f;
+                margin-top: 30px;
+                padding: 20px;
+                .main-section-1{
+                    display: flex;
+                    justify-content: space-around;
+                    h2{
+                        font-size: 30px;
+                        background: #41cbe730;
+                        color: #16c0e2;
+                        padding: 12px;
+                        border-radius: 50%;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 20px;
+                        font-family: revert;
+                        font-weight: 600;
+                        line-height: 1;
+                        padding-top: 15px;
+                        color: #434343;
+                    }
+                    label{
+                        font-size: 13px;
+                        color: #707070de;
+                    }
+                }
+                .main-section-2{
+                    button{
+                        font-size: 15px;
+                        height: 33px;
+                        width: 180px;
+                        border: 1px solid #41CBE7;
+                        color: #41CBE7;
+                        background: #41cbe730;
+                        font-weight: 500;
+                    }
+                    button:focus,button:active{outline:none;}
+                    .main-slider{
+                        width: 70%;
+                        margin-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+    hr{
+        width: 100%;
+        border-top: 1px solid rgb(243 241 241);
+    }
+    .disabledClass{
+        cursor: not-allowed;
+    }
+}
+
+@media (max-width:600px){
+    .experian-history{
+        .modal-content{
+            padding: 10px;
+            .modal-header{
+                .expheader-right{
+                    padding: 20px 0 10px 0;
+                    button{width: 115px;}
+                }
+            }
+            .modal-body{
+                .sub-section{display: block;}
+                .status{
+                    max-width: 100%;
+                    margin-top: 5px;
+                }
+                .main-section{
+                    .main-section-2{
+                        button{
+                            float: right;
+                            margin-top: 10px;
+                            width: 160px;
+                        }
+                        .main-slider{
+                            width: 100%;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

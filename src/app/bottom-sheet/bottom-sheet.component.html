@@ -1,0 +1,17 @@
+<!-- mobile -->
+<div class="bottom-sheet1">
+  <button mat-button class="cross" type="button" (click)="clearBar()">x</button>
+  <div class="displayMainSec"> 
+    <p (click)="changeStatus()">Tap here for easy access.</p>
+  </div>
+</div>
+
+
+<!-- desktop -->
+<div class="bottom-sheet">
+  <p>For Quick Access Add to Home Screen.</p>
+  <div class="displayMainSec"> 
+    <button mat-button class="cross" type="button" (click)="clearBar()">No</button>
+    <button mat-button class="change" type="submit" (click)="changeStatus()">Yes</button>
+  </div>
+</div>

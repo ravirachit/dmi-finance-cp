@@ -1,0 +1,48 @@
+<app-sidenav></app-sidenav>
+
+
+<main>
+    <div class="header header_loanDetail_mob">
+        <h1>{{userName1 | titlecase}}</h1>
+        <img src="assets/logo.png" height="50">
+    </div>
+    <br>
+
+    <h2 class="tilepage"><span>Payment Summary</span>
+        <!-- <button *ngIf="pdf==true" class="blue_btn" style="margin-left:55%" (click)="downloadPDF()">PDF</button> -->
+        <button class="blue_btn" (click)="downloadStatement()" [disabled] = 'downloadStatementDisable'>{{btnstatus}}</button>
+    </h2>
+    <!-- <h2 class="tilepage" style="margin-bottom: 15px;">Payment Summary</h2> -->
+    <div class="col-sm-12" style="padding: 0px 30px 0px 30px;">
+        <div *ngIf="!scheduledata" align="center"><img src="assets/loading.gif" height="45"></div>
+        <table width="100%" *ngIf="scheduledata" class="table-dashboard accountSummary_table">
+            <thead>
+            <tr>
+                <th>S. No.</th>
+                <th>EMI Due Date</th>
+                <th>Closing Principal Balance</th>
+                <th>Principal Payment</th>
+                <th>Interest</th>
+                <th>Net Payment</th>
+                <th>Status</th>
+                <th>Payment Recevied Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let schedule of scheduledata; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{schedule.Date__c | date: 'MMM dd, yyyy'}}</td>
+                <td>{{schedule.ClosingPrincipalBal__c}}</td>
+                <td>{{schedule.PrincipalPmt__c}}</td>
+                <td>{{schedule.InterestPmt__c}}</td>
+                <td>{{schedule.Net_Payment__c}}</td>
+                <td *ngIf="schedule.Clearance__c === false">Unpaid</td>
+                <td *ngIf="schedule.Clearance__c === true">Paid</td>
+                <!-- <td *ngIf="paymentStatus == 'undefined'">abcd</td> -->
+                <td>{{schedule.Payment_Received_Date__c}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+    </div>
+</main>

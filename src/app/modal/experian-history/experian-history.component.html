@@ -1,0 +1,71 @@
+
+<app-header></app-header>
+
+<div class="experian-history container dashboad-cont">
+  <div class="modal-content">
+    <div class="modal-header row">
+      <div class="col-xs-12 col-md-6 expheader">
+        <h2>Monthly Experian Reports</h2>
+        <p>Last Report was generated- <span *ngIf="creditScoreData">{{creditScoreData[0].created_date | date:'dd MMM, yyyy'}}</span></p>
+      </div>
+      <!-- <div class="col-xs-12 col-md-6 expheader-right">
+        <p><img src="assets/calendar.png"> Jan, 2020 - July, 2020</p>
+        <button><span>+</span>New Report</button>
+      </div> -->
+    </div>
+    <hr>
+
+    <div class="modal-body" *ngIf="creditScoreData">
+      <!-- status -->
+      <div class="row sub-section">
+        <div class="col-xs-6 col-md-3 status">
+          <h2>0{{creditScoreData[0].Closed}}</h2>
+          <div>
+            <p>Closed</p>
+            <label>For closed accounts</label>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3 status">
+          <h2>0{{creditScoreData[0].Active}}</h2>
+          <div>
+            <p>Active</p>
+            <label>For active accounts</label>
+          </div>
+        </div>
+        <!-- <div class="col-xs-6 col-md-3 status">
+          <h2>01</h2>
+          <div>
+            <p>Pending</p>
+            <label>For pending accounts</label>
+          </div>
+        </div> -->
+        <div class="col-xs-6 col-md-3 status">
+          <h2>0{{creditScoreData[0].Total}}</h2>
+          <div>
+            <p>Total</p>
+            <label>Total number of accounts</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- main-section -->
+      <div class="row">
+        <div class="col-xs-12 col-md-12 main-section" *ngFor="let scoreData of creditScoreData;let index = index;">
+          <div class="row">
+            <div class="col-xs-6 col-md-3 main-section-1">
+              <h2>0{{index+1}}</h2>
+              <div>
+                <p>{{scoreData.created_date | date:'h:mm a'}}</p>
+                <label>{{scoreData.created_date | date:'EEEE'}}, {{scoreData.created_date | date:'dd MMM, yyyy'}}</label>
+              </div>
+            </div>
+            <div class="col-xs-6 col-md-9 main-section-2">
+              <mat-slider class="col-xs-4 col-md-9 main-slider" [disabled]="true" [min]="0" [max]="900" [value]="scoreData.BureauScore"></mat-slider>
+              <button class="col-xs-2 col-md-3" (click)="viewMoreCreditScore(scoreData.multibureauId)" [disabled]="isDisabled" [ngClass]="{'disabledClass': isDisabled}">View more details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

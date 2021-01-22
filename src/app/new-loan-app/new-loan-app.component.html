@@ -1,0 +1,82 @@
+<div class="dashboard_navbar">
+  <div class="nav_container">
+    <div class="headerNav_Link">
+      <a routerLink='/dashboard' class="header_logo_anch"><img src="assets/logo.png" height="50"></a>
+      <a routerLink='/dashboard' class="left_18">Dashboard</a>
+
+      <!-- <div class="dropdown theme-dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loan Accounts
+          </a>
+          <ul dropdownMenu class="dropdown-menu" role="menu" *ngIf="loanDetails">
+            <li *ngFor="let loan of loanDetails;" value="{{loan.Id}}" (click)="selectValue(loan)"
+              class="dropdown-item">{{loan.name}}
+            </li>
+          </ul>
+        </div> -->
+      <a routerLink='/loanOffer'>Offers</a>
+      <a routerLink='/faq'>FAQ</a>
+      <a routerLink='/customerSupport'>Customer Support</a>
+    </div>
+    <div class="profile_icon_div">
+      <div *ngIf="userBasicInfo">
+        <div class="display-flex">
+          <div class="profile_circle">
+            {{userBasicInfo[0].FirstName | slice:0:1}}{{userBasicInfo[0].LastName | slice:0:1}}</div>
+          <div class="user_name">{{userName1}}</div>
+          <div class="dropdown theme-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              style="color: white;"><img src="assets/dots.svg" class="Heaer_profile_Menu_icon"></a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Update Profile</a>
+              <a class="dropdown-item" href="#">Update Bank Details</a>
+              <a class="dropdown-item" (click)="logout()">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="sidenav">
+  <!-- <div class="sideBar_list">
+    <a [routerLink]="['/dashboard']" class="sideBar_anch"><img src="assets/loan_account.png" height="35"></a>
+    <div class="dashboard_text">LOAN ACCOUNT</div>
+  </div> -->
+  <hr class="side_nav_hr">
+  <a routerLink='/loanDetail' class="sideBar_anch_list" style="margin-top:83px;">Account Summary</a>
+  <a routerLink='/welcomeletter' class="sideBar_anch_list">Welcome Letter</a>
+  <a routerLink='/paymentSchedule' class="sideBar_anch_list">Payment Schedule</a>
+  <!-- <a (click)="laonStatement()" class="sideBar_anch_list">Account Statement</a> -->
+  <a routerLink='/loanstatement' class="sideBar_anch_list">Account Statement</a>
+  <a routerLink='/myDues' class="sideBar_anch_list">My Dues</a>
+  <a routerLink='/noc' class="sideBar_anch_list">NOC Document</a>
+  <div class="sideNav-footer">
+    <hr class="side_nav_footer_hr">
+    <div class="footer_list newLoan" routerLink='/newloanapplication'>
+        <a class="footer_anch_list"><img src="assets/loan_account.png" height="28"></a>
+        <div class="dashboard_text">New Loan Application</div>
+      </div>
+    <div class="footer_list" routerLink='/raiseAdispute'>
+      <a class="footer_anch_list"><img src="assets/auction.svg" height="22"></a>
+      <div class="dashboard_text">Raise a Dispute</div>
+    </div>
+    <div class="footer_list">
+      <a class="footer_anch_list"><img src="assets/logout.svg" height="24"></a>
+      <div class="dashboard_text">Sign Out</div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="main-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- <div class="page-title">
+        <h2 class="dashboard_title">LOAN DETAIL</h2>
+      </div> -->
+      <div align="center"><img src="assets/under-dev.jpg" style="opacity: .5;margin-left: 22%;margin-top: 5%;"></div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

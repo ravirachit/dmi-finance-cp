@@ -1,0 +1,145 @@
+label{
+    color: #242424
+}
+.inactive{
+    display: none;
+}
+
+.radiowrap{
+    display: flex;
+    flex-wrap: wrap;
+    label{
+        position: relative;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        span{
+            position: relative;
+            min-width: 140px;
+            background: #fff;
+            text-align: center;
+            display: block;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            padding: 14px 4px 14px 4px;
+            border: 1px solid #ccc;
+            transition: all 200ms linear;
+            cursor: pointer;    
+            font-size: 14px;
+            letter-spacing: .5px;
+            font-weight: 400;
+        }
+        img{
+            height: 40px;
+            display: block;
+            margin: 0 auto 8px auto;
+        }
+        input{
+            position: absolute;
+            visibility: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+        input:checked ~ span{
+            background: #ccc;
+            border-color:#004788;
+        }
+    }
+}
+
+.form-control{
+    margin-bottom: 20px;
+}
+
+//FAQ
+//   faq collapsible style
+.panel-title {
+    margin-left: -15px;
+    margin-right: -15px;
+    a {
+        text-decoration: none !important;
+        display: block;
+        padding: 18px 44px 18px 15px;
+        position: relative;
+        color: #00000a;
+    }
+}
+
+
+
+.panel-title a:after {
+    content: "-";
+    position: absolute;
+    right: 12px;
+    color: #00b7f1;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    top: 12px;
+    font-size: 20px;
+}
+.panel-title a.collapsed:after {
+    content: "+";
+    position: absolute;
+    right: 12px;
+    color: #00b7f1;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    top: 12px;
+    font-size: 20px;
+}
+
+.panel-body {
+    padding: 7px 0px 13px 0px;
+    font-size: 13px;
+}
+
+.panel {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 18px;
+}
+
+.panel-heading h4 {
+    font-size: 15px !important;
+    margin-bottom: -5px;
+    font-size: 14px!important;
+}
+
+.addblogimg {
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 45px;
+  }
+  .blogaddImg{
+    display: flex;
+    .tkt_img_span{
+        line-height: 50px;
+    }
+  }
+  .create_tkt_input{
+      margin-left: 7px;
+      margin-right: 7px;
+    label{
+      font-size: 13px;
+    }
+    .col-sm-12{
+      margin-bottom: 17px;
+    }
+    .blogaddImg input {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+  }

@@ -1,0 +1,87 @@
+$basered: #ee202e;
+$baseblue: #1c4da1;
+$darkcolor: #484848;
+
+
+@mixin darkbg{
+    background:#484848;
+    color: #fff;
+}
+@mixin white-border-box{
+    background:#fff;
+    color: $darkcolor;
+    border: 1px solid $darkcolor/.4;
+}
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+@mixin boxshadow($h: 0px, $v: 18px, $b:30px, $brand-color: rgba(0, 0, 0, .1)) {
+    -webkit-box-shadow: $h $v $b $brand-color;
+    -moz-box-shadow: $h $v $b $brand-color;
+    box-shadow: $h $v $b $brand-color;
+}
+
+// Background Gradient
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation=='vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    }
+    @else if $orientation=='horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    }
+    @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+//  Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// Media queries
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size==desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+    @else if $size==tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+    @else if $size==mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}

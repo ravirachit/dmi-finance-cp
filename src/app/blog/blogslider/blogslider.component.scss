@@ -1,0 +1,114 @@
+
+.row {
+    flex-wrap: wrap
+}
+
+.blogbg{
+    background: rgba(76, 175, 80, .2);
+    padding: 26px 0;
+    .blogheader{
+        img{
+            max-width:280px;
+        }
+        form{            
+            display: flex;
+            input{
+                width: 100%;
+                border: 1px solid #ccc;
+                height: 40px;
+                padding: 10px;
+            }
+            button{                
+                padding: 5px 24px;
+                background: #242424;
+                color: #fff;
+                border: 0;
+            }
+        }
+        .blogtags{
+            margin-top: 40px;
+            a{
+                display: inline-flex;
+                align-items: center;
+                margin: 0 14px 14px 0px;
+                background: #fff;
+                color: #484848;
+                padding: 10px 20px;
+                border-radius: 4px;
+                border: 1px solid #2424;
+                min-width: 160px;
+                transition: all 150ms linear;
+                img{
+                    width: 26px;
+                    margin-right: 10px;
+                }
+                &:hover{
+                    background: #efefef !important;
+                    border-color: transparent !important;
+                    text-decoration: none;                    
+                    box-shadow: 0 8px 10px rgba(0,0,0,.1);
+                }
+            }
+        }
+    }
+}
+
+.bolg-wrap{
+    position: relative;
+    img{
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        object-position: center;
+    }
+    p{
+        font-size: 14px;
+        color: #484848;
+        font-weight: 400;
+    }
+    .authur{
+        margin-bottom: 5px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+        color: #484848;
+    }
+    h4{
+        font-size: 18px;
+        margin-top: 20px;
+        color: #484848;
+        font-weight: 400;
+    }
+    .tag{
+        position: absolute;
+        top: 40px;
+        background: rgba(255,255,255,.7);
+        padding: 9px 12px;
+        border-radius: 25px;
+        box-shadow: 9px 0 10px rgba(0,0,0,.2);
+    }
+}
+.btn-read {
+    border: 1px solid #004788;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 26px;
+    color: #004788 !important;
+    font-weight: 400;
+    transition: all 150ms linear;
+    &:hover{
+        background: #004788;
+        color: #fff !important;
+    }
+}
+.slider {
+    min-width: 100%;
+    margin-bottom: 50px;
+    .bolg-wrap{
+        img{
+            height: 260px;
+        }
+    }
+}      
+  

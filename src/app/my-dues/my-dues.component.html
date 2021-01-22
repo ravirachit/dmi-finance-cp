@@ -1,0 +1,91 @@
+<div class="dashboard_navbar">
+  <div class="nav_container">
+    <div class="headerNav_Link">
+      <a routerLink='/dashboard' class="header_logo_anch"><img src="assets/logo.png" height="50"></a>
+      <a routerLink='/dashboard' class="left_18">Dashboard</a>
+      <a routerLink='/loanOffer'>Offers</a>
+      <a routerLink='/faq'>FAQ</a>
+      <a routerLink='/customerSupport'>Customer Support</a>
+    </div>
+    <div class="profile_icon_div">
+      <div *ngIf="userBasicInfo">
+        <div class="display-flex">
+          <div class="profile_circle">
+            {{userBasicInfo[0].FirstName | slice:0:1}}{{userBasicInfo[0].LastName | slice:0:1}}</div>
+          <div class="user_name">{{userName1}}</div>
+          <div class="dropdown theme-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              style="color: white;"><img src="assets/dots.svg" class="Heaer_profile_Menu_icon"></a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Update Profile</a>
+              <a class="dropdown-item" href="#">Update Bank Details</a>
+              <a class="dropdown-item" (click)="logout()">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="sidenav">
+  <hr class="side_nav_hr">
+  <a routerLink='/loanDetail' class="sideBar_anch_list" style="margin-top:83px;">Account Summary</a>
+  <a routerLink='/welcomeletter' class="sideBar_anch_list">Welcome Letter</a>
+  <a routerLink='/paymentSummary' class="sideBar_anch_list">Payment Summary</a>
+  <!-- <a [routerLink]="['/paymentSchedule']" class="sideBar_anch_list">Payment Schedule</a> -->
+  <!-- <a (click)="laonStatement()" class="sideBar_anch_list">Account Statement</a> -->
+  <!-- <a [routerLink]="['/loanstatement']" class="sideBar_anch_list">Account Statement</a> -->
+  <a routerLink='/myDues' class="sideBar_anch_list activeSty">My Dues</a>
+  <a routerLink='/noc' class="sideBar_anch_list">NOC Document</a>
+  <div class="sideNav-footer">
+    <hr class="side_nav_footer_hr">
+    <div class="footer_list newLoan" routerLink='/newloanapplication'>
+      <a class="footer_anch_list"><img src="assets/loan_account.png" height="28"></a>
+      <div class="dashboard_text">New Loan Application</div>
+    </div>
+    <div class="footer_list" routerLink='/raiseAdispute'>
+      <a class="footer_anch_list"><img src="assets/auction.svg" height="22"></a>
+      <div class="dashboard_text">Raise a Dispute</div>
+    </div>
+    <div class="footer_list">
+      <a class="footer_anch_list"><img src="assets/logout.svg" height="24"></a>
+      <div class="dashboard_text">Sign Out</div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="main-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title">
+        <h2 class="dashboard_title">MY DUES</h2>
+      </div>
+      <div class="card" *ngIf="duesDetails">
+        <div class="card-body">
+
+          <div class="row line_height">
+            <div class="col-sm-6 left_column">
+              <div class="display_flex"> Last Payment Date <span>NA</span></div>
+              <div class="display_flex"> EMI Amount <span>NA</span></div>
+              <div class="display_flex"> EMI Dues on Date <span>NA</span></div>
+              <div class="display_flex"> EMI Due Date <span>{{duesDetails[0].Date__c | date: 'dd-MMM-yyyy'}}</span></div>
+            </div>
+            <div class="vLine"></div>
+            <div class="col-sm-6 right_column">
+              <div class="display_flex"> Bounce Charge <span>NA</span></div>
+              <div class="display_flex"> Late Fee Penalty <span>NA</span></div>
+              <div class="display_flex"> Payable EMI <span>NA</span></div>
+            </div>
+          </div>
+          <div class="loanDetail_btn_div" align="right">
+            <div class="nachBtn" style="margin-right: 18px;">Register for Autodebit</div>
+            <div class="btn">Pay Now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

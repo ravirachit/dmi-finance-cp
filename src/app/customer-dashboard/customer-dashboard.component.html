@@ -1,0 +1,448 @@
+<app-header></app-header>
+
+<div class="mob-tab-userinfo">
+    <div *ngIf="!userBasicInfo" align="center"><img src="assets/loading.gif" height="45"></div>
+    <h6 style="color: #424242;margin-top: 20px;margin-bottom: 2px;">Welcome</h6>
+    <h4 *ngIf="userBasicInfo" class="show_animation"><span>{{userName1 | titlecase}}</span></h4> 
+</div>
+
+
+<div class="bg_mob">
+    Dashboard
+</div>
+
+<div class="container dashboad-cont">
+    <div class="desktop-user-sec">
+    <div *ngIf="!userBasicInfo" align="center"><img src="assets/loading.gif" height="45"></div>
+    <div class="box" *ngIf="userBasicInfo">
+        <h1 class="show_animation"><span>{{userName1 | titlecase}}</span>
+            <!-- <a routerLink="/profileedit"><img src="assets/edit.jpg"></a> -->
+        </h1>
+        <div class="row colorbase show_animation">
+            <div class="col-sm-6">
+                <p>{{userBasicInfo.data[0].Email}}<br>{{phoneNo}}</p>
+            </div>
+            <div class="col-sm-6 text-right">
+                <p class="userAddress">{{userBasicInfo.data[0].MailingStreet}} {{userBasicInfo.data[0].MailingCity}} - {{userBasicInfo.data[0].MailingPostalCode}}
+                    <br>{{userBasicInfo.data[0].MailingState}}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <table class="table-dashboard">
+        <thead>
+        <tr style="border-bottom: 1px solid lightgray;">
+            <th></th>
+            <th>PARTNER</th>
+            <th>AMOUNT</th>
+            <th>DISBURSEMENT DATE</th>
+            <th style="text-align: center">STATUS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <!-- <img src="assets/view.svg"> -->
+        </tr>
+        </thead>
+        <tbody *ngIf="loanDetail">
+        <tr *ngFor="let loan of loanDetail| paginate: config " class="dashboardImg">
+            <td align="center">
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'DMI LOS'"><img src="assets/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'X-Sell'"><img src="assets/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Channel Partner'"><img src="assets/partners/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Arogya'"><img src="assets/partners/arogya-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Cashcare'"><img src="assets/partners/cashcare.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Credifiable'"><img src="assets/partners/Credifiable.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Digilend'"><img src="assets/partners/digilent.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'DMI Direct'"><img src="assets/partners/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Eduvanz'"><img src="assets/partners/Eduvanz.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Ezcred'"><img src="assets/partners/Ezcred.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Finnable'"><img src="assets/partners/Finnable.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Healthcarefront'"><img src="assets/partners/Healthcarefront.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'IndiaLends'"><img src="assets/partners/indialends.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'indiaLends'"><img src="assets/partners/indialends.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'InstaPaisa'"><img src="assets/partners/instapaiss.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Iserv'"><img src="assets/partners/Iserv.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Kissht'"><img src="assets/partners/Kissht.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'KnabFinance'"><img src="assets/partners/Knab.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'LetsMd'"><img src="assets/partners/letsmd.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Mintifi'"><img src="assets/partners/mintifit.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Mobikwik'"><img src="assets/partners/Mobikwik.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'MobiKwik'"><img src="assets/partners/Mobikwik.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'MoneyTap'"><img src="assets/partners/moneytap.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'MoneyView'"><img src="assets/partners/Moneyview.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'OptaCredit'"><img src="assets/partners/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'PaisaBazar'"><img src="assets/partners/PaisaBazar.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'RedCarpet'"><img src="assets/partners/RedCarpet.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Rentickle'"><img src="assets/partners/Rentickle.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Samsung'"><img src="assets/partners/samsung.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Shubhloans'"><img src="assets/partners/shubh loan.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Shubhloan UrbanClap'"><img src="assets/partners/shubh loan.png"></span>
+                    
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Slicepay'"><img src="assets/partners/Slicepay.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'SMECorner'"><img src="assets/partners/SME CORNER.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Stashfin'"><img src="assets/partners/Stashfin.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Tala'"><img src="assets/partners/tala.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Walnut'"><img src="assets/partners/walnut.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'ZestMoney'"><img src="assets/partners/zest.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Zopper'"><img src="assets/partners/Zopper.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Capital Float'"><img src="assets/partners/Capital Float.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'UltraCash'"><img src="assets/partners/UltraCash.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'HappyLoan'"><img src="assets/partners/HappyLoan.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Epay Later'"><img src="assets/partners/Epaylater.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'SanKash'"><img src="assets/partners/sankush.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'CredRight'"><img src="assets/partners/CredRight.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Krazybee'"><img src="assets/partners/Krazybee.png"></span>
+                </td>
+            <td>
+                <h5 *ngIf="loan.Pulled_Lead_Source_Name__c == 'DMI LOS'">DMI FINANCE<br><span>{{loan.name}}</span></h5>
+                <h5 *ngIf="loan.Pulled_Lead_Source_Name__c !== 'DMI LOS'">{{loan.Pulled_Lead_Source_Name__c}}<br><span>{{loan.name}}</span></h5>
+            </td>
+            <td>INR {{loan.Original_Face__c | inrFormat}}</td>
+            <td>{{loan.Disbursement_Date__c | date: 'dd-MMM-yyyy'}}</td>
+            <td  align="center">
+                <span *ngIf="loan.StageName == 'Current'"><a class="badge " style="background:#CCFFD8;color: #165525">Active</a></span>
+                <span *ngIf="loan.StageName == 'Matured'"><a class="badge " style="background:#FFF6DE;color:#A31818">{{loan.StageName}}</a></span>
+                <span *ngIf="loan.StageName == 'Delinquent'"><a class="badge " style="background:#FFCCCC;color:#5D4608">Payment Due</a></span>
+                <span *ngIf="loan.StageName == 'Settled & Closed'"><a class="badge " style="background:lightgray;color: black!important">{{loan.StageName}}</a></span>
+                <span *ngIf="loan.StageName == 'Written Off & Closed'"><a class="badge " style="background:lightgray;color: black!important">{{loan.StageName}}</a></span>
+                <span *ngIf="loan.StageName == 'Disbursement Approved'"><a class="badge " style="background:#039be5;color: #fff">{{loan.StageName}}</a></span>
+            </td>
+
+                <td>
+                    <ng-container >
+                    <button class="btn-green1" *ngIf="loan.Payment_Button == 'true' && loan.StageName != 'Written Off & Closed'" (click)="payLoan(loan)"  [disabled]='paynowdisable'>Pay Now</button>
+                    <!-- <button class="btn-green1" style="opacity: .3;pointer-events: none;"
+                    *ngIf="loan.totalpayableamount == '0.00' && loan.totalpayableamount <= 1">Pay Now</button> -->
+                </ng-container>
+                </td>
+                <td>
+                    <ng-container >
+                    <button class="resgiterForAutodebit" *ngIf="loan.Nach_Button == 'true' && loan.StageName != 'Written Off & Closed'" (click)="loandetailnach(loan,firstModal)" [disabled] = 'loandetailnachdisable'>Register For Autodebit</button>
+                    <!-- <button class="btn-green1" style="opacity: .3;pointer-events: none;"
+                    *ngIf="loan.totalpayableamount == '0.00' && loan.totalpayableamount <= 1">Pay Now</button> -->
+                </ng-container>
+                </td>
+                <td>
+            </td>
+                <!-- *ngIf="loan.StageName == 'Matured' || loan.StageName == 'Delinquent' && loan.nach == 'NO_OPP' && loan.nach.Status__c !== 'null' && loan.nach.Status__c !== '' && loan.nach.Status__c !== 'undefined'" -->
+
+            <!-- <td *ngIf="loan.StageName == 'Delinquent'">
+                <button class="btn-green" *ngIf="loan.totalpayableamount==0.00" style="background: gray;border:none;opacity: 0.5;" disabled>Pay Now</button>
+                <button class="btn-green" *ngIf="loan.totalpayableamount!=0" (click)="loandetail(loan)">Pay Now</button>
+            </td> -->
+
+
+             <!-- <td ><a href="javascript:void(0)" class="viewLoan"></a></td> -->
+            <td (click)="loandetail(loan)"><a href="javascript:void(0)" class="viewLoan">View</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="loan_loader" *ngIf="!loanDetail || showLoader" align="center"><img src="assets/loading.gif" height="45"></div>
+
+    <div class="dashboardPageDesktop" *ngIf="loanDetail && showPagination">
+        <pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
+    </div> 
+
+
+    <div class="col-sm-12 mob-tab-dashboard" *ngIf="loanDetail">
+        <div class="row" *ngFor="let loan of loanDetail| paginate: config " class="dashboardImg">
+            <div class="col-sm-12 box">
+                <div class="col-sm-12 partner_logo" align="center">
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'DMI LOS'"><img src="assets/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'X-Sell'"><img src="assets/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Channel Partner'"><img src="assets/partners/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Arogya'"><img src="assets/partners/arogya-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Cashcare'"><img src="assets/partners/cashcare.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Credifiable'"><img src="assets/partners/Credifiable.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Digilend'"><img src="assets/partners/digilent.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'DMI Direct'"><img src="assets/partners/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Eduvanz'"><img src="assets/partners/Eduvanz.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Ezcred'"><img src="assets/partners/Ezcred.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Finnable'"><img src="assets/partners/Finnable.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Healthcarefront'"><img src="assets/partners/Healthcarefront.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'IndiaLends'"><img src="assets/partners/indialends.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'indiaLends'"><img src="assets/partners/indialends.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'InstaPaisa'"><img src="assets/partners/instapaiss.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Iserv'"><img src="assets/partners/Iserv.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Kissht'"><img src="assets/partners/Kissht.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'KnabFinance'"><img src="assets/partners/Knab.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'LetsMd'"><img src="assets/partners/letsmd.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Mintifi'"><img src="assets/partners/mintifit.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Mobikwik'"><img src="assets/partners/Mobikwik.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'MobiKwik'"><img src="assets/partners/Mobikwik.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'MoneyTap'"><img src="assets/partners/moneytap.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'MoneyView'"><img src="assets/partners/Moneyview.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'OptaCredit'"><img src="assets/partners/dmi-finance.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'PaisaBazar'"><img src="assets/partners/PaisaBazar.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'RedCarpet'"><img src="assets/partners/RedCarpet.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Rentickle'"><img src="assets/partners/Rentickle.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Samsung'"><img src="assets/partners/samsung.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Shubhloans'"><img src="assets/partners/shubh loan.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Shubhloan UrbanClap'"><img src="assets/partners/shubh loan.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Slicepay'"><img src="assets/partners/Slicepay.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'SMECorner'"><img src="assets/partners/SME CORNER.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Stashfin'"><img src="assets/partners/Stashfin.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Tala'"><img src="assets/partners/tala.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Walnut'"><img src="assets/partners/walnut.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'ZestMoney'"><img src="assets/partners/zest.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Zopper'"><img src="assets/partners/Zopper.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Capital Float'"><img src="assets/partners/Capital Float.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'UltraCash'"><img src="assets/partners/UltraCash.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'HappyLoan'"><img src="assets/partners/HappyLoan.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Epay Later'"><img src="assets/partners/Epaylater.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'SanKash'"><img src="assets/partners/sankush.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'CredRight'"><img src="assets/partners/CredRight.png"></span>
+                    <span *ngIf="loan.Pulled_Lead_Source_Name__c == 'Krazybee'"><img src="assets/partners/Krazybee.png"></span>
+                </div>
+                <br>
+                <div class="col-sm-12 partner_name" align="center">
+                        <h5 *ngIf="loan.Pulled_Lead_Source_Name__c == 'DMI LOS'">DMI FINANCE<br><span>{{loan.name}}</span></h5>
+                        <h5 *ngIf="loan.Pulled_Lead_Source_Name__c !== 'DMI LOS'">{{loan.Pulled_Lead_Source_Name__c}}<br><span>{{loan.name}}</span></h5>
+                </div>
+
+                <div class="display_flex">AMOUNT<span>INR {{loan.Original_Face__c | inrFormat}}</span></div>
+                <div class="display_flex">DISBURSEMENT DATE<span>{{loan.Disbursement_Date__c | date: 'dd-MMM-yyyy'}}</span></div>
+                <div class="display_flex">STATUS <span *ngIf="loan.StageName == 'Current'"><a class="badge " style="background:#CCFFD8;color: #165525">Active</a></span>
+                    <span *ngIf="loan.StageName == 'Matured'"><a class="badge " style="background:#FFF6DE;color:#A31818">{{loan.StageName}}</a></span>
+                    <span *ngIf="loan.StageName == 'Delinquent'"><a class="badge " style="background:#FFCCCC;color:#5D4608">Payment Due</a></span>
+                    <span *ngIf="loan.StageName == 'Settled & Closed'"><a class="badge " style="background:lightgray;color: black!important">{{loan.StageName}}</a></span>
+                    <span *ngIf="loan.StageName == 'Written Off & Closed'"><a class="badge " style="background:lightgray;color: black!important">{{loan.StageName}}</a></span>
+                    <span *ngIf="loan.StageName == 'Disbursement Approved'"><a class="badge " style="background:#039be5;color: #fff">{{loan.StageName}}</a></span>
+                </div>
+                <div class="col-sm-12 button-for-mob" align="right"><span> 
+                    <!-- <button class="btn-green" *ngIf="loan.totalpayableamount!=0" (click)="payAmountNow(loan)">Pay Now</button> -->
+                    <button class="btn-green" *ngIf="loan.Payment_Button == 'true' && loan.StageName != 'Written Off & Closed'" [disabled]='paynowdisable' (click)="payLoan(loan)">Pay Now</button></span>
+                    <span><button class="btn-green" *ngIf="loan.Nach_Button == 'true' && loan.StageName != 'Written Off & Closed'" (click)="loandetailnach(loan,firstModal)" [disabled] = 'loandetailnachdisable' >Register For Autodebit</button></span>
+                </div>
+                <div class="col-sm-12" align="right"><span><a href="javascript:void(0)" class="viewLoan" (click)="loandetail(loan)">View</a></span></div>
+            </div>  
+        </div>
+    </div>
+    <div class="dashboardPage" *ngIf="loanDetail && showPagination">
+        <pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
+    </div>
+
+<br><br><br><br>
+<!-- <div class="card congrats_card" *ngIf="loanOffer">
+    <div class="card-container">
+        <div class="offer_display_flex"><img src="assets/offer_image.svg" class="offer_icon"><span class="offer_vl_line"></span>
+            <div>
+                <h2 class="offer_header">Congratulations !!</h2>
+                <p class="offer_p">You can avail a pre approved loan of Amount INR {{convertedOfferAmt}} for {{loanOffer[0].Offered_Tenor__c}} months at ROI {{loanOffer[0].Offered_ROI__c}}% per annum.</p>
+                <button type="submit" class="blue_btn" (click)="applyOffer()">Apply Now</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- PAY NOW -->
+<!-- <div class="modal fade" id="PayNow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">DMI Finance Payment.</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="payNowForm">
+                    <div *ngIf="paymentAmont">
+                        <label>Payable Amount</label>
+                        <input type="text" class="form-control" formControlName="payableAmount" [(ngModel)]="paymentAmont" width="100%" readonly>
+                    </div>
+                    <div class="modal-footer ">
+                        <button class="btn" (click)="closeModalDialog()" style="background: white;margin-right: 20px;color:#0a5697" data-dismiss="modal">Cancel</button>
+                        <button class="btn" (click)="payAmountNow()">Submit</button>
+                    </div>
+                </form>
+            </div>S
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<!-- <th class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle">Partner <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    <li>Inbox</li>
+    </ul>
+</th> -->
+
+<!-- start process-modal -->
+<ng-template #firstModal let-modal>
+    <div class="first-popup">
+        <div class="first-popup-close-btn">
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-dialog  isOpen">
+          <div class="modal-body">
+              <div class="para-txt">
+                <p class="">e-Mandate registration with your bank generally takes between
+                     3 to 5 working days. If your EMI date is within next 5 working days,
+                      you are requested to make payment using the
+                     existing payment method. If your due date is more than 5 working days away,
+                      your upcoming EMI will be auto-debited (subject to successful e-Mandate registration).</p>
+              </div> 
+          </div>                
+        </div>
+        <div class="proceed">
+            <button type="button" class="btn" (click)="openModal()" data-toggle="modal" data-target="#nachModel" data-backdrop="static" data-keyboard="false">Proceed</button>
+          </div>
+      </div>
+</ng-template>
+
+<div class="backdrop" [ngStyle]="{'display':display2}">
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display2}">
+        <div class="modal-dialog2 isOpen" role="document">
+            <div class="modal-content" style="border: 0px solid;">
+                <div class="modal-body">
+                    <h4 style="margin-bottom: 10px;">Info</h4>
+                    <p>We have received your payment, it will get updated in your account within next 3 working days</p>
+                    <div class="col-sm-12" data-dismiss="modal" aria-label="Close" align="right" (click)="closePayModal()">
+                        <button style="padding: 5px 25px;background: white;border: 1px solid lightgray;border-radius: 13px;">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #successModal let-modal>
+    <div class="close-btn">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+       <div class="modal-dialog modal-sm isOpen">
+            <div class="modal-body">
+                <p class="">E-mandate request registered successfully, please allow us 3 working days to process your request.</p>
+            </div>
+       </div>
+    </div>
+</ng-template>
+
+<ng-template #content let-modal>
+    <div class="modal-dialog modal-sm isOpen">
+        <div class="modal-body">
+            <p class="">Auto-debit registration is in process. The server will take about 15 to 30 seconds to process, but it may be longer at certain times. Please do not close the window or press "Back" or "Refresh" buttons.</p>
+        </div>
+        <div class="loader">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #nachCancel let-modal>
+    <div class="close-btn">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      <div class="modal-dialog modal-sm isOpen">
+          <div class="modal-body">
+              <p class="">Sorry, your auto-debit registration was not successful. Please try again.</p>
+          </div>
+      </div>
+    </div>
+        
+</ng-template>
+
+
+<!-- NachModel -->
+<div class="modal fade" id="nachModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" [ngStyle]="{'display':displayModal}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kindly help us authenticate you with below details</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span *ngIf="getPPName=='null'">Loan Number</span>
+                        <span *ngIf="getPPName!=='null'">Parent Loan Number</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input *ngIf="getPPName=='null'" type="text" [(ngModel)]="loanName" style="border-width: 0 0 0px;color: gray" readonly>
+                        <input *ngIf="getPPName!='null'" type="text" [(ngModel)]="getPPName" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span *ngIf="getPPAmount == 'null'">{{loanAmount}}</span>
+                        <span *ngIf="getPPAmount != 'null'" style="display: flex;">Sanctioned Loan Amount <p><mat-icon style="cursor: pointer" matTooltip="Maximum withdrawal limit">info</mat-icon></p></span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input *ngIf="getPPAmount == 'null'" type="text" [(ngModel)]="specificLoanAmt" style="border-width: 0 0 0px;color: gray" readonly>
+                        <input *ngIf="getPPAmount != 'null'" type="text" [(ngModel)]="getPPAmount" style="border-width: 0 0 0px;color: gray" readonly>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Authorization by</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="paymentMethod" (change)="selectedMethod($event.target.value)">
+                            <option *ngFor="let option of PaymentMethodOption">{{option.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div *ngIf="isNetBanking" class="row">
+                    <div class="col-sm-4">
+                        <span>Bank Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="selectedBankName" (change)="selectedBank($event.target.value)">
+                            <option *ngFor="let bankName of netbankingDropdown">{{bankName.key}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div *ngIf="isDebit" class="row">
+                    <div class="col-sm-4">
+                        <span>Bank Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="selectedBankName" (change)="selectedBank($event.target.value)">
+                            <option *ngFor="let bankName of debitDropdown">{{bankName.key}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>Account Type</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="accountType" (change)="selectedAccountType($event.target.value)">
+                            <option *ngFor="let option of UserAccountType">{{option.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Account Number</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" maxlength="20" [(ngModel)]="accountNo" (keypress)="removeErr()">
+                        <span *ngIf="requiredError" class="inputErr">{{requiredError}}</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>IFSC Code</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" [(ngModel)]="accountIFSC" maxlength="15" (keypress)="removeErr()">
+                        <span *ngIf="requiredError1" class="inputErr">{{requiredError1}}</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span>Account Holder Name</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" [(ngModel)]="userNameForm" maxlength="50" (keypress)="removeErr()">
+                        <span *ngIf="requiredError2" class="inputErr">{{requiredError2}}</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-label="Close" style="background: white;margin-right: 20px;color: #0a5697">Cancel</button>
+                    <button class="btn" (click)="nachRegistration(nachCancel,successModal);">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

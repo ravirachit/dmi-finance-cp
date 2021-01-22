@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="131.816" height="131.816" viewBox="0 0 131.816 131.816">
+  <defs>
+    <filter id="play-button_1_" x="0" y="0" width="131.816" height="131.816" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feFlood flood-color="#fff" flood-opacity="0.18"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_49" data-name="Group 49" transform="translate(-636.87 -599.094)">
+    <rect id="Rectangle_25" data-name="Rectangle 25" width="18.817" height="22.999" transform="translate(693.87 653.144)" fill="#393f4d"/>
+    <g transform="matrix(1, 0, 0, 1, 636.87, 599.09)" filter="url(#play-button_1_)">
+      <path id="play-button_1_2" data-name="play-button (1)" d="M20.908,0A20.908,20.908,0,1,0,41.816,20.908,20.908,20.908,0,0,0,20.908,0Zm7.226,22.016L17.68,28.55a1.307,1.307,0,0,1-2-1.108V14.374a1.307,1.307,0,0,1,2-1.108L28.134,19.8a1.307,1.307,0,0,1,0,2.217Z" transform="translate(45 45)" fill="#fff"/>
+    </g>
+    <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(676.776 639)" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="26.181" cy="26.181" r="26.181" stroke="none"/>
+      <circle cx="26.181" cy="26.181" r="25.681" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="bloghead">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-4">
+                <br><br>
+                <img [src]="domSanatize.bypassSecurityTrustUrl(blogDetail[0].meta_image)" alt="">
+            </div>
+            <div class="col-sm-8">
+                <p style="margin-bottom: 0"><small>{{blogDetail[0].estimate_reading_time}} reading</small></p>
+                <h3 style="font-weight: 900">{{blogDetail[0].blog_title}}</h3>
+                <p>{{blogDetail[0].sort_description}}</p>
+            </div>
+            <div class="col-sm-12 bradcrumb">
+                <p><br></p>
+                <a routerLink="/dashboard">Dashboard</a> > <a routerLink="/blog">Blogs</a> > <a routerLink="/categorys">{{blogDetail[0].blog_category}}</a>
+                > <a routerLink="/categorys">{{blogDetail[0].blog_title}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <h2>Tags</h2>
+            <div class="tags">
+                <a>Medical Loan</a>
+                <a>Education Loan</a>
+                <a>Personal Loan</a>
+                <a>Business Loan</a>
+                <a>Loan Against Property</a>
+                <a>Project Finance</a>
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+           <div [innerHTML]="description"></div>
+        </div>
+        
+    </div>
+</div>
+<hr>
+<h4 class="text-center">Related Blogs</h4>
+<app-blogslider></app-blogslider>

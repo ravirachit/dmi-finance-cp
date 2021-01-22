@@ -1,0 +1,18 @@
+<app-sidenav></app-sidenav>
+
+
+<main>
+    <div class="header header_loanDetail_mob">
+        <h1>{{userName1 | titlecase}}</h1>
+        <img src="assets/logo.png" height="50">
+    </div>
+    <br>
+    <h2 class="tilepage">Welcome Letter</h2>
+    <div  *ngIf="!ispdf" align="center"><img src="assets/loading.gif" height="45"></div>
+    <div *ngIf="ispdf">
+    <div class="letterFrame" *ngIf="welcomeLetterPdf">
+        <iframe [src]="welcomeLetterPdf" allowtransparency="true" style="background: #FFFFFF;" frameborder="0" allowFullScreen></iframe>
+    </div>
+    </div>
+
+</main>

@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div class="creditScore">
+  <h2>Experian Credit Score</h2>
+  <mat-tab-group mat-align-tabs="center" class="style-mat">
+    <mat-tab label="Credit Report">
+      
+      <div class="col-sm-6 col-md-12 tab-section">
+
+        <div class="col-sm-3 col-md-6 tab-section-1">
+          <p class="creditScore1">{{creditValue.score}}</p>
+          <div>
+              <img class='creditScore2' src='assets/images/creditScoreNew.png'>
+              <img class='creditArrow' id="creditArrowValue" [style.transform]="'rotate(' + (rotateVal ? rotateVal : 0) + 'deg)'" src='assets/images/creditArrowNew.png'>
+          </div>
+          <div class="score">
+              <p class="lowerLimit">300</p>
+              <p class="upperLimit">900</p>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-6 tab-section-2">
+          <h4>What Does EXCELLENT Credit Score Mean?</h4>
+          <p>Yay! You are considered the best when it comes to managing your borrowing and are a darling
+            to almost all banks! The best rates and widest range of loans & Credit Cards are yours for the asking.</p>
+
+          <!-- <div class="tab-section-3">
+            <div>
+                <p>Next report 7th Feb</p>
+                <label><span><img src="assets/bell-icon.svg" alt="reminder"></span>Set Reminder</label>
+            </div>
+            <div>
+                <p>See details that impact your score</p>
+                <label><span><img src="assets/upgraph.svg" alt="reminder"></span>Check Score Factors</label>
+            </div>
+          </div> -->
+
+          <div class="tab-section-4"> 
+            <h3>Account Status</h3>
+            <hr>
+            <div class="tab-section-5">
+                <p style="color: #d32f2f;border-right: 1px solid gray;">Active<span>:</span><label>{{creditValue.account.CreditAccountActive}}</label></p>
+                <p style="color: #00b300;border-right: 1px solid gray;">Closed<span>:</span><label>{{creditValue.account.CreditAccountClosed}}</label></p>
+                <p style="color: #e6b800;">Total<span>:</span><label>{{creditValue.account.CreditAccountTotal}}</label></p>
+            </div>
+            <hr>
+          </div>
+
+          <button class="credit-btn" (click)="onDown()" *ngIf="!loading">
+            <a class="expPdf" [href]="pdfResponse" download='experianReport.pdf'>Download Report</a>
+          </button>
+          <button class="credit-btn spinner" *ngIf='loading'><i class="fa fa-spinner fa-spin"></i>Loading</button>
+        </div>
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="Parameters">Content 2</mat-tab>
+
+    <mat-tab label="Account Details">Content 3</mat-tab>
+
+    <mat-tab label="Personal Details">Content 4</mat-tab>
+  </mat-tab-group>
+</div>

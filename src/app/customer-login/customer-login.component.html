@@ -1,0 +1,197 @@
+<div class="row" style="background: #fff;height: 100vh;">
+  <div class="col-sm-8 bannerSection">
+    <div class="col-sm-12">
+      <img src="assets/logo.png"><br><br>
+    </div>
+    <div class="col-sm-12">
+      <img class="backimages" src="assets/login-bg.png">
+    </div>
+  </div>
+
+  <div class="col-sm-4 login_right_sec">
+    <div class="col-sm-12 login_logo_mob" align="center">
+      <img src="assets/logo.png"><br><br>
+    </div>
+    <h4>Welcome to DMI Finance Customer Portal</h4>
+    <div class="">
+      <div class="form">
+        <form [formGroup]="loginForm" class="loginForm">
+          <!-- <img src="assets/logo.png"> -->
+          <div *ngIf="loginSection">
+            <div class="signin_text">Sign in</div>
+
+            <div class="radio-btn-flex">
+              <label class="radio-btn-container" (click)="otpLogin()">OTP
+                <input type="radio" name="radio" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-btn-container" (click)="passwordLogin()">Password
+                <input [disabled]="showPassword==false" type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class="login-input-container">
+              <div *ngIf="isMobileField">
+                <label for="phone">Mobile</label>
+                <div class="inner-icon leftIcon">
+                  <img class="input-icon-img phone_icon" src="assets/call-answer.svg">
+                  <input class="input-field" type="text" formControlName="phone" maxlength="10"
+                    placeholder="Please enter your registered mobile number" (keypress)="removeError($event);"
+                    numbersOnly>
+                  <p *ngIf="phoneNotCurrect" class="warningCor">{{phoneNotCurrect}}</p>
+                  <p *ngIf="regNoErr" class="warningCor">{{regNoErr}}</p>
+                </div>
+              </div>
+
+              <div *ngIf="isPassword" style="margin-top: 5%">
+                <label for="password">Password</label>
+                <div class="inner-icon leftIcon">
+                  <img class="input-icon-img" src="assets/lock.svg">
+                  <input class="input-field" type="password" formControlName="password" placeholder="Enter password"
+                    (keypress)="removeErrorPassword($event);">
+                  <p *ngIf="passNotCurrect" class="warningCor">{{passNotCurrect}}</p>
+                </div>
+              </div>
+
+              <div *ngIf="isOTP">
+                <label for="password">Enter Your OTP</label>
+                <div class="inner-icon leftIcon">
+                  <img class="input-icon-img" src="assets/lock.svg">
+                  <input class="input-field" type="password" formControlName="otp" maxlength="6" placeholder="Enter OTP"
+                    (keypress)="removeError($event);">
+                  <p *ngIf="otpNotCurrect" class="warningCor">{{otpNotCurrect}}</p>
+                  <p class="timer" *ngIf="counter !== 0">OTP Expires in : {{countDown | async | formatTime}}</p>
+                </div>
+              </div>
+              <div *ngIf="isHavingPassword" align="left">
+                <button type="submit" [ngClass]="{'loginBtn':showLogin,'loginBtnRestrict':!showLogin}" (click)="getLogin()" *ngIf="isLogging">{{loginBtn}}</button>
+                <button type="submit" style="margin-top: 5%" class="btn_disabled" disabled *ngIf="!isLogging">Please
+                  Wait...</button>
+              </div>
+              <div *ngIf="notOTP || sendOTPCounter" align="left">
+                <button type="submit" class="loginBtn" (click)="sendOTP()" *ngIf="!isSendOTP">SEND OTP</button>
+                <button type="submit" style="margin-top: 5%" class="btn_disabled" disabled *ngIf="isSendOTP">Please
+                  Wait...</button>
+              </div>
+              <div class='troubleLogin'>
+                <p>Having trouble login in, </p>
+                <button type="button" data-toggle="modal" data-target="#myModal">report us here</button>
+              </div>
+              <div *ngIf="counter == 0" align="left">
+                <button type="submit" class="loginBtn" (click)="resendOTP()">RESEND OTP</button>
+              </div>
+              <div *ngIf="isVerifyOTP && counter !== 0" align="left">
+                <button type="submit" class="loginBtn" (click)="verifyOTP()"
+                  *ngIf="isVerifyOTPBtn && counter !== 0">VERIFY OTP</button>
+                <!-- <button type="submit" style="margin-top: 5%" class="btn_disabled" disabled *ngIf="isVerifyOTPBtn">Please Wait...</button> -->
+              </div>
+            </div>
+          </div>
+
+
+          <div *ngIf="resetPasswordSec" class="reset_sec">
+            <h5>Please create your password for easy access.</h5><br>
+            <label for="password">Password</label>
+            <div class="inner-icon leftIcon">
+              <img class="input-icon-img" src="assets/lock.svg">
+              <input class="input-field" type="password" formControlName="new_password" placeholder="Enter password"
+                style="margin-bottom:22px;" (keypress)="removeErrorPassword($event);">
+            </div>
+            <label for="password">Re-enter Password</label>
+            <div class="inner-icon leftIcon">
+              <img class="input-icon-img" src="assets/lock.svg">
+              <input class="input-field" type="password" formControlName="repeat_password"
+                placeholder="Re-enter password" style="margin-bottom:10px;" (keypress)="removeErrorPassword($event);">
+            </div>
+            <p *ngIf="passwordNotMatch" class="warningCor">{{passwordError}}</p>
+            <div class="display_flex">
+              <div class="skipBtn" (click)="goToDashboard()">SKIP</div>
+              <button type="submit" class="loginBtn" (click)="proceedLogin()"
+                style="margin-right: 71px;">PROCEED</button>
+            </div>
+          </div>
+          <div *ngIf="resetPasswordSec" class="login_footer">
+            <div class="help_support1">Help & Support</div>
+            <p>
+              <img src="assets/help_phone.png">18005-727-727 <span>[ Toll Free ]</span><br>
+              <img src="assets/help_mail-icon.png"> customercare@dmifinance.in<br>
+              <small>Copyright @2019 DMI Finance. All rights reserved.</small>
+              <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open</button> -->
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!resetPasswordSec" class="login_footer">
+      <div class="help_support">Help & Support</div>
+      <p>
+        <img src="assets/help_phone.png">18005-727-727 <span>[ Toll Free ]</span><br>
+        <img src="assets/help_mail-icon.png"> customercare@dmifinance.in<br>
+        <small>Copyright @2019 DMI Finance. All rights reserved.</small>
+        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open</button> -->
+      </p>
+    </div>
+
+
+    <div *ngIf="!resetPasswordSec" class="login_footer_mob">
+      <div class="help_support">Help & Support</div>
+      <p>
+        <img src="assets/help_phone.png">18005-727-727 <span>[ Toll Free ]</span><br>
+        <img src="assets/help_mail-icon.png"> customercare@dmifinance.in<br>
+        <small>Copyright @2019 DMI Finance. All rights reserved.</small>
+        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open</button> -->
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="trouble-moodal">
+    <div class="modal fade" id="myModal" role="dialog">
+
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h4 class="modal-title">Connect with us</h4>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Please provid us some of your informaation so that we can look into the issue.</p>
+            <div class="row name-mobile">
+              <div class="col-md-6">
+                <label>Name</label><br>
+                <input type="text" placeholder="" class="inp-name" [(ngModel)]="formName">
+              </div>
+              <div class="col-md-6">
+                <label>Mobile<span class="star">*</span></label><br>
+                <input type="text" placeholder="" class="inp-mobile" [(ngModel)]="formMobile" maxlength="10" (keypress)="removeError($event);">
+                <p style="margin-top:8px" *ngIf="showAlert" class="warningCor">{{mobileRequired}}</p>
+              </div>
+            </div>
+            <div class="row email-style">
+              <div class="col-md-12">
+                <label>Email-Address</label><br>
+                <input type="email" placeholder="" class="inp-email" [(ngModel)]="formEmail">
+              </div>
+            </div>
+            <div class="row msg-style">
+              <div class="col-md-12">
+                <label>Message<span class="star">*</span></label><br>
+                <textarea rows="4" cols="50" name="comment" class="textArea-style" [(ngModel)]="formMessage"></textarea>
+                <p *ngIf="showAlert" class="warningCor">{{messageRequired}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row submit-btn">
+              <button type="button" class="btn btn-sub" id="closeModal" (click)="onSave()" data-dismiss="modal" aria-label="Close">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

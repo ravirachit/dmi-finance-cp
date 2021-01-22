@@ -1,0 +1,523 @@
+
+<div *ngIf="issidenaav">
+  <app-sidenav></app-sidenav>
+
+  <main>
+      <div class="header header_loanDetail_mob">
+          <h1>{{userName1}}</h1>
+          <img src="assets/logo.png" height="50">
+      </div>
+
+      <div class="row">
+          <div class="col-sm-10 tkt_right_container tkt_right_container_mob" style="margin-left: 3%!important;">
+              <div class="col-sm-12 title_text">CREATE A NEW TICKET</div>
+
+              <div class="selectionSection col-sm-12">
+                <div class="col-sm-6">
+                  <label>Select Loan Account *</label>
+                  <select class="form-control" [(ngModel)]="loanNanewrite" *ngIf="loanDetail" (change)="selectedLoanChange($event.target.value)">
+                    <option *ngFor="let loanname of loanDetail" value="{{loanname.Id}}">{{loanname.name}}</option>
+                  </select>
+                  <p *ngIf="loanNameErrwrite" class="sizeExceed">{{loanNameErrwrite}}</p>
+                </div>
+
+                <div class="col-sm-6 selectType">
+                  <label>Select</label>
+                  <select class="form-control" [(ngModel)]="selectionType" *ngIf="loanDetail" (change)="selectedTypeChange($event.target.value)">
+                    <option *ngFor="let loanname of selectionTypeArray" value="{{loanname.Id}}">{{loanname.name}}</option>
+                  </select>
+                  <p *ngIf="loanNameErrwrite" class="sizeExceed">{{loanNameErrwrite}}</p>
+                </div>
+              </div>
+
+              
+            <!-- <div class="row radiowrap">
+              <div class="col-sm-5">
+                <label for="notReflecting">
+                  <input type="radio" id="notReflecting" name="tickettype" value="notReflecting" (click)="ifpaymentnotreflecting()">
+                  <span>
+                    Payment made but not reflecting
+                  </span>
+                </label>
+              </div>
+              <div class="col-sm-5">
+                <label for="other">
+                  <input type="radio" checked="checked" id="other" name="tickettype" value="other" (click)="createothertkt()">
+                  <span>
+                    Write to Us
+                  </span>
+                </label>
+              </div>
+            </div> -->
+        <div *ngIf="paymentnotreflectinsection">
+            <div class="col-sm-12 payment_text"  *ngIf="samsungUI==false">
+              If you made a recent transaction, please allow us 3 working days from the date of transaction to update your record
+              with us.
+            </div>
+        <div class="tkt_checkbox_desktop"  *ngIf="samsungUI==false">
+            <div class="col-sm-12 radio_checkbox">
+              <label class="radio_container">Yes, I have recently made the payment
+                <input type="radio" name="radio" (click)="notAllowedToCreateTkt()">
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio_container">No, its has been more than 3 working days now
+                <input type="radio" name="radio" (click)="createTktSec()">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            </div>
+            
+        <div class="tkt_checkbox_mob"  *ngIf="samsungUI==false">
+            <div class="col-sm-12 radio_checkbox" style="margin-bottom: 5px;"> 
+                <label class="radio_container">Yes, I have recently made the payment
+                  <input type="radio" name="radio" (click)="notAllowedToCreateTkt()">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            <div class="col-sm-12 radio_checkbox">
+                <label class="radio_container">No, its has been more than 3 working days now
+                  <input type="radio" name="radio" (click)="createTktSec()">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+        </div>
+        
+        
+        <div *ngIf="createTktSection">
+            <div class="col-sm-12 payment_text" *ngIf="samsungUI==false">
+                Okay, we apologize for the inconvenience. Please share a few details of your transaction which will enable us to identify and update the missing payment record.
+            </div>
+        
+            <div class="row create_tkt_input">
+              <!-- <div class="col-sm-6">
+                <label>Select Loan Account *</label>
+                <select class="form-control" [(ngModel)]="loanNane" *ngIf="loanDetail" (keypress)="removeErr()">
+                    <option *ngFor="let loanname of loanDetail" value="{{loanname.Id}}">{{loanname.name}}</option>
+                  </select>
+                  <p *ngIf="loanNameErr" class="sizeExceed">{{loanNameErr}}</p>
+              </div> -->
+
+              <div class="col-sm-6" *ngIf="selectionType==1 || selectionType==4">
+                <label>Transaction Reference Number *</label>
+                <input type="text" [(ngModel)]="transactionRefNo" class="form-control" (keypress)="removeErr()">
+                <p *ngIf="transactionRefNoerr" class="sizeExceed">{{transactionRefNoerr}}</p>
+              </div>
+              <div class="col-sm-6" *ngIf="selectionType==1 || selectionType==4">
+                <label>Amount Paid *</label>
+                <input type="text" [(ngModel)]="amtPaid" class="form-control" (keypress)="removeErrNumber($event)">
+                <p *ngIf="amtPaidErr" class="sizeExceed">{{amtPaidErr}}</p>
+              </div>
+              
+
+              <div class="col-sm-12" *ngIf="selectionType==1 || selectionType==4">
+                  <label>Date of Transaction *</label>
+        
+                  <div class="form-group">
+        
+                      <div class="input-group">
+                          <div class="input-group-append">
+                              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" style="background: white;border: 1px solid lightgray;"><img src="assets/calendar.svg" height="24"></button>
+                            </div>
+                        <input class="form-control" (ngModelChange)="dateChange()" placeholder="DD-MM-YYYY" name="dp" [(ngModel)]="paymentDate" ngbDatepicker #d="ngbDatepicker" [maxDate]="disableDate">
+                        </div>
+                        <p *ngIf="paymentDerr" class="sizeExceed">{{paymentDerr}}</p>
+                    </div>
+              </div>
+        
+              
+              <div class="col-sm-12" style="margin-bottom: 30px">
+                <label>Email ID *</label>
+                <input type="text" [(ngModel)]="emailId" class="form-control" (keypress)="removeErr()" readonly>
+                <p *ngIf="emailIdErr" class="sizeExceed">{{emailIdErr}}</p>
+              </div>
+
+              <div class="col-sm-12" style="margin-bottom: 30px">
+                  <label>Subject *</label>
+                  <input type="text" *ngIf="selectionType==3 || selectionType==4 || selectionType==5" [(ngModel)]="subject" class="form-control" (keypress)="removeErr()">
+                  <input type="text" *ngIf="selectionType==1 || selectionType==2" [(ngModel)]="samsungSubject" class="form-control" (keypress)="removeErr()" readonly>
+                  <p *ngIf="subjectErr" class="sizeExceed">{{subjectErr}}</p>
+                </div>
+              <div class="col-sm-12">
+                <label>Remarks (500 Characters) *</label>
+                <textarea rows="4" [(ngModel)]="remarks" class="form-control" (keypress)="removeErr()"></textarea>
+                <p *ngIf="remarkErr" class="sizeExceed">{{remarkErr}}</p>
+              </div>
+
+              <div class='col-sm-12' *ngIf="showloader" align="center"><img src="assets/loading.gif" height="45"></div>
+        
+              <div class="col-sm-12 tkt_img_upload_desktop" style="margin-top:30px;">
+                  <div class="image-upload blogaddImg">
+                      <label for="imageUpload">
+                          <img src={{attachFile}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                          <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                              class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+                              <p *ngIf="attachmentReqwrite" class="sizeExceed">{{attachmentReqwrite}}</p>
+                      </label><br>
+                      <input style="width: 10%" #profilePicture type="file" id="imageUpload" (change)="getProfilePic($event)" (keypress)="removeErr()">
+                      <span class="tkt_img_span">Attach Document *</span>&nbsp;&nbsp;&nbsp;&nbsp; <small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+                          and maximum size upto 5 mb ) </small>
+                  </div>
+                  <p *ngIf="extension"><small *ngIf="fileName !== 'Please select given format files only' " class="filename">{{fileName}}</small><small *ngIf="fileName === 'Please select given format files only' "  class="filenameAlert">{{fileName}}</small></p>
+              </div>
+        
+              <div class="col-sm-12 tkt_img_upload_mob">
+                  <div class="image-upload blogaddImg" style="margin-top: 30px;">
+                      <label for="imageUpload">
+                          <img src={{attachFile}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                          <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                              class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+                              <p *ngIf="attachmentReqwrite" class="sizeExceed">{{attachmentReqwrite}}</p>
+                      </label><br>
+                      <input #profilePicture type="file" id="imageUpload" (change)="getProfilePic($event)" (keypress)="removeErr()">
+                  </div>
+                  <p *ngIf="extension"><small *ngIf="fileName !== 'Please select given format files only' " class="filename">{{fileName}}</small><small *ngIf="fileName === 'Please select given format files only' "  class="filenameAlert">{{fileName}}</small></p>
+                  <span class="tkt_img_span">Attach Document *</span><br><small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+                      and maximum size upto 5 mb ) </small>
+        
+              </div>
+        
+              <br>
+              <button type="submit" class="btn-read" style="margin-top: 25px;margin-left: 15px;margin-bottom: 35px;" (click)="createTicketPayment()" *ngIf="!issubmitTkt">Submit</button>
+              <button type="submit" style="margin-top: 2%; border-radius: 26px;" class="btn_disabled" disabled *ngIf="issubmitTkt">Please Wait...</button>
+              <p><br><br></p>
+            </div>
+        </div>
+        </div>
+        
+        <div *ngIf="otherSection">
+            <div class="row create_tkt_input">
+              <!-- <div class="col-sm-12" style="margin-bottom: 30px;">
+                <label>Select Loan Account *</label>
+                <select class="form-control" [(ngModel)]="loanNanewrite" *ngIf="loanDetail">
+                  <option *ngFor="let loanname of loanDetail" value="{{loanname.Id}}">{{loanname.name}}</option>
+                </select>
+                <p *ngIf="loanNameErrwrite" class="sizeExceed">{{loanNameErrwrite}}</p>
+              </div> -->
+        
+              <div class="col-sm-12" style="margin-bottom: 30px">
+                  <label>Subject *</label>
+                  <input type="text" [(ngModel)]="subjectwrite" class="form-control" (keypress)="removeErrWrite()">
+                  <p *ngIf="subjectErrwrite" class="sizeExceed">{{subjectErrwrite}}</p>
+                </div>
+              <div class="col-sm-12">
+                <label>Remarks (500 Characters) *</label>
+                <textarea rows="4" [(ngModel)]="remarkswrite" class="form-control" (keypress)="removeErrWrite()"></textarea>
+                <p *ngIf="remarkErrwrite" class="sizeExceed">{{remarkErrwrite}}</p>
+              </div>
+
+              <div class='col-sm-12' *ngIf="showloader" align="center"><img src="assets/loading.gif" height="45"></div>
+        
+              <div class="col-sm-12 tkt_img_upload_desktop" style="margin-top:30px;">    
+              <div class="image-upload blogaddImg">
+                  <label for="imageUpload">
+                      <img src={{attachFileWrite}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                      <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                          class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+                  </label><br>
+                  <input width="10%" #profilePicture type="file" id="imageUpload" (change)="getProfilePicWrite($event)">
+                  <span class="tkt_img_span">Attach Document *</span>&nbsp;&nbsp;&nbsp;&nbsp; <small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+                      and maximum size upto 5 mb ) </small>
+              </div>
+              <p *ngIf="extensionWrite"><small *ngIf="fileNameWrite !== 'Please select given format files only' " class="filename">{{fileNameWrite}}</small><small *ngIf="fileNameWrite === 'Please select given format files only' "  class="filenameAlert">{{fileNameWrite}}</small></p>
+              </div>
+        
+        
+              <div class="col-sm-12 tkt_img_upload_mob">
+                  <div class="image-upload blogaddImg" style="margin-top: 30px;">
+                      <label for="imageUpload">
+                          <img src={{attachFileWrite}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                          <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                              class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+                      </label><br>
+                      <input #profilePicture type="file" id="imageUpload" (change)="getProfilePicWrite($event)">
+                  </div>
+                  <p *ngIf="extensionWrite"><small *ngIf="fileNameWrite !== 'Please select given format files only' " class="filename">{{fileNameWrite}}</small><small *ngIf="fileNameWrite === 'Please select given format files only' "  class="filenameAlert">{{fileNameWrite}}</small></p>
+                  <span class="tkt_img_span">Attach Document *</span><br><small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+                      and maximum size upto 5 mb ) </small>
+              </div>
+        
+              <br>
+              <button type="submit" class="btn-read" style="margin-top: 25px;margin-left: 15px;margin-bottom: 35px;" (click)="createTicketWrite()" *ngIf="!issubmitTkt">Submit</button>
+              <button type="submit" style="margin-top: 2%; border-radius: 26px;" class="btn_disabled" disabled *ngIf="issubmitTkt">Please Wait...</button>
+              <p><br><br></p>
+            </div>
+        </div>
+        </div>
+        
+        
+        </div>
+  </main>
+
+</div>
+<div *ngIf="!issidenaav">
+  <app-header></app-header>
+</div>
+
+
+<div class="row" *ngIf="!issidenaav">
+<div class="col-sm-10 tkt_right_container tkt_right_container_mob">
+    <div class="col-sm-12 title_text">CREATE A NEW TICKET</div>
+  <!-- <div class="row radiowrap">
+    <div class="col-sm-5">
+      <label for="notReflecting">
+        <input type="radio" id="notReflecting" name="tickettype" value="notReflecting" (click)="ifpaymentnotreflecting()">
+        <span>
+          Payment made but not reflecting
+        </span>
+      </label>
+    </div>
+    <div class="col-sm-5">
+      <label for="other">
+        <input type="radio" checked="checked" id="other" name="tickettype" value="other" (click)="createothertkt()">
+        <span>
+          Write to Us
+        </span>
+      </label>
+    </div>
+  </div> -->
+
+  <div class="selectionSection col-sm-12">
+    <div class="col-sm-6">
+      <label>Select Loan Account *</label>
+      <select class="form-control" [(ngModel)]="loanNanewrite" *ngIf="loanDetail" (change)="selectedLoanChange($event.target.value)">
+        <option *ngFor="let loanname of loanDetail" value="{{loanname.Id}}">{{loanname.name}}</option>
+      </select>
+      <p *ngIf="loanNameErrwrite" class="sizeExceed">{{loanNameErrwrite}}</p>
+    </div>
+
+    <div class="col-sm-6 selectType">
+      <label>Select</label>
+      <select class="form-control" [(ngModel)]="selectionType" *ngIf="loanDetail" (change)="selectedTypeChange($event.target.value)">
+        <option *ngFor="let loanname of selectionTypeArray" value="{{loanname.Id}}">{{loanname.name}}</option>
+      </select>
+      <p *ngIf="loanNameErrwrite" class="sizeExceed">{{loanNameErrwrite}}</p>
+    </div>
+  </div>
+  
+<div *ngIf="paymentnotreflectinsection">
+  <div class="col-sm-12 payment_text" *ngIf="samsungUI==false">
+    If you made a recent transaction, please allow us 3 working days from the date of transaction to update your record
+    with us.
+  </div>
+<div class="tkt_checkbox_desktop" *ngIf="samsungUI==false">
+  <div class="col-sm-12 radio_checkbox">
+    <label class="radio_container">Yes, I have recently made the payment
+      <input type="radio" name="radio" (click)="notAllowedToCreateTkt()">
+      <span class="checkmark"></span>
+    </label>
+    <label class="radio_container">No, its has been more than 3 working days now
+      <input type="radio" name="radio" (click)="createTktSec()">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  </div>
+  
+<div class="tkt_checkbox_mob"  *ngIf="samsungUI==false">
+  <div class="col-sm-12 radio_checkbox" style="margin-bottom: 5px;"> 
+      <label class="radio_container">Yes, I have recently made the payment
+        <input type="radio" name="radio" (click)="notAllowedToCreateTkt()">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  <div class="col-sm-12 radio_checkbox">
+      <label class="radio_container">No, its has been more than 3 working days now
+        <input type="radio" name="radio" (click)="createTktSec()">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+</div>
+
+
+<div *ngIf="createTktSection">
+  <div class="col-sm-12 payment_text" *ngIf="samsungUI==false">
+      Okay, we apologize for the inconvenience. Please share a few details of your transaction which will enable us to identify and update the missing payment record.
+  </div>
+
+  <div class="row create_tkt_input">
+    <!-- <div class="col-sm-6">
+      <label>Select Loan Account *</label>
+      <select class="form-control" [(ngModel)]="loanNane" *ngIf="loanDetail" (keypress)="removeErr()">
+          <option *ngFor="let loanname of loanDetail" value="{{loanname.Id}}">{{loanname.name}}</option>
+        </select>
+        <p *ngIf="loanNameErr" class="sizeExceed">{{loanNameErr}}</p>
+    </div> -->
+    <div class="col-sm-6" *ngIf="selectionType==1 || selectionType==4">
+      <label>Transaction Reference Number *</label>
+      <input type="text" [(ngModel)]="transactionRefNo" class="form-control" (keypress)="removeErr()">
+      <p *ngIf="transactionRefNoerr" class="sizeExceed">{{transactionRefNoerr}}</p>
+    </div>
+    <div class="col-sm-6" *ngIf="selectionType==1 || selectionType==4">
+      <label>Amount Paid *</label>
+      <input type="text" [(ngModel)]="amtPaid" class="form-control" (keypress)="removeErrNumber($event)">
+      <p *ngIf="amtPaidErr" class="sizeExceed">{{amtPaidErr}}</p>
+    </div>
+    
+    <div class="col-sm-12" *ngIf="selectionType==1 || selectionType==4">
+        <label>Date of Transaction *</label>
+
+        <div class="form-group">
+
+            <div class="input-group">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" style="background: white;border: 1px solid lightgray;"><img src="assets/calendar.svg" height="24"></button>
+                  </div>
+              <input class="form-control" (ngModelChange)="dateChange()" placeholder="DD-MM-YYYY" name="dp" [(ngModel)]="paymentDate" ngbDatepicker #d="ngbDatepicker" [maxDate]="disableDate">
+              </div>
+              <p *ngIf="paymentDerr" class="sizeExceed">{{paymentDerr}}</p>
+          </div>
+    </div>
+
+    <div class="col-sm-12" style="margin-bottom: 30px">
+      <label>Email ID *</label>
+      <input type="text" [(ngModel)]="emailId" class="form-control" (keypress)="removeErr()" readonly>
+      <p *ngIf="emailIdErr" class="sizeExceed">{{emailIdErr}}</p>
+    </div>
+    <div class="col-sm-12" style="margin-bottom: 30px">
+        <label>Subject *</label>
+        <input type="text" *ngIf="selectionType==3 || selectionType==4 || selectionType==5" [(ngModel)]="subject" class="form-control" (keypress)="removeErr()">
+        <input type="text" *ngIf="selectionType==1 || selectionType==2" [(ngModel)]="samsungSubject" class="form-control" (keypress)="removeErr()" readonly>
+        <p *ngIf="subjectErr" class="sizeExceed">{{subjectErr}}</p>
+      </div>
+    <div class="col-sm-12">
+      <label>Remarks (500 Characters) *</label>
+      <textarea rows="4" [(ngModel)]="remarks" class="form-control" (keypress)="removeErr()"></textarea>
+      <p *ngIf="remarkErr" class="sizeExceed">{{remarkErr}}</p>
+    </div>
+
+    <div class='col-sm-12' *ngIf="showloader" align="center"><img src="assets/loading.gif" height="45"></div>
+
+    <div class="col-sm-12 tkt_img_upload_desktop" style="margin-top:30px;">
+        <div class="image-upload blogaddImg">
+            <label for="imageUpload">
+                <img src={{attachFile}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                    class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+                    <p *ngIf="attachmentReqwrite" class="sizeExceed">{{attachmentReqwrite}}</p>
+            </label><br>
+            <input style="width: 10%" #profilePicture type="file" id="imageUpload" (change)="getProfilePic($event)" (keypress)="removeErr()">
+            <span class="tkt_img_span">Attach Document *</span>&nbsp;&nbsp;&nbsp;&nbsp; <small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+                and maximum size upto 5 mb ) </small>
+        </div>
+        <p *ngIf="extension"><small *ngIf="fileName !== 'Please select given format files only' " class="filename">{{fileName}}</small><small *ngIf="fileName === 'Please select given format files only' "  class="filenameAlert">{{fileName}}</small></p>
+    </div>
+
+    <div class="col-sm-12 tkt_img_upload_mob">
+        <div class="image-upload blogaddImg" style="margin-top: 30px;">
+            <label for="imageUpload">
+                <img src={{attachFile}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                    class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+                    <p *ngIf="attachmentReqwrite" class="sizeExceed">{{attachmentReqwrite}}</p>
+            </label><br>
+            <input #profilePicture type="file" id="imageUpload" (change)="getProfilePic($event)" (keypress)="removeErr()">
+        </div>
+        <p *ngIf="extension"><small *ngIf="fileName !== 'Please select given format files only' " class="filename">{{fileName}}</small><small *ngIf="fileName === 'Please select given format files only' "  class="filenameAlert">{{fileName}}</small></p>
+        <span class="tkt_img_span">Attach Document *</span><br><small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+            and maximum size upto 5 mb ) </small>
+
+    </div>
+
+    <br>
+    <button type="submit" class="btn-read" style="margin-top: 25px;margin-left: 15px;margin-bottom: 35px;" (click)="createTicketPayment()" *ngIf="!issubmitTkt">Submit</button>
+    <button type="submit" style="margin-top: 2%; border-radius: 26px;" class="btn_disabled" disabled *ngIf="issubmitTkt">Please Wait...</button>
+    <p><br><br></p>
+  </div>
+</div>
+</div>
+
+<div *ngIf="otherSection">
+  <div class="row create_tkt_input">
+    <!-- <div class="col-sm-12" style="margin-bottom: 30px;">
+      <label>Select Loan Account *</label>
+      <select class="form-control" [(ngModel)]="loanNanewrite" *ngIf="loanDetail">
+        <option *ngFor="let loanname of loanDetail" value="{{loanname.Id}}">{{loanname.name}}</option>
+      </select>
+      <p *ngIf="loanNameErrwrite" class="sizeExceed">{{loanNameErrwrite}}</p>
+    </div> -->
+
+    <div class="col-sm-12" style="margin-bottom: 30px">
+        <label>Subject *</label>
+        <input type="text" [(ngModel)]="subjectwrite" class="form-control" (keypress)="removeErrWrite()">
+        <p *ngIf="subjectErrwrite" class="sizeExceed">{{subjectErrwrite}}</p>
+      </div>
+    <div class="col-sm-12">
+      <label>Remarks (500 Characters) *</label>
+      <textarea rows="4" [(ngModel)]="remarkswrite" class="form-control" (keypress)="removeErrWrite()"></textarea>
+      <p *ngIf="remarkErrwrite" class="sizeExceed">{{remarkErrwrite}}</p>
+    </div>
+
+    <div class='col-sm-12' *ngIf="showloader" align="center"><img src="assets/loading.gif" height="45"></div>
+
+    <div class="col-sm-12 tkt_img_upload_desktop" style="margin-top:30px;">    
+    <div class="image-upload blogaddImg">
+        <label for="imageUpload">
+            <img src={{attachFileWrite}} alt="" *ngIf="!tktimgset" class="addblogimg">
+            <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+        </label><br>
+        <input width="10%" #profilePicture type="file" id="imageUpload" (change)="getProfilePicWrite($event)">
+        <span class="tkt_img_span">Attach Document *</span>&nbsp;&nbsp;&nbsp;&nbsp; <small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+            and maximum size upto 5 mb ) </small>
+    </div>
+    <p *ngIf="extensionWrite"><small *ngIf="fileNameWrite !== 'Please select given format files only' " class="filename">{{fileNameWrite}}</small><small *ngIf="fileNameWrite === 'Please select given format files only' "  class="filenameAlert">{{fileNameWrite}}</small></p>
+    </div>
+
+
+    <div class="col-sm-12 tkt_img_upload_mob">
+        <div class="image-upload blogaddImg" style="margin-top: 30px;">
+            <label for="imageUpload">
+                <img src={{attachFileWrite}} alt="" *ngIf="!tktimgset" class="addblogimg">
+                <img [src]="domSanatize.bypassSecurityTrustUrl(imagePath)" alt="" *ngIf="tktimgset"
+                    class="addblogimg"><br><p *ngIf="fileSizeExceedErr" class="sizeExceed">{{fileSizeExceedErr}}</p>
+            </label><br>
+            <input #profilePicture type="file" id="imageUpload" (change)="getProfilePicWrite($event)">
+        </div>
+        <p *ngIf="extensionWrite"><small *ngIf="fileNameWrite !== 'Please select given format files only' " class="filename">{{fileNameWrite}}</small><small *ngIf="fileNameWrite === 'Please select given format files only' "  class="filenameAlert">{{fileNameWrite}}</small></p>
+        <span class="tkt_img_span">Attach Document *</span><br><small class="tkt_img_span">( Accepted format - jpeg, jpg, png & pdf 
+            and maximum size upto 5 mb ) </small>
+    </div>
+
+    <br>
+    <button type="submit" class="btn-read" style="margin-top: 25px;margin-left: 15px;margin-bottom: 35px;" (click)="createTicketWrite()" *ngIf="!issubmitTkt">Submit</button>
+    <button type="submit" style="margin-top: 2%; border-radius: 26px;" class="btn_disabled" disabled *ngIf="issubmitTkt">Please Wait...</button>
+    <p><br><br></p>
+  </div>
+</div>
+</div>
+
+
+</div>
+
+<div class="backdrop" [ngStyle]="{'display':display}">
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+      <div class="modal-dialog1 isOpen" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <h4>Alert</h4>
+                  <p class="numberCircle">Please allows us 3 working days from the date of transaction to update your record with us.</p>
+              </div>
+          </div>
+          <div class="col-sm-12" align="right">
+              <button class="buttonBlue" (click)="dismisModel()">OK</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="backdrop" [ngStyle]="{'display':display1}">
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display1}">
+      <div class="modal-dialog1 isOpen" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <h4>Confirmation</h4>
+                  <p class="numberCircle" *ngIf="showAlert">Your ticket has been submitted successfully.</p>
+                  <p class="numberCircle" *ngIf="tktcaseno">Your service ticket request has been received successfully.<br>Ticket ID: <b>{{tktcaseno}}</b></p>
+              </div>
+          </div>
+          <div class="col-sm-12" align="right" style="margin-bottom: 13px;">
+              <button class="buttonBlue" (click)="dismisModel()">OK</button>
+          </div>
+      </div>
+  </div>
+</div>

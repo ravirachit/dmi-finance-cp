@@ -1,0 +1,369 @@
+
+.display_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payableAmt {
+    margin-top: 12px !important;
+    margin-right: 65px;
+}
+
+.h_loandetail {
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.icon-bar {
+    // width: 90px;
+    background-color: white;
+    margin-top: -34px;
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+}
+
+.dotIcon {
+    float: right;
+}
+
+.logo_name_col {
+    color: #0e5599;
+    font-size: 17px;
+    font-weight: 900;
+    margin-top: 37px;
+}
+
+.logoContent img {
+    margin-right: -2px;
+    float: left;
+    height: 62px;
+    margin-top: 8px;
+}
+
+.overlay {
+    background: #ffffff;
+    color: #666666;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+    float: left;
+    text-align: center;
+    padding-top: 15%;
+}
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 14;
+}
+
+.checkboxwrap {
+    padding: 0px !important;
+}
+
+.flexbtn {
+    display: flex;
+}
+
+.overlay {
+    background: #ffffff;
+    color: #666666;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+    float: left;
+    text-align: center;
+    padding-top: 15%;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        margin-top: 8% !important;
+    }
+}
+
+.modal-dialog2 {
+    position: fixed;
+    right: 32%;
+    left: 38%;
+    margin: 0;
+    max-width: 100%;
+    top: 29%;
+    bottom: 45%;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 0;
+}
+
+.isOpen {
+    transform: scale(1);
+    animation: blowUpModal 0.8s;
+}
+
+@keyframes blowUpModal {
+    0% {
+        transform: scale(0.5);
+    }
+}
+
+.modal-dialog1 {
+    position: fixed;
+    right: 32%;
+    left: 38%;
+    margin: 0;
+    max-width: 100%;
+    top: 30%;
+    bottom: 48%;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 0;
+}
+
+.modal-dialog_paynow {
+    max-width: 400px;
+    margin: auto;
+}
+
+select {
+    background: transparent;
+    max-width: 300px;
+    width: 100%;
+    padding: 5px 4px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+// radio btn
+.radio-btn-container {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    margin-right: 29px;
+}
+
+.radio-btn-flex {
+    display: flex;
+    margin-left: -3px;
+    margin-bottom: -11px;
+}
+
+
+/* Hide the browser's default radio button */
+
+.radio-btn-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 3px;
+    height: 19px;
+    width: 19px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 2px solid darkgray;
+}
+
+.radio-btn-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.radio-btn-container input:checked~.checkmark {
+    background-color: white;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-btn-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.radio-btn-container .checkmark:after {
+    top: 2px;
+    left: 2px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #114b82;
+}
+.arrowDown{
+    height: 5px;
+    width: 9px;
+    margin-top: -3px;
+    margin-left: 3px;
+}
+
+.loan_search_input{
+    label{
+        color: #6294A8!important;
+    }
+}
+
+// end
+
+// .show_animation {
+//     -webkit-animation: showData 1s both;
+//     animation: showData 4s both;
+//   }
+//   @-webkit-keyframes showData {
+//     0% {
+//       opacity: 0;
+//     }
+//   }
+//   @keyframes showData {
+//     0% {
+//       opacity: 0;
+//     }
+// }   
+
+.paynow_dashboard{
+    color: black;
+    background: white;
+    border: 1px solid lightgray;
+    position: relative;
+    border-radius: 30px;
+    display: inline-block;
+    font-weight: 400;
+    padding: 2px 14px;
+    font-size: 12px;
+    width: 0px;
+    min-width: 80px;
+}
+
+.table-dashboard{
+    th, td{
+        text-align: center;
+    }
+}
+
+.dashboad-cont{
+    max-width: 70%;
+    margin-top: 35px;
+}
+
+@media only screen and (max-width: 768px) {
+    .dashboad-cont{
+    max-width: 95%;
+    }
+    .partner_name{
+        h5{
+        font-size: 19px;
+        line-height: 18px;
+        color: #005d83;
+        font-weight: 500;
+        span{
+            font-size: 11px;
+        }
+    }
+}
+.display_flex{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 12px 0px;
+}
+}
+
+
+// Stylesheet for 1920 resolution
+
+@media screen and (min-width: 1900px){
+    .dashboad-cont{
+        max-width: 70%;
+    }
+  }
+  //nach and payment
+  .first-popup {
+    width: 100%;
+    height: 400px;
+}
+.first-popup-close-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+    position: relative;
+    top: 20px;
+    button.close {
+        outline: none;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 768px){
+    .first-popup {
+        width: 100%;
+        height: 300px;
+    
+    .modal-body {
+        position: relative;
+        margin: 0px!important;
+        padding: 0px!important;
+    }
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 0;
+        pointer-events: none;
+        padding: 20px;
+    }
+}
+}
+.para-txt{
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 0 20px;
+}
+.proceed {
+    float: right;
+    padding: 10px;
+    margin: 0;
+    position: relative;
+}
+@media screen and (min-width: 1900px) {
+    .modal-dialog2{
+        position: fixed;
+        right: 32%;
+        left: 38%;
+        margin: 0;
+        max-width: 100%;
+        top: 32%;
+        bottom: 48%;
+        overflow-y: auto;
+        background: #fff;
+        border-radius: 0;
+      }
+}
+.col-sm-4,
+.col-sm-8 {
+    margin-bottom: 16px
+}

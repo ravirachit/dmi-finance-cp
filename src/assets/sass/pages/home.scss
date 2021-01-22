@@ -1,0 +1,284 @@
+
+.home_banner{
+    background: $darkcolor url(../images/home-banner.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center top;
+    .banner_text{
+        margin-top: 16vw;
+        max-width: 35%;
+        color: #fff;
+        @media only screen and (max-width: 1500px){
+            margin-top: 40vh;  
+            max-width: 50%;
+        }
+        @media only screen and (max-width: 767px){
+            max-width: 100%;
+        }
+        h2{
+            color: #fff;
+        }
+    }
+}
+.col-sm-4{
+    overflow: hidden;
+}
+
+
+.home_section2{
+    .bg-left{
+        background: url(https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg);
+        background-size: cover;
+    }
+}
+.home_section2-5{
+    .bg-right{
+        background: url(https://images.pexels.com/photos/280490/pexels-photo-280490.jpeg);
+        background-size: cover;
+        background-position: left 0;
+    }
+}
+
+.home_section2-3{
+    .bg-left{
+        background: url(https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg);
+        background-size: cover;
+    }
+}
+
+
+.box{
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    transition: all 400ms linear;
+    &:after{
+        content: '';
+        position: absolute;
+        background: rgba(0,0,0,.6);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+    &:hover
+    {
+        .box1{
+            transform: scale(1.3)
+        }
+        .box2{
+            transform: scale(1.3)
+        }
+        .box3{
+            transform: scale(1.3)
+        }
+        h5{
+            color: red;
+            font-weight: 400!important;
+        }
+    }
+    .box-content{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;        
+        color: #fff;
+        text-align: right;
+        padding: 60px 35px;
+        transform: translateY(50%);   
+        transition: all 300ms linear;
+        h4{
+            margin-bottom: 35px;
+            
+            @media only screen and (max-width: 1500px) {
+                font-size: 20px;
+                margin-bottom: 50px;
+            }
+        }
+        h5{
+            font-size: 1vw;
+            font-weight: 100;
+        }
+        a{
+            color: red;
+        }
+    
+    }
+    &:hover .box-content{            
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;       
+        color: #000;
+        background: #fff;
+        z-index: 2;
+        text-align: right;
+        padding: 60px 35px;
+        transform: translateY(0%);
+    }
+}
+
+.box1{
+    background: url(../images/bg3.jpeg);
+}
+
+.box2{
+    background: url(../images/bg2.jpg);
+}
+
+.box3{
+    background: url(../images/bg1.jpg);
+}
+
+
+.box1, .box2, .box3{
+    background-size: cover;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 400ms linear;
+}
+
+
+
+
+#pinContainer {
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    margin-top: 15vw;
+    margin-left: 5.5vw !important;
+    color: #bdbdbd;
+    @media only screen and (max-width: 767px){  
+        margin: 0 !important;
+        height: auto;
+        padding: 5vw;
+    }
+    .pinheading {
+        font-size: 12vw;
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        opacity: .1;
+        
+    }
+    #slideContainer {
+        width: 250%;
+        height: 100vh;
+        position: relative;
+        margin-top: 4vw;
+        padding-right: 35%;
+        @media only screen and (max-width: 767px){  
+            width: 100%;
+            height: auto;   
+            margin-top: 7vw;
+        }
+        .panel {
+            height: 100vh;
+            width: 18%;
+            padding: 2% 3% 0% 6%;
+            float: left;
+            position: relative;
+            color: #000;
+            @media only screen and (max-width: 767px){                
+                padding: 2% 2% 0% 3%;    
+                height: auto;
+                width: 100%;
+            }
+            .panel-wrap{
+                @include boxshadow($h: 0px, $v: 0px, $b:60px, $brand-color: rgba(0,0,0,.1));
+                overflow: hidden;
+                background: #fff;
+                max-height: 100%;
+                @media only screen and (max-width: 767px){
+                    max-width: 320px;
+                    margin: auto;
+                }
+                img{
+                    width: 100%;
+                }
+                .panel-content{
+                    padding: 0 5% 5% 5%;
+                    width: 100%;
+                    max-height: 100%;
+                    h2{
+                        font-size: 2vw;
+                        font-weight: 300;
+                        margin-top:40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.horizontal-line {
+    border-top: 1px solid $darkcolor;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    @media only screen and (max-width: 767px){
+        display: none;
+    }
+}
+
+
+
+.clients {
+    h2{
+        margin-top: 10vw;
+        margin-bottom: 5vw;
+    }
+    h5{
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .clientbgdark{
+        background: $darkcolor;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5% 5% 3% 5%;
+        li{
+            width: 25%;
+            list-style: none;
+            margin-bottom: 5%;
+            img{
+                width: 100%;
+            }
+        }
+        
+    }
+}
+
+
+
+@media only screen and (max-width: 767px){
+    .home_section3{
+        margin-top: 60px;
+        .box{
+            min-height: 50vh;
+        }
+        .col-sm-8{
+            max-width: 100%;
+            min-width: 100%;
+            .flex{
+                margin: 0;
+            }
+        }
+        .col-sm-4{
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+}
+

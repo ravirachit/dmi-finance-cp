@@ -1,0 +1,213 @@
+<app-sidenav></app-sidenav>
+
+<div class="main-container">
+    <div class="row">
+        <div class="col-sm-12 page-title">
+          <h2 class="tilepage">Account Statement</h2>
+            <!-- <div align="center"><img src="assets/under-dev.jpg" style="opacity: .5;margin-left: 22%;margin-top: 5%;"></div> -->
+        </div>
+    </div>
+    <div class="card">
+        <div *ngIf="!headerStatementdata" align="center" style="margin-bottom: 15px;margin-top:10px;"><img src="assets/loading.gif" height="70"></div>
+        <div class="card-body" *ngIf="headerStatementdata">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4><b>{{headerStatementdata.Group_Label__c}}</b></h4>
+                    <p><b>Loan ID: {{headerStatementdata.Name}}</b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>DMI Finance Pvt. Ltd. Express Building, Third Floor, 9-10, Bahadur Shah Zafar Marg, New Delhi - 110002, India +91 11 4120 4444, +91 11 4120 4400 | dmi@dmifinance.in <br>CIN : U65929DL2008PTC182749
+                    </p>
+                    <p>Date of Issue<br> [RED]{{headerStatementdata.Disbursement_Date__c}}</p>
+                </div>
+            </div>
+
+            <div style="    text-align: center;">
+                Loan Amount Disbursed: Rs. {{headerStatementdata.Sanction_Amount__c}}<br> Outstanding Balance: Rs. {{headerStatementdata.Current_Total_Outstanding__c}}<br> Amount Paid: Rs. {{headerStatementdata.Current_Face__c}}<br> Interest Rate: {{headerStatementdata.Loan_Rate__c}}%
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4 text-center">Date of Disbursement [RED]{{headerStatementdata.Disbursement_Date__c}}<br><br>Loan Tenure {{headerStatementdata.Loan_Tenor_in_Month__c}}</div>
+                <div class="col-sm-4 text-center">EMI Amount Rs. {{headerStatementdata.EMI__c}}<br>
+                    <br>
+                    <p>Repayment Cycle / EMI Date [RED] 5th of every month</p>
+                </div>
+                <div class="col-sm-4 text-center">Processing Fee Rs. {{headerStatementdata.Processing_Fee__c}}<br><br>Expected Loan Maturity Date {{headerStatementdata.Maturity_Date__c}}</div>
+            </div>
+            <hr>
+            <h2 class=" text-center">Payment Schedule</h2>
+
+            <table *ngIf="headerPaymentData">
+                <tr>
+                    <th>Principal Amount</th>
+                    <th>Interest Amount</th>
+                    <th>Net Payment</th>
+                    <th>Closing Principal Balance</th>
+                </tr>
+                <tr *ngFor="let paymentstate of headerPaymentData">
+                    <td>{{paymentstate.PrincipalPmt__c}}</td>
+                    <td>{{paymentstate.InterestPmt__c}}</td>
+                    <td>{{paymentstate.Net_Payment__c}}</td>
+                    <td>{{paymentstate.ClosingPrincipalBal__c}}</td>
+                </tr>
+
+
+            </table>
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-4 text-center">Call 18005 727 727</div>
+                <div class="col-sm-4 text-center">Email customercare@dmifinance.in
+                </div>
+                <div class="col-sm-4 text-center">Facebook facebok.com/helloDMI</div>
+            </div>
+            <hr>
+
+            <p>Note:<br> If you made any recent payment which is not reflected here, give us 48 hours to process.<br> If you find any discrepancy with this statement, kindly bring into our notice within 5 days from issue of this statement failing which we
+                will assume that the statement is correct and is acceptable by you and we will not be help responsible for any loss you may incur.</p>
+        </div>
+    </div>
+    <!-- <div class="row" *ngIf="loanStatement">
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="col-sm-12">Date: {{loanStatement.result3[0].Date__c | date: 'dd-MMM-yyyy'}}</div>
+      <div class="col-sm-12 statement_Header" align="center"><b>STATEMENT OF ACCOUNT</b></div><br>
+      <div class="row statement_row">
+        <div class="col-sm-3">Application No</div>
+        <div class="col-sm-9"></div>
+      </div>
+      <div class="row statement_row">
+        <div class="col-sm-3">Name of Borrower</div>
+        <div class="col-sm-9">{{loanStatement.result2[0].Group_Label__c}}</div>
+      </div>
+      <div class="row statement_row">
+        <div class="col-sm-3">Name of Co-Borrower</div>
+        <div class="col-sm-9"></div>
+      </div><br>
+      <div class="col-sm-12">
+        <table class="statement_table">
+          <tbody>
+            <tr>
+              <td>Loan Amount Sanctioned</td>
+              <td>{{loanStatement.result1[0].Amount__c | inrFormat}}</td>
+              <td>Loan Product</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Disburstment Till Date</td>
+              <td>00000</td>
+              <td>Loan Status</td>
+              <td>Fully Disburse</td>
+            </tr>
+            <tr>
+              <td>Loan Start Date</td>
+              <td>00-AAA-0000</td>
+
+
+              <td>Balance Tenure</td>
+              <td>{{loanStatement.result2[0].Loan_Tenor_in_Month__c}}</td>
+            </tr>
+            <tr>
+              <td>Current ROI</td>
+              <td>{{loanStatement.result3[0].Interest__c}}%</td>
+              <td>Un-Adjusted Amount</td>
+              <td>0.00</td>
+            </tr>
+            <tr>
+              <td>Current EMI</td>
+              <td>{{loanStatement.result3[0].Net_Payment__c | inrFormat}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table><br>
+        <div class="col-sm-12 tableHeader">The summary details for the period are as under:</div><br>
+        <table class="statement_table">
+          <thead>
+            <tr>
+              <th>For the Period</th>
+              <th>EMI</th>
+              <th>PEMI</th>
+              <th>Other Dues</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Opening Balance</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Receivable during the Period</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Received during the Period</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Waived during the period</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Closing Balance</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table><br><br>
+        <div class="col-sm-12 tableHeader">Transaction during the period:</div><br>
+        <table class="statement_table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Particulars</th>
+              <th>Amount (Dr.)</th>
+              <th>Amount (Cr.)</th>
+              <th>Closing Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{loanStatement.result3[0].Date__c | date: 'dd-MMM-yyyy'}}</td>
+              <td>EMI Due</td>
+              <td>0</td>
+              <td>0</td>
+              <td>{{loanStatement.result3[0].ClosingPrincipalBal__c}}</td>
+            </tr>
+          </tbody>
+        </table><br><br> --
+<div class="col-sm-12 statement_Footer"><b>For DMI Finance Private Limited</b></div><br>
+<div class="col-sm-12 statement_Footer">
+    <b>Note:</b><br>
+    <p>
+        If you made any recent payment which is not reflected here, give us 48 hours to process.<br> If you find any discrepancy with this statement, kindly bring into our notice within 5 days from issue of this statement failing which we will assume
+        that the statement is correct and is acceptable by you and we will not be help responsible for any loss you may incur.
+    </p>
+    <br>
+    <b>Registered Office:</b>
+    <p>DMI Finance Pvt. Ltd. Express Building, Third Floor, 9-10, Bahadur Shah Zafar Marg, New Delhi - 110002, India +91 11 4120 4444, +91 11 4120 4400 | <a href="dmi@dmifinance.in"><u>dmi@dmifinance.in</u></a> CIN : U65929DL2008PTC182749 </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> -->
+</div>
+<app-footer></app-footer>

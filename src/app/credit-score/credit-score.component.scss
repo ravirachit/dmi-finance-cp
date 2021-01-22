@@ -1,0 +1,255 @@
+
+.creditScore{
+  height: 100%;
+  background: white;
+  h2{
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 30px 0 0;
+    color: #0a5697;
+    text-decoration: underline;
+  }
+  .style-mat{
+    padding-top: 40px;
+    .tab-section{
+      display: flex;
+      padding: 0 50px;
+      .tab-section-1{
+        padding: 0 100px;
+        display: grid;
+        grid-template-rows: 1% 70% 12%;
+        text-align: center;
+        justify-content: center;
+        h3{
+          position: absolute;
+          left: 44%;
+          font-size: 50px;
+          top: 85%;
+        }
+        .creditScore2{
+          height: 220px;
+          margin-top: 50px;
+          margin-left: 20px;
+        }
+        .creditArrow{
+          height: 190px;
+          position: relative;
+          right: 202px;
+          margin-top: 80px;
+          width: 20px;
+          transform-origin: bottom;
+          filter: brightness(0.5);
+        }
+        .creditScore1{
+          font-size: 40px;
+          color: #49d049;
+        }
+        .score{
+          display: flex;
+          align-items: center;
+          .lowerLimit{
+            position: relative;
+            left: 40px;
+            font-size: 18px;
+          }
+          .upperLimit{
+            position: relative;
+            left: 320px;
+            font-size: 18px;
+          }
+        }
+      }
+      .tab-section-2{
+        padding-right: 140px;
+        padding-top: 13px;
+        h4{
+          font-size: 21px;
+          letter-spacing: 0.5px;
+          font-family: sans-serif;
+          font-weight: 600;
+          color: #000000cf;
+        }
+        p{
+          letter-spacing: 0.6px;
+          color: gray;
+          font-size: 14px;
+          font-family: sans-serif;
+        }
+        .credit-btn{
+          height: 32px;
+          width: 150px;
+          border: none;
+          border-radius: 30px;
+          background: #0a5697;
+          margin-top: 30px;
+          outline: none;
+          a{
+            color: white;
+            text-decoration: none;
+          }
+        }
+        .credit-btn:hover{cursor: pointer;}
+        .spinner{
+          color: white;
+          i{margin-right: 10px;}
+        }
+      }
+      .tab-section-3{
+        display: flex;
+        justify-content: space-between;
+        p{
+          font-family: sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          color: #000000cc;
+          margin-bottom: 2px;
+        }
+        label{
+          color: #1d96f7;
+          font-size: 15px;
+          font-family: sans-serif;
+          letter-spacing: 0.5px;
+          span{
+            img{
+              height: 17px;
+              padding-right: 4px;
+            }
+          }
+        }
+      }
+      .tab-section-4{
+        margin-top: 10px;
+        hr{
+          width: 98%;
+          background-color: #0a5697;
+          margin: 3px;
+        }
+        h3{
+          padding: 10px 2px;
+          font-size: 20px;
+          font-family: sans-serif;
+          font-weight: 600;
+          margin: 0;
+        }
+        .tab-section-5{
+          display: grid;
+          grid-template-columns: 35% 35% 30%;
+          padding: 8px 0;
+          p{
+            display: grid;
+            grid-template-columns: 50% 5% 30%;
+            text-align: center;
+            margin-bottom: 0;
+            font-size: 17px;
+            letter-spacing: 0.8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:370px){
+  .tab-section-1{
+    h3{top: 180px;}
+  }
+}
+
+@media (min-width:380px) and (max-width:420px){
+  .tab-section-1{
+    h3{top: 198px !important;}
+  }
+}
+
+@media (max-width:1024px){
+  .creditScore{
+    height: max-content;
+    h2{font-size: 25px;}
+    .style-mat{
+      padding: 0;
+      .tab-section{
+        padding: 0;
+        display: block;
+        .tab-section-1{
+          padding: 0;
+          max-height: 280px;
+          grid-template-rows: 0% 88% 12%;
+          h3{
+            font-size: 36px;
+            position: absolute;
+            top: 180px;
+            left: 42%;
+          }
+          .creditScore2{height: 170px;}
+          .creditArrow{
+            height: 140px;
+            right: 160px;
+          }
+          .score{
+            .lowerLimit{
+              position: relative;
+              left: 35px;
+              font-size: 18px;
+            }
+            .upperLimit{
+              position: relative;
+              left: 245px;
+              font-size: 18px;
+            }
+          }
+        }
+        .tab-section-2{
+          padding: 0;
+          h4{padding: 10px 15px;}
+          p{padding: 0 15px;}
+          .credit-btn{
+            margin: 30px 15px;
+          }
+          .tab-section-3{
+            display: block;
+            padding: 10px 15px;
+            p{padding:0}
+            label{
+              padding-top: 3px;
+              span{
+                img{padding-right: 10px;}
+              }
+            }
+          }
+          .tab-section-4{
+            h3{
+              text-align: center;
+            }
+            .tab-section-5{
+              padding: 5px 0;
+              display: grid;
+              grid-template-columns: 32% 32% 32%;
+              p{
+                font-size: 16px;
+                display: grid;
+                text-align: center;
+                grid-template-columns: auto;
+                label{
+                  padding-left: 25x;
+                }
+                span{display: none;}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width:1024px){
+  .creditScore{
+    .style-mat{
+      .tab-section{
+        display: flex;
+        padding: 20px;
+      }
+    }
+  }
+}

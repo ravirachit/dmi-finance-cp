@@ -1,0 +1,97 @@
+.session_section {
+    width: 50%;
+    height: 162px;
+    background-color: #fff;
+    position: absolute;
+    top: -50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    // border: 1px solid #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    img{
+        height: 23px;
+        opacity: .8;
+    }
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        background: #ef9a9a;
+        color: #424242;
+        // opacity: .9;
+    }
+    p{
+        padding: 34px 15px 0px;
+    }
+    small{
+        color: gray;
+    }
+}
+.body{
+    height: 100%;
+    background: white !important;
+}
+.btnclass{
+    display: flex;
+    justify-content: center;
+}
+.heading{
+    margin-left: 80px;margin-top: 25px;
+}
+
+.sessionImage{
+    // height: 480px;
+    display: flex;
+    justify-content: center;
+    img{
+        height: 650px;
+        margin-top: -92px;
+    }
+}
+
+.mainSection{
+    margin-top: 40px;
+    display: inline-flex;
+}
+.heading1{
+    font-size: 60px;
+    margin-top: 100px;
+    color: #909090;
+    font-weight: 400;
+}
+.heading2{
+    font-size: 26px;
+    color: #909090;
+    margin-left: 12px;
+}
+.loginbtn{
+    height: 40px;
+    width: 120px;
+    background: white;
+    border: 1px solid #5d5d5d;
+    border-radius: 30px;
+    font-size: 22px;
+    color: #004788;
+    margin-top: 45px;
+}
+
+@media only screen and (max-width: 576px) {
+    .heading{margin-left: 0px;margin-top: 10px;}
+    .mainSection{display: inline-block;}
+    .sessionImage{img{height: 330px !important;margin-top: -70px;}}
+    .mobileSection{margin-top: -115px;}
+    .heading1{font-size: 40px;}
+    .heading2{font-size: 20px;}
+}
+
+@media only screen and (max-width: 768px) {
+    .heading{margin-left: 0px;}
+    .sessionImage{img{height: 360px !important;margin-top: -55px;}}
+    .mobileSection{margin-top: -120px;}
+    .heading1{font-size: 38px;}
+    .heading2{font-size: 18px;}
+    .loginbtn{height: 32px;width: 100px;font-size: 18px;margin-top: 15px;}
+}

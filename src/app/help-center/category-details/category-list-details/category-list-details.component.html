@@ -1,0 +1,217 @@
+<!-- <app-header></app-header>
+<hr style="margin-top: -5px;">
+<div class="row">
+  <div class="col-sm-3">
+    <div class="tkt-aside">
+      <div class="row head_title">
+        <div class="tkt-aside_search">
+          <div class="search-container">
+            <input type="text" name="search">
+            <button type="submit"><img src="assets/search.png"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 leftnav_cards">
+        <label class="title_text">FILTER BY CATEGORY</label><br>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="category_card" (click)="categorydetails()" style="background: #004788;color: white;">
+              <div class="" style="display: flex;">
+                <div class="card_icon"><img src="assets/payment-method-white.svg"></div>
+                <span class="vl_height" style="border-right: 1px solid white;"></span>
+                <p>Payments</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="category_card">
+              <div class="" style="display: flex;">
+                <div class="card_icon"><img src="assets/user.png"></div>
+                <span class="vl_height"></span>
+                <p>User Profile</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="category_card">
+              <div class="" style="display: flex;">
+                <div class="card_icon"><img src="assets/emi loan.png"></div>
+                <span class="vl_height"></span>
+                <p>EMI</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="category_card">
+              <div class="" style="display: flex;">
+                <div class="card_icon" style="width: 46px;"><img src="assets/tax.png"></div>
+                <span class="vl_height"></span>
+                <p style="margin-top: -2px;">New Loan Application</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="category_card">
+              <div class="" style="display: flex;">
+                <div class="card_icon"><img src="assets/money-bag.png"></div>
+                <span class="vl_height"></span>
+                <p>Existing Loan</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="category_card">
+              <div class="" style="display: flex;">
+                <div class="card_icon"><img src="assets/chat.png"></div>
+                <span class="vl_height"></span>
+                <p>Others</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 tkt_right_container">
+    <div class="row head_title">
+      <label class="title_text">KNOWLEDGE BASE &nbsp;>&nbsp; CATEGORY &nbsp;>&nbsp; PAYMENT</label><br>
+    </div>
+    <div class="row notification_panel">
+      <div class="col-sm-9">
+        <p class="noti_subject">Principle: This is the actual amount of money being borrowed, the principle amount</p>
+      </div>
+      <div class="col-sm-3" align="right" style="margin-top: 5px;">
+        <img src="assets/clock.png" style="margin-right: 5px;"><span style="font-size: 10px;color:gray;">20-aug-2019</span>
+      </div>
+      <div class="col-sm-12">
+        <p class="noti_message">This is a loan which has been secured by some assets of property. So the borrower will
+          pledge his assets against the loan. In case the borrower defaults on his loan, the bank will become the owner
+          of such asset. It can sell the asset and recover the amount owed.</p>
+      </div>
+      <div class="col-sm-9">
+        <button (click)="listCategoryPage()">Continued</button>
+      </div>
+      <div class="col-sm-3 like_section">
+        <div style="display: flex;float: right;">
+          <img src="assets/like.svg"><span>50</span>
+          <div style="margin-left: 15px;"><img src="assets/dislike.svg"><span>5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row notification_panel">
+      <div class="col-sm-9">
+        <p class="noti_subject">Principle: This is the actual amount of money being borrowed, the principle amount</p>
+      </div>
+      <div class="col-sm-3" align="right" style="margin-top: 5px;">
+        <img src="assets/clock.png" style="margin-right: 5px;"><span style="font-size: 10px;color:gray;">20-aug-2019</span>
+      </div>
+      <div class="col-sm-12">
+        <p class="noti_message">This is a loan which has been secured by some assets of property. So the borrower will
+          pledge his assets against the loan. In case the borrower defaults on his loan, the bank will become the owner
+          of such asset. It can sell the asset and recover the amount owed.</p>
+      </div>
+      <div class="col-sm-9">
+        <button (click)="listCategoryPage()">Continued</button>
+      </div>
+      <div class="col-sm-3 like_section">
+        <div style="display: flex;float: right;">
+          <img src="assets/like.svg"><span>50</span>
+          <div style="margin-left: 15px;"><img src="assets/dislike.svg"><span>5</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="row notification_panel">
+      <div class="col-sm-9">
+        <p class="noti_subject">Principle: This is the actual amount of money being borrowed, the principle amount</p>
+      </div>
+      <div class="col-sm-3" align="right" style="margin-top: 5px;">
+        <img src="assets/clock.png" style="margin-right: 5px;"><span style="font-size: 10px;color:gray;">20-aug-2019</span>
+      </div>
+      <div class="col-sm-12">
+        <p class="noti_message">This is a loan which has been secured by some assets of property. So the borrower will
+          pledge his assets against the loan. In case the borrower defaults on his loan, the bank will become the owner
+          of such asset. It can sell the asset and recover the amount owed.</p>
+      </div>
+      <div class="col-sm-9">
+        <button (click)="listCategoryPage()">Continued</button>
+      </div>
+      <div class="col-sm-3 like_section">
+        <div style="display: flex;float: right;">
+          <img src="assets/like.svg"><span>50</span>
+          <div style="margin-left: 15px;"><img src="assets/dislike.svg"><span>5</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-sm-3 categorydetails_rightsec">
+    <div class="row head_title">
+      <label class="title_text">RECENT ARTICLES</label><br>
+    </div>
+    <div class="row notification_panel">
+      <div class="col-sm-7">
+        <p class="noti_subject"></p>
+      </div>
+      <div class="col-sm-5" align="right" style="margin-top: 5px;">
+        <img src="assets/clock.png" style="margin-right: 5px;"><span style="font-size: 10px;color:gray;">20-Aug-2019</span>
+      </div>
+      <div class="col-sm-12">
+          <p class="noti_subject">The interest being changed when represented in monetary values.</p>
+      </div>
+      <div class="col-sm-6">
+          <button class="btn-status" style="background:#92ffac;color: #165525;">Payment</button>
+      </div>
+      <div class="col-sm-6 like_section">
+        <div style="display: flex;float: right;">
+          <img src="assets/like.svg"><span>50</span>
+          <div style="margin-left: 15px;"><img src="assets/dislike.svg"><span>5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row notification_panel">
+        <div class="col-sm-7">
+          <p class="noti_subject"></p>
+        </div>
+        <div class="col-sm-5" align="right" style="margin-top: 5px;">
+          <img src="assets/clock.png" style="margin-right: 5px;"><span style="font-size: 10px;color:gray;">20-Aug-2019</span>
+        </div>
+        <div class="col-sm-12">
+            <p class="noti_subject">The monthly payment to make on the loan.</p>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn-status" style="background:#ffe8ac;color: #165525;">Emi</button>
+        </div>
+        <div class="col-sm-6 like_section">
+          <div style="display: flex;float: right;">
+            <img src="assets/like.svg"><span>50</span>
+            <div style="margin-left: 15px;"><img src="assets/dislike.svg"><span>5</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row notification_panel">
+          <div class="col-sm-7">
+            <p class="noti_subject"></p>
+          </div>
+          <div class="col-sm-5" align="right" style="margin-top: 5px;">
+            <img src="assets/clock.png" style="margin-right: 5px;"><span style="font-size: 10px;color:gray;">20-Aug-2019</span>
+          </div>
+          <div class="col-sm-12">
+              <p class="noti_subject">A mortgage is one popular type of secured loan.</p>
+          </div>
+          <div class="col-sm-6">
+              <button class="btn-status" style="background:#F7E3FF;color: #165525;">New Loan</button>
+          </div>
+          <div class="col-sm-6 like_section">
+            <div style="display: flex;float: right;">
+              <img src="assets/like.svg"><span>50</span>
+              <div style="margin-left: 15px;"><img src="assets/dislike.svg"><span>5</span></div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div> -->

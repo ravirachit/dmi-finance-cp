@@ -1,0 +1,170 @@
+<app-header></app-header>
+<!-- <hr style="margin-top: -5px;" class="blog_sec_mob"> -->
+<div class="row blog_sec_mob">
+  <div class="col-sm-3">
+    <div class="notification-aside">
+      <div class="row head_title">
+        <div class="col-sm-6 title_text">TRENDING IN FINANCE</div>
+      </div>
+      <div *ngFor="let trending of trendingArr.data">
+        <div class="col-sm-12 trending_card" >
+          <div class="row">
+            <img src="{{trending.meta_image}}">
+          </div>
+        </div><br>
+
+        <div class="col-sm-12 trending_card_data">
+          <div class="row">
+            <p>{{trending.blog_title}}<br></p>
+            <small>{{trending.meta_description}}</small>
+            <div class="col-sm-8" style="display: flex;">
+              <img src="assets/tile-image1.jpg">
+              <div class="leftnav_username">{{trending.created_by}}<br><span>{{trending.created_at}}</span></div>
+            </div>
+            <div class="col-sm-4" (click)="loanDetails(trending.id)"><a>Read More...</a></div>
+          </div>
+        </div>
+      </div><br>
+      <!-- <div class="left_tile_section">
+        <div class="col-sm-12 trending_card2">
+          <div class="row">
+          </div>
+        </div><br> -->
+        <!-- <div class="col-sm-12 trending_card_data">
+          <div class="row">
+            <p>Interest rates have a significant effect on loan and the <br></p>
+            <small>Interest rates have a significant effect on loan and the ultimate cost to the borrower Loans.</small>
+            <div class="col-sm-8" style="display: flex;">
+              <img src="assets/tile-image1.jpg">
+              <div class="leftnav_username">Ravi Kumar<br><span>2 days ago</span></div>
+            </div>
+            <div class="col-sm-4"><a href="">Read More...</a></div>
+          </div>
+        </div> -->
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <div class="col-sm-9 notification_center_container notificationDetails">
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-sm-12 title_text">RECENT NOTIFICATION & ALERT</div>
+      <div class="col-sm-12">
+        <ngb-tabset (tabChange)="getTabchange($event)">
+          <ngb-tab id="Notification">
+            <ng-template ngbTabTitle>Notification</ng-template>
+            <ng-template ngbTabContent>
+                <div class="row notification_panel" *ngFor="let notif of notificationArr.data; let i = index">
+                    <div class="col-sm-9">
+                        <div *ngIf="notif.loan_stage_notification == 'Blogs'" >
+                                <button class="btn-status" style="background:#92ffac;color: #165525;">{{notif.loan_stage_notification}}</button><br>
+                        </div>
+                        <div *ngIf="notif.loan_stage_notification == 'Congratulations'" >
+                                <button class="btn-status" style="background:#ffe8ac;color: #720f00;">{{notif.loan_stage_notification}}</button><br>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" align="center">
+                        <img src="assets/clock1.png" style="margin-right: 5px;"><span
+                            style="font-size: 10px;color:gray;">{{notif.created_at | slice:0:10 | date: 'MMM dd,yyyy'}}</span>
+                    </div>
+                    <div class="col-sm-12">
+                        <p class="noti_subject">{{notif.title}}</p>
+                        <p class="noti_message">{{notif.description}}</p>
+                    </div>
+                </div>
+            </ng-template>
+          </ngb-tab>
+
+          <ngb-tab id="Alert">
+            <ng-template ngbTabTitle>Alert</ng-template>
+            <ng-template ngbTabContent>
+                <div class="row notification_panel" *ngFor="let notif of alertArr.data; let i = index">
+                    <div class="col-sm-9">
+                        <div *ngIf="notif.loan_stage_notification == 'Blogs'" >
+                                <button class="btn-status" style="background:#92ffac;color: #165525;">{{notif.loan_stage_notification}}</button><br>
+                        </div>
+                        <div *ngIf="notif.loan_stage_notification == 'Congratulations'" >
+                                <button class="btn-status" style="background:#ffe8ac;color: #720f00;">{{notif.loan_stage_notification}}</button><br>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" 0align="center">
+                        <img src="assets/clock1.png" style="margin-right: 5px;"><span
+                            style="font-size: 10px;color:gray;">{{notif.created_at | slice:0:10 | date: 'MMM dd, yyyy'}}</span>
+                    </div>
+                    <div class="col-sm-12">
+                        <p class="noti_subject">{{notif.title}}</p>
+                        <p class="noti_message">{{notif.description}}</p>
+                    </div>
+                </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+
+      </div>
+      <!-- <div class="col-sm-2" align=right><img src="assets/view.svg"></div> -->
+    </div>
+
+  </div>
+
+
+  <!-- <div class="col-sm-3 notification_right_container">
+      <div class="col-sm-12 title_text">EXCLUSIVE OFFER</div>
+      <div class="col-sm-12 right_side_card">
+        <div class="row">
+        </div>
+      </div>
+    </div> -->
+  
+  </div>
+
+
+<div class="row notificationDetails_formob_tab">
+  <div class="col-sm-12 notificationdetails_mob">
+        <div class="col-sm-12 flex2_display">
+            <label class="title_text">RECENT NOTIFICATION & ALERT</label>
+            <img src="assets/view.svg">
+      </div>
+        <div class="col-sm-12">
+          <ngb-tabset (tabChange)="getTabchange($event)">
+            <ngb-tab id="Notification">
+              <ng-template ngbTabTitle>Notification</ng-template>
+              <ng-template ngbTabContent>
+                  <div class="notification_panel_mob" *ngFor="let notif of notificationArr.data; let i = index">
+                      <div class="col-sm-12 flex2_display">
+                                  <button *ngIf="notif.loan_stage_notification == 'Blogs'" class="btn-status" style="background:#92ffac;color: #165525;">{{notif.loan_stage_notification}}</button>
+                                  <button *ngIf="notif.loan_stage_notification == 'Congratulations'" class="btn-status" style="background:#ffe8ac;color: #720f00;">{{notif.loan_stage_notification}}</button>
+                      <div>
+                          <img src="assets/clock1.png" style="margin-right: 5px;"><span
+                              style="font-size: 10px;color:gray;">{{notif.created_at | slice:0:10 | date: 'MMM dd,yyyy'}}</span>
+                      </div>
+                    </div>
+                      <div class="col-sm-12">
+                          <p class="noti_subject">{{notif.title}}</p>
+                          <p class="noti_message">{{notif.description}}</p>
+                      </div>
+                  </div>
+              </ng-template>
+            </ngb-tab>
+  
+            <ngb-tab id="Alert">
+              <ng-template ngbTabTitle>Alert</ng-template>
+              <ng-template ngbTabContent>
+                  <div class="notification_panel_mob" *ngFor="let notif of alertArr.data; let i = index">
+                      <div class="col-sm-12 flex2_display">
+                          <button *ngIf="notif.loan_stage_notification == 'Blogs'" class="btn-status" style="background:#92ffac;color: #165525;">{{notif.loan_stage_notification}}</button>
+                          <button *ngIf="notif.loan_stage_notification == 'Congratulations'" class="btn-status" style="background:#ffe8ac;color: #720f00;">{{notif.loan_stage_notification}}</button>
+              <div>
+                  <img src="assets/clock1.png" style="margin-right: 5px;"><span
+                      style="font-size: 10px;color:gray;">{{notif.created_at | slice:0:10 | date: 'MMM dd,yyyy'}}</span>
+              </div>
+            </div>
+              <div class="col-sm-12">
+                  <p class="noti_subject">{{notif.title}}</p>
+                  <p class="noti_message">{{notif.description}}</p>
+              </div>
+                  </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+    </div>
+    </div>

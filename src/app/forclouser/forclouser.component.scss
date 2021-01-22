@@ -1,0 +1,99 @@
+.tilepage {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    img{
+        height: 15px;
+        margin-left: 9px;
+    }
+}
+.table-fore {
+    width: 100%;
+    background: #e6f4ff;
+    font-size: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    th {
+      padding: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(45, 112, 139, 0.75);
+      vertical-align: text-bottom;
+    }
+    td{
+        text-align: center;
+    }
+    tr:nth-child(even) {
+        th {
+            background: #fff;
+            width: 30%;
+      }
+      td {
+        background: #fff;
+        width: 30%;
+  }
+    }
+    // td {
+    //   padding: 14px 10px;
+    //   color: #005d83;
+    //   font-weight: 400;
+    // }
+  }
+
+@media screen and (min-width: 1900px){
+    .table-dashboard, th{
+        font-size: 16px;
+    }
+    .table-dashboard, td{
+        font-size: 14px;
+    }
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    margin-top: 30px;
+    border-top: 1px solid black;
+}
+.custom-card {
+    background: #fff;
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    border-radius: 8px;
+    .hr{
+        background: #e4e3e39e
+    }
+}
+.form-group{width:100%;display: flex;justify-content: space-between}
+.row{display: flex;justify-content: center;}
+.main-section{padding-left: 50px;padding-right: 50px;margin-top:-20px}
+.subSection{margin-top: 30px}
+.dataHeading{font-size: 12px; color:#004788}
+.blue_btn {
+    color: #fff;
+    background: #0a5697;
+    border: 1px solid #0a5697;
+    position: relative;
+    overflow: hidden;
+    padding: 8px 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    transition: all 0.2s linear;
+    font-size: 14px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    &:hover {
+      background: #fff !important;
+      color: #0a5697;
+    }
+  }
+  .showRemark{display: flex;justify-content: center;margin-top: 50px}
+
+  @media only screen and (min-width: 320px) and (max-width: 768px){
+    .main-section{padding-left: 30px;padding-right: 30px;margin-top:-20px;margin-bottom: 50px;}
+    .table-fore{width: 100%}
+    tr:nth-child(even) {
+        th{
+            background: #fff;
+            width: 50% !important;
+        }
+    }
+  }

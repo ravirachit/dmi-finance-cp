@@ -1,0 +1,77 @@
+<div class="dashboard_navbar">
+    <div class="nav_container">
+      <div class="headerNav_Link">
+        <a routerLink='/dashboard' class="header_logo_anch"><img src="assets/logo.png" height="50"></a>
+        <a routerLink='/dashboard'>Dashboard</a>
+  
+        <!-- <div class="dropdown theme-dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loan Accounts
+          </a>
+          <ul dropdownMenu class="dropdown-menu" role="menu" *ngIf="loanDetails">
+            <li *ngFor="let loan of loanDetails;" value="{{loan.Id}}" (click)="selectValue(loan)"
+              class="dropdown-item">{{loan.name}}
+            </li>
+          </ul>
+        </div> -->
+        <a routerLink='/loanOffer'>Offers</a>
+        <a routerLink='/faq'>FAQ</a>
+        <a routerLink='/customerSupport'>Customer Support</a>
+      </div>
+      <div class="profile_icon_div">
+        <div *ngIf="userBasicInfo">
+          <div class="display-flex">
+            <div class="profile_circle">
+              {{userBasicInfo[0].FirstName | slice:0:1}}{{userBasicInfo[0].LastName | slice:0:1}}</div>
+            <div class="user_name">{{userName1}}</div>
+            <div class="dropdown theme-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="color: white;"><img src="assets/dots.svg" class="Heaer_profile_Menu_icon"></a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Update Profile</a>
+                <a class="dropdown-item" href="#">Update Bank Details</a>
+                <a class="dropdown-item" (click)="logout()">Sign Out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="overlay">
+    <circle-progress [percent]="100" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
+      [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="10000">
+    </circle-progress>
+  </div>
+
+
+<!-- <div class="sidenav">
+  <div class="icon-bar">
+    <div class="logoContent">
+      <a href="#"><img src="assets/logo.svg"></a>
+    </div>
+  </div>
+  <div class="sideBar_list">
+    <a href="#" class="sideBar_anch"><img src="assets/dashboard.svg"></a>
+    <div class="dashboard_text">DASHBOARD</div>
+  </div>
+  <hr class="side_nav_hr">
+  <a href="#" class="sideBar_anch_list">Update Profile</a>
+  <a href="#" class="sideBar_anch_list">Update Bank Details</a>
+  <div class="sideNav-footer">
+    <hr class="side_nav_footer_hr">
+    <div class="footer_list">
+      <a href="#" class="footer_anch_list"><img src="assets/auction.svg"></a>
+      <div class="dashboard_text">RAISE A DISPUTE</div>
+    </div>
+    <div class="footer_list">
+      <a href="#" class="footer_anch_list"><img src="assets/faq.svg"></a>
+      <div class="dashboard_text">FAQ</div>
+    </div>
+    <div class="footer_list">
+      <a href="#" class="footer_anch_list"><img src="assets/logout.svg"></a>
+      <div class="dashboard_text">SIGN OUT</div>
+    </div>
+
+  </div>
+</div> -->

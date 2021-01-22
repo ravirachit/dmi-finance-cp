@@ -1,0 +1,95 @@
+
+  .line_height {
+    line-height: 2.4 !important;
+    .vLine {
+      border-left: 1px solid lightgray;
+      height: 191px;
+    }
+    .left_column {
+      margin-right: -15px !important;
+      padding-right: 45px !important;
+    }
+    .right_column {
+      padding-left: 25px !important;
+    }
+    hr {
+      margin-top: 1px;
+      margin-bottom: 5px;
+    }
+  }
+  .display_flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  .h_loandetail {
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
+ 
+  .icon-bar {
+    // width: 90px;
+    background-color: white;
+    margin-top: -34px;
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+  }
+  .logout_Icon {
+    bottom: 0;
+    position: absolute;
+    margin-left: 20px;
+    margin-bottom: 22px;
+  }
+  .dotIcon {
+    float: right;
+  }
+  .logo_name_col {
+    color: #0e5599;
+    font-size: 17px;
+    font-weight: 900;
+    margin-top: 37px;
+  }
+  
+  .logoContent {
+    padding: 15px;
+    overflow: hidden;
+  }
+  
+  .logoContent img {
+    margin-right: -2px;
+    float: left;
+    height: 62px;
+    margin-top: 8px;
+  }
+  
+  .dashboardicon {
+    padding: 0px;
+    overflow: hidden;
+  }
+  
+  .dashboardicon img {
+    margin-right: -2px;
+    float: left;
+    margin-top: 8px;
+  }
+  
+  .overlay {
+    background: #ffffff;
+    color: #666666;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+    float: left;
+    text-align: center;
+    padding-top: 15%;
+  }
+  

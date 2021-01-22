@@ -1,0 +1,61 @@
+
+<app-header></app-header>
+<div class="blogbg">
+        <div class="container">
+            <div class="blogheader row" >
+                <div class="col-sm-6">
+                    <img src="assets/kb.svg">
+                </div>
+                <div class="col-sm-6">
+                    <form>
+                        <input type="text" >
+                        <button type="submit" routerLink="/knowladgebase/search">Search</button>
+                    </form>
+                    <div class="blogtags" *ngIf="kbposts">
+                        <a href="#" *ngFor="let kbpost of kbposts.data"><img src="assets/kbicon.svg"> {{kbpost.category_name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+  <br><br>
+
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+    <li>
+        <h4>How can I upgrade my desktop application</h4>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        <a routerLink="" class="btn ">Read More</a>
+    </li>
+
+</div>

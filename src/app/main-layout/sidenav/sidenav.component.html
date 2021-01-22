@@ -1,0 +1,399 @@
+<aside class="sidenav_web">
+    <div *ngIf="!SpeceficLoanDetail" align="center" class="loanlogo"><img src="assets/loading.gif" height="45"></div>
+    <div *ngIf="SpeceficLoanDetail">
+        <div class="loanlogo">
+            <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'LetsMd'"><img src="assets/partners/letsmd.png"></span> -->
+            <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Arogya'"><img src="assets/partners/arogya-finance.png"></span> -->
+            <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'IndiaLends'"><img src="assets/partners/indialends.png"></span> -->
+            <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Samsung'"><img src="assets/partners/samsung.png"></span> -->
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'DMI LOS'"><img
+                    src="assets/partners/dmi-finance.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'X-Sell'"><img
+                    src="assets/dmi-finance.png"></span>
+
+
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Channel Partner'"><img
+                    src="assets/partners/dmi-finance.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Arogya'"><img
+                    src="assets/partners/arogya-finance.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Cashcare'"><img
+                    src="assets/partners/cashcare.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Credifiable'"><img
+                    src="assets/partners/Credifiable.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Digilend'"><img
+                    src="assets/partners/digilent.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'DMI Direct'"><img
+                    src="assets/partners/dmi-finance.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Eduvanz'"><img
+                    src="assets/partners/Eduvanz.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Ezcred'"><img
+                    src="assets/partners/Ezcred.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Finnable'"><img
+                    src="assets/partners/Finnable.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Healthcarefront'"><img
+                    src="assets/partners/Healthcarefront.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'IndiaLends'"><img
+                    src="assets/partners/indialends.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'indiaLends'"><img
+                    src="assets/partners/indialends.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'InstaPaisa'"><img
+                    src="assets/partners/instapaiss.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Iserv'"><img
+                    src="assets/partners/Iserv.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Kissht'"><img
+                    src="assets/partners/Kissht.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'KnabFinance'"><img
+                    src="assets/partners/Knab.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'LetsMd'"><img
+                    src="assets/partners/letsmd.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Mintifi'"><img
+                    src="assets/partners/mintifit.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Mobikwik'"><img
+                    src="assets/partners/Mobikwik.png"></span>
+                    <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'MobiKwik'"><img
+                        src="assets/partners/Mobikwik.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'MoneyTap'"><img
+                    src="assets/partners/moneytap.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'MoneyView'"><img
+                    src="assets/partners/Moneyview.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'OptaCredit'"><img
+                    src="assets/partners/dmi-finance.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'PaisaBazar'"><img
+                    src="assets/partners/PaisaBazar.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'RedCarpet'"><img
+                    src="assets/partners/RedCarpet.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Rentickle'"><img
+                    src="assets/partners/Rentickle.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Samsung'"><img
+                    src="assets/partners/samsung.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Shubhloans'"><img
+                    src="assets/partners/shubh loan.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Shubhloan UrbanClap'"><img
+                    src="assets/partners/shubh loan.png"></span>
+
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Slicepay'"><img
+                    src="assets/partners/Slicepay.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'SMECorner'"><img
+                    src="assets/partners/SME CORNER.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Stashfin'"><img
+                    src="assets/partners/Stashfin.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Tala'"><img
+                    src="assets/partners/tala.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Walnut'"><img
+                    src="assets/partners/walnut.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'ZestMoney'"><img
+                    src="assets/partners/zest.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Zopper'"><img
+                    src="assets/partners/Zopper.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Capital Float'"><img
+                    src="assets/partners/Capital Float.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'UltraCash'"><img
+                    src="assets/partners/UltraCash.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'HappyLoan'"><img
+                    src="assets/partners/HappyLoan.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Epay Later'"><img
+                    src="assets/partners/Epaylater.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'SanKash'"><img
+                    src="assets/partners/sankush.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'CredRight'"><img
+                    src="assets/partners/CredRight.png"></span>
+            <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Krazybee'"><img
+                    src="assets/partners/Krazybee.png"></span>
+
+        </div>
+
+        <div>
+            <p class="lead_source_name">{{SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c}}</p><br>
+            <p class="sidenav_loanname">{{SpeceficLoanDetail[0].name}}</p>
+            <p class="text-center">
+                <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Current'"
+                    style="background:#CCFFD8;color: #165525">{{SpeceficLoanDetail[0].StageName}}</a>
+                <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Matured'"
+                    style="background:#FFF6DE;color:#A31818">{{SpeceficLoanDetail[0].StageName}}</a>
+                <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Delinquent'"
+                    style="background:#FFCCCC;color:#5D4608">{{SpeceficLoanDetail[0].StageName}}</a>
+                <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Settled & Closed'"
+                    style="background:lightgray;color: black!important">{{SpeceficLoanDetail[0].StageName}}</a>
+                <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Written Off & Closed'"
+                    style="background:lightgray;color: black!important">{{SpeceficLoanDetail[0].StageName}}</a>
+                <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Disbursement Approved'"
+                    style="background:#039be5;color: #fff">{{SpeceficLoanDetail[0].StageName}}</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="nav-wrap">
+        <div>
+            <a routerLink='/dashboard'>Dashboard</a>
+            <a routerLink='/loanDetail' routerLinkActive="'activeSty'">Account Summary</a>
+            <a routerLink='/welcomeletter' routerLinkActive="'activeSty'">Welcome Letter</a>
+            <a routerLink='/foreclosure' routerLinkActive="'activeSty'" *ngIf="SpeceficLoanDetail[0].StageName != 'Matured' && SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c != 'Samsung'">Preclosure Summary</a>
+            <a *ngIf="SpeceficLoanDetail[0].StageName != 'Written Off & Closed'" routerLink='/paymentSummary' routerLinkActive="'activeSty'">Payment Summary</a>
+            <span *ngIf="SpeceficLoanDetail">
+                <a routerLink='/noc' routerLinkActive="'activeSty'"
+                    *ngIf="SpeceficLoanDetail[0].StageName == 'Matured'">No Dues Certificate </a>
+            </span>
+            <a routerLink='/createtickets' routerLinkActive="'activeSty'">Service Ticket Request</a>
+            <a href="javascript:void(0)" (click)="checkRatingStats()"  data-toggle="modal" data-target="#NachModel" data-backdrop="static" data-keyboard="false">Logout </a>
+        </div>
+    </div>
+</aside>
+
+<div class="sidenav_mob_tab">
+    <div class="example-container">
+        <mat-toolbar color="primary" class="example-toolbar" style="display: flex;justify-content:space-between;">
+            <img src="assets/menu.svg" (click)="snav.toggle()">
+            <h1 *ngIf="userBasicInfo">{{userName1}}</h1>
+            <img src="assets/logo.png" style="height: 37px;">
+        </mat-toolbar>
+
+        <mat-sidenav-container class="example-sidenav-container">
+            <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+                fixedTopGap="56">
+                <!-- <mat-nav-list>
+                      <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+                    </mat-nav-list> -->
+
+
+                <div *ngIf="!SpeceficLoanDetail" align="center" class="loanlogo"><img src="assets/loading.gif"
+                        height="45"></div>
+                <div *ngIf="SpeceficLoanDetail">
+                    <div class="col-sm-12 loanlogo" align="center">
+                        <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'LetsMd'"><img src="assets/partners/letsmd.png"></span> -->
+                        <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Arogya'"><img src="assets/partners/arogya-finance.png"></span> -->
+                        <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'IndiaLends'"><img src="assets/partners/indialends.png"></span> -->
+                        <!-- <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Samsung'"><img src="assets/partners/samsung.png"></span> -->
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'DMI LOS'"><img
+                                src="assets/partners/dmi-finance.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'X-Sell'"><img
+                                src="assets/dmi-finance.png"></span>
+
+
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Channel Partner'"><img
+                                src="assets/partners/dmi-finance.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Arogya'"><img
+                                src="assets/partners/arogya-finance.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Cashcare'"><img
+                                src="assets/partners/cashcare.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Credifiable'"><img
+                                src="assets/partners/Credifiable.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Digilend'"><img
+                                src="assets/partners/digilent.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'DMI Direct'"><img
+                                src="assets/partners/dmi-finance.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Eduvanz'"><img
+                                src="assets/partners/Eduvanz.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Ezcred'"><img
+                                src="assets/partners/Ezcred.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Finnable'"><img
+                                src="assets/partners/Finnable.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Healthcarefront'"><img
+                                src="assets/partners/Healthcarefront.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'IndiaLends'"><img
+                                src="assets/partners/indialends.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'indiaLends'"><img
+                                src="assets/partners/indialends.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'InstaPaisa'"><img
+                                src="assets/partners/instapaiss.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Iserv'"><img
+                                src="assets/partners/Iserv.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Kissht'"><img
+                                src="assets/partners/Kissht.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'KnabFinance'"><img
+                                src="assets/partners/Knab.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'LetsMd'"><img
+                                src="assets/partners/letsmd.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Mintifi'"><img
+                                src="assets/partners/mintifit.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Mobikwik'"><img
+                                src="assets/partners/Mobikwik.png"></span>
+                                <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'MobiKwik'"><img
+                                        src="assets/partners/Mobikwik.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'MoneyTap'"><img
+                                src="assets/partners/moneytap.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'MoneyView'"><img
+                                src="assets/partners/Moneyview.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'OptaCredit'"><img
+                                src="assets/partners/dmi-finance.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'PaisaBazar'"><img
+                                src="assets/partners/PaisaBazar.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'RedCarpet'"><img
+                                src="assets/partners/RedCarpet.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Rentickle'"><img
+                                src="assets/partners/Rentickle.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Samsung'"><img
+                                src="assets/partners/samsung.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Shubhloans'"><img
+                                src="assets/partners/shubh loan.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Shubhloan UrbanClap'"><img
+                                src="assets/partners/shubh loan.png"></span>
+
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Slicepay'"><img
+                                src="assets/partners/Slicepay.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'SMECorner'"><img
+                                src="assets/partners/SME CORNER.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Stashfin'"><img
+                                src="assets/partners/Stashfin.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Tala'"><img
+                                src="assets/partners/tala.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Walnut'"><img
+                                src="assets/partners/walnut.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'ZestMoney'"><img
+                                src="assets/partners/zest.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Zopper'"><img
+                                src="assets/partners/Zopper.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Capital Float'"><img
+                                src="assets/partners/Capital Float.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'UltraCash'"><img
+                                src="assets/partners/UltraCash.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'HappyLoan'"><img
+                                src="assets/partners/HappyLoan.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Epay Later'"><img
+                                src="assets/partners/Epaylater.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'SanKash'"><img
+                                src="assets/partners/sankush.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'CredRight'"><img
+                                src="assets/partners/CredRight.png"></span>
+                        <span *ngIf="SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c == 'Krazybee'"><img
+                                src="assets/partners/Krazybee.png"></span>
+
+                    </div>
+
+                    <div>
+                        <p class="lead_source_name">{{SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c}}</p><br>
+                        <p class="sidenav_loanname">{{SpeceficLoanDetail[0].name}}</p>
+                        <p class="text-center">
+                            <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Current'"
+                                style="background:#CCFFD8;color: #165525">{{SpeceficLoanDetail[0].StageName}}</a>
+                            <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Matured'"
+                                style="background:#FFF6DE;color:#A31818">{{SpeceficLoanDetail[0].StageName}}</a>
+                            <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Delinquent'"
+                                style="background:#FFCCCC;color:#5D4608">{{SpeceficLoanDetail[0].StageName}}</a>
+                            <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Settled & Closed'"
+                                style="background:lightgray;color: black!important">{{SpeceficLoanDetail[0].StageName}}</a>
+                            <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Written Off & Closed'"
+                                style="background:lightgray;color: black!important">{{SpeceficLoanDetail[0].StageName}}</a>
+                            <a class="badge" *ngIf="SpeceficLoanDetail[0].StageName == 'Disbursement Approved'"
+                                style="background:#039be5;color: #fff">{{SpeceficLoanDetail[0].StageName}}</a>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="sidenav_link_mob">
+                    <a routerLink='/dashboard'>Dashboard</a>
+                    <a routerLink='/loanDetail' routerLinkActive="'activeSty'">Account Summary</a>
+                    <a routerLink='/welcomeletter' routerLinkActive="'activeSty'">Welcome Letter</a>
+                    <a routerLink='/foreclosure' routerLinkActive="'activeSty'" *ngIf="SpeceficLoanDetail[0].StageName != 'Matured' && SpeceficLoanDetail[0].Pulled_Lead_Source_Name__c != 'Samsung'">Preclosure Summary</a>
+                    <a *ngIf="SpeceficLoanDetail[0].StageName != 'Written Off & Closed'" routerLink='/paymentSummary' routerLinkActive="'activeSty'">Payment Summary</a>
+                    <span *ngIf="SpeceficLoanDetail">
+                        <a routerLink='/noc' routerLinkActive="'activeSty'"
+                            *ngIf="SpeceficLoanDetail[0].StageName == 'Matured'">No Dues Certificate </a>
+                    </span>
+                    <a routerLink='/createtickets' routerLinkActive="'activeSty'">Service Ticket Request</a>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#NachModel" data-backdrop="static"
+                        data-keyboard="false" (click)="checkRatingStats()">Logout </a>
+                </div>
+
+            </mat-sidenav>
+        </mat-sidenav-container>
+    </div>
+</div>
+
+
+<!-- 
+<div class="modal fade" id="NachModel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="col-sm-12 display_flex">
+                    <h5 class="modal-title">Feedback</h5>
+                    <div data-dismiss="modal" aria-label="Close" (click)="closeRate()"><img src="assets/cancel.svg"></div>
+                </div>
+                <div *ngIf="sessionExist" class="modal-body" style="margin-top: -2%">
+                    <p style="text-align: left">How useful did you find the DMI customer portal?</p>
+    
+                    <div style="text-align: center">
+                        <ngb-rating [(rate)]="rating" (rateChange)='onRate($event)' max="11">
+                                <ng-template let-fill="fill" let-index="index">
+                                        <span class="star"
+                                            [class.bad]="index < 7" 
+                                            [class.average]="index < 9 && index > 6" 
+                                            [class.good]="index > 8"
+                                            [class.filledbad]="fill === 100"
+                                            [class.filledavg]="fill === 100"
+                                            [class.filledgood]="fill === 100"
+                                        rateChange="rate(rating)">&#9733;</span>
+                                    </ng-template>
+                            </ngb-rating>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img *ngIf="showDial == false || showAvg || showGood" class="badRate" src="assets/sad-gray.svg"><img *ngIf="showDial == true && showPoor" class="badRate" src="assets/sad-red.svg">
+                            </div>
+                            <div class="col-sm-6">
+                                <img *ngIf="showDial == false || showPoor || showGood" class="avgRate" src="assets/normal-gray.svg"><img *ngIf="showDial == true && showAvg" class="avgRate" src="assets/sad-yellow.svg">
+                                <img *ngIf="showDial == false || showPoor || showAvg" class="goodRate" src="assets/happy-gray.svg"><img *ngIf="showDial == true && showGood" class="goodRate" src="assets/sad-green.svg">
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <div *ngIf="showDial==true" style="text-align: center;height: 90px;margin-top: 3%">
+                        <p style="text-align: left">Please tell us the reason for your rating?</p>
+                        <input type="text" class="form-control" maxlength="150" [(ngModel)]="reviews" style="height: 100%">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" (click)="getfeedbackLogout()" data-dismiss="modal"
+                            aria-label="Close" [disabled]="checkedFeedLog">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="modal fade" id="NachModel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="col-sm-12 display_flex">
+                    <h5 *ngIf="sessionAlert==false" class="modal-title">Feedback</h5>
+                    <h5 *ngIf="sessionAlert==true" style="color: #f14949" class="modal-title">Alert</h5>
+                    <div data-dismiss="modal" aria-label="Close" (click)="closeRateLogout()"><img src="assets/cancel.svg"></div>
+                </div>
+    
+                <div class="modal-body" style="margin-top: -2%">
+                    <!-- <p style="text-align: left">How useful did you find the DMI customer portal?</p> -->
+                    <iframe id='iframe' width="100%" height="100%" frameBorder="0" [src]="url"></iframe>
+
+                    <!-- <div style="text-align: center">
+                        <ngb-rating [(rate)]="rating" (rateChange)='onRate($event)' max="11">
+                            <ng-template let-fill="fill" let-index="index">
+                                    <span class="star"
+                                        [class.bad]="index < 7" 
+                                        [class.average]="index < 9 && index > 6" 
+                                        [class.good]="index > 8"
+                                        [class.filledbad]="fill === 100"
+                                        [class.filledavg]="fill === 100"
+                                        [class.filledgood]="fill === 100"
+                                    rateChange="rate(rating)">&#9733;</span>
+                                </ng-template>
+                        </ngb-rating>
+                        <div class="row ratingRowMob">
+                            <div class="col-sm-3">
+                               <img *ngIf="showDial == false || showAvg || showGood" class="badRate" src="assets/sad-gray.svg"><img *ngIf="showDial == true && showPoor" class="badRate" src="assets/sad-red.svg">
+                            </div>
+                            <div class="col-sm-9">
+                                <img *ngIf="showDial == false || showPoor || showGood" class="avgRate" src="assets/normal-gray.svg"><img *ngIf="showDial == true && showAvg" class="avgRate" src="assets/sad-yellow.svg">
+                                <img *ngIf="showDial == false || showPoor || showAvg" class="goodRate" src="assets/happy-gray.svg"><img *ngIf="showDial == true && showGood" class="goodRate" src="assets/sad-green.svg">
+                            </div>
+                        </div> 
+                    </div>
+                    <div *ngIf="showDial==true" style="text-align: center;height: 90px;margin-top: 3%">
+                        <p style="text-align: left">Please tell us the reason for your rating?</p>
+                        <input type="text" class="form-control" maxlength="150" [(ngModel)]="reviews" style="height: 100%">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" (click)="getfeedbackLogout()" data-dismiss="modal"
+                            aria-label="Close" [disabled]="checkedFeedLog">Submit</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>

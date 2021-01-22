@@ -1,0 +1,19 @@
+.letterFrame{
+    max-width: 900px;
+    margin:auto;
+    iFrame{
+        height: 480px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1900px){
+    .letterFrame{
+        max-width: 84%;
+        margin:auto;
+        iFrame{
+            height: 700px;
+            width: 100%;
+        }
+    }
+}
